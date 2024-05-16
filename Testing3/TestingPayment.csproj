@@ -49,7 +49,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsPayment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstPayment.cs" />
+    <Compile Include="varchar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
