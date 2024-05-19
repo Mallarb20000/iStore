@@ -68,16 +68,16 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void HouseNoPropertyOK()
+        public void SearchOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
             string TestData = "21b";
             //assign the data to the property
-            AnOrder.HouseNo = TestData;
+            AnOrder.Search = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.HouseNo, TestData);
+            Assert.AreEqual(AnOrder.Search, TestData);
         }
 
         [TestMethod]
