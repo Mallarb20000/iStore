@@ -8,10 +8,10 @@
     <style type="text/css">
         .auto-style1 {
             position: absolute;
-            top: 111px;
-            left: 71px;
+            top: 140px;
+            left: 78px;
             z-index: 1;
-            right: 224px;
+            right: 1053px;
         }
     </style>
 </head>
@@ -19,9 +19,12 @@
     <form id="form1" runat="server">
         <div style="height: 148px">
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            <asp:TextBox ID="txtUsername" runat="server" style="margin-left: 67px" Width="234px"></asp:TextBox>
+            Username<asp:TextBox ID="txtUsername" runat="server" style="margin-left: 67px" Width="234px"></asp:TextBox>
+            <br />
+            <br />
+            <br />
             <asp:Button ID="Button1" runat="server" CssClass="auto-style1" OnClick="Button1_Click" Text="Button" />
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
     </form>
 </body>
