@@ -192,8 +192,7 @@
             </table>
         </div>
         <p class="auto-style24">
-            <asp:Button ID="BtnDelete" runat="server" CssClass="auto-style25" OnClick="BtnCancel_Click" Text="Delete" ForeColor="#0066FF" />
-            <asp:Label ID="Label5" runat="server" CssClass="auto-style18" height="27px" Text="Upload Image" width="139px"></asp:Label>
+           <asp:Label ID="Label5" runat="server" CssClass="auto-style18" height="27px" Text="Upload Image" width="139px"></asp:Label>
         </p>
         <asp:Panel ID="Panel1" runat="server" CssClass="auto-style31">
         </asp:Panel>
