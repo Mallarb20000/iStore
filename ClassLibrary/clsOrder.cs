@@ -14,5 +14,11 @@ namespace ClassLibrary
         public string Street { get; set; }
         public string Town { get; set; }
         public string Search { get; set; }
+
+        public bool Find(int orderID)
+        {
+            //always return true
+            return true;
+        }
     }
 }

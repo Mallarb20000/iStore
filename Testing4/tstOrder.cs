@@ -117,5 +117,21 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.Town, TestData);
         }
+
+        [TestMethod]
+
+        public void FindMethod()
+        {
+            //create an instacne of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create a Boolean Variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
     }
 }
