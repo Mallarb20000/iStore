@@ -19,7 +19,7 @@ public partial class _1_EMSRegister : System.Web.UI.Page
     {
         clsRegister clsReg = new clsRegister();
 
-        clsReg.username = txtUsername.Text;
+        clsReg.Username = txtUsername.Text;
 
         Session["clsreg"] = clsReg;
 
