@@ -133,5 +133,28 @@ namespace Testing4
             //test to see if the result is true
             Assert.IsTrue(Found);
         }
+
+        [TestMethod]
+
+        public void TestOrdderIDFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create a Boolean Variable to store the results of the validation
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the Order ID
+            if (AnOrder.OrderID !=21)
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
     }
 }
