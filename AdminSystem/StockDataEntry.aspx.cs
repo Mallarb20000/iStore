@@ -20,7 +20,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new istance of clsStock
         clsStock AnStock = new clsStock();
         // capture the ProductID
-        AnStock.ProductID = TxtProductID.Text;
+
+        AnStock.ProductID = Convert.ToInt32(TxtProductID.Text);
         // capture the ProductName
         AnStock.ProductName = TxtProductName.Text;
         //capture the ProductDescription

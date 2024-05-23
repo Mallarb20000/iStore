@@ -152,7 +152,7 @@ namespace TestingCms
             bool OK = false;
 
             // Create some test data to use with the method
-            int CustomerId = 21;
+            Int32 CustomerId = 21;
 
             //check the Customer id
 
