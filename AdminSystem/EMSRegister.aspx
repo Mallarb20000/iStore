@@ -22,6 +22,7 @@
             <asp:Label ID="Label2" runat="server" Text="Username"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtUsername" runat="server" width="168px"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Visible="False"></asp:TextBox>
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -32,6 +33,9 @@
             <br />
             <br />
             <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" />
+            <br />
+            <br />
+            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" />
         </div>
     </form>
 </body>
