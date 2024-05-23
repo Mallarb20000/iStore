@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ClassLibrary
 {
@@ -67,15 +68,35 @@ namespace ClassLibrary
         //Find Method
         public bool Find(int E_Id)
         {
-            mE_Id = 1;
-            mE_Name = "Qwe";
-            mE_username = "Qwe";
-            mE_password = "Qwe";
-            mE_trained = true;
-            mTimestamp = Convert.ToDateTime("10 / 10 / 2023");
-            mSalary = Convert.ToInt32("1000");
 
-            return true;
+            //create a instance of the data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the E_Id to search for 
+            DB.AddParameter("@E_Id", E_Id);
+            //execute the stored procedure
+            DB.Execute("sproc_tblEMS_FilterByE_Id");
+
+            //if one record is found(there should be either one or zero)
+            if(DB.Count ==1)
+            {
+                mE_Id = Convert.ToInt32(DB.DataTable.Rows[0]["E_Id"]);
+                mE_Name = Convert.ToString(DB.DataTable.Rows[0]["E_Name"]);
+                mE_username = Convert.ToString(DB.DataTable.Rows[0]["E_username"]);
+                mE_password = Convert.ToString(DB.DataTable.Rows[0]["E_password"]);
+                mE_trained = Convert.ToBoolean(DB.DataTable.Rows[0]["E_trained"]);
+                mTimestamp = Convert.ToDateTime(DB.DataTable.Rows[0]["E_Idcreated"]);
+                mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["E_salary"]);
+
+                //return that everything worked OK
+
+                return true;
+            }
+            else
+            {
+                //return false indicating an problem 
+                return false;
+            }
+            
         }
 
         

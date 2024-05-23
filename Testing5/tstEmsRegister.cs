@@ -39,7 +39,7 @@ namespace Testing5
             //create an instance of the class we want to create
             clsRegister ARegister = new clsRegister();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 3;
             //assign the data to the property
             ARegister.E_Id = TestData;
             //test to see that the two values are the same
@@ -121,7 +121,7 @@ namespace Testing5
             //create a Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //test to see if the result is true
@@ -140,11 +140,11 @@ namespace Testing5
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the E_Id property
-            if (ARegister.E_Id != 1)
+            if (ARegister.E_Id != 3)
             {
                 OK = false;
             }
@@ -164,11 +164,11 @@ namespace Testing5
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the username property
-            if (ARegister.Username != "Qwe")
+            if (ARegister.Username != "malla")
             {
                 OK = false;
             }
@@ -186,11 +186,11 @@ namespace Testing5
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the name property
-            if (ARegister.Name != "Qwe")
+            if (ARegister.Name != "malla")
             {
                 OK = false;
             }
@@ -208,11 +208,11 @@ namespace Testing5
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the password property
-            if (ARegister.Password != "Qwe")
+            if (ARegister.Password != "malla")
             {
                 OK = false;
             }
@@ -230,7 +230,7 @@ namespace Testing5
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the trained property
@@ -252,7 +252,7 @@ namespace Testing5
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the trained property
@@ -274,11 +274,11 @@ namespace Testing5
             //create a Boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 E_Id = 1;
+            Int32 E_Id = 3;
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the timestamp property
-            if (ARegister.Timestamp != Convert.ToDateTime("10/10/2023"))
+            if (ARegister.Timestamp != Convert.ToDateTime("12/10/2023"))
             {
                 OK = false;
             }
