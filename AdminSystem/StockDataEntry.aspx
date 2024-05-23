@@ -192,8 +192,9 @@
             </table>
         </div>
         <p class="auto-style24">
-            
+
             <asp:Label ID="Label5" runat="server" CssClass="auto-style18" height="27px" Text="Upload Image" width="139px"></asp:Label>
+
         </p>
         <asp:Panel ID="Panel1" runat="server" CssClass="auto-style31">
         </asp:Panel>
