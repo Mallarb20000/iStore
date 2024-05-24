@@ -47,6 +47,9 @@
             <br />
             <br />
             <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" Width="286px" />
+            <br />
+            <br />
+            <asp:CheckBox ID="cbTrained" runat="server" Text="Trained" />
         </div>
     </form>
 </body>

@@ -36,7 +36,9 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
             //display the values of the property in the form 
             txtUsername.Text = Aregister.Username;
             txtfname.Text = Aregister.Name;
-           // Password.Text = Aregister.Password;
+            // Password.Text = Aregister.Password;
+            txtSalary.Text = Aregister.Salary.ToString();
+            cbTrained.Checked = Aregister.Trained;
 
         }
     }
