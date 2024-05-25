@@ -7,6 +7,15 @@ namespace Testing5
     [TestClass]
     public class tstEmsRegister
     {
+
+        
+            //good test data
+            string Username = "qwe";
+            string Name = "qwe";
+            string password = "password";
+            string Timestamp = DateTime.Now.ToShortDateString();
+            string Salary = Convert.ToString("1000");
+        
         /******************INSTANCE OF THE CLASS TEST******************/
 
         [TestMethod]
@@ -284,6 +293,22 @@ namespace Testing5
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
     }
 }

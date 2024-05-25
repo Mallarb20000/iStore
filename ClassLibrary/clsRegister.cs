@@ -99,6 +99,9 @@ namespace ClassLibrary
             
         }
 
-        
+        public string Valid(string username, string name, string password, string salary, string timestamp)
+        {
+            return "";
+        }
     }
 }
