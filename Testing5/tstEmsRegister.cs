@@ -310,5 +310,236 @@ namespace Testing5
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = "";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMin()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = "a";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMinplusone()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = "ab";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = "aaaaaaaaaaa";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMid()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = "aaa";
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxPlusOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = new string('a', 101);
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameExtremeMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Name = Name.PadRight(500, 'a');
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+            public void UsernameMinLessOne()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = "";  // 0 characters
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreNotEqual("", Error, "UsernameMinLessOne test failed: No error message was returned for an empty username.");
+            }
+
+            [TestMethod]
+            public void UsernameMin()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = "a";  // 1 character
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreEqual("", Error, "UsernameMin test failed: An error message was returned for a valid username.");
+            }
+
+            [TestMethod]
+            public void UsernameMinPlusOne()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = "ab";  // 2 characters
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreEqual("", Error, "UsernameMinPlusOne test failed: An error message was returned for a valid username.");
+            }
+
+            [TestMethod]
+            public void UsernameMaxLessOne()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = new string('a', 99);  // 99 characters
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreEqual("", Error, "UsernameMaxLessOne test failed: An error message was returned for a valid username.");
+            }
+
+            [TestMethod]
+            public void UsernameMax()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = new string('a', 100);  // 100 characters
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreEqual("", Error, "UsernameMax test failed: An error message was returned for a valid username.");
+            }
+
+            [TestMethod]
+            public void UsernameMaxPlusOne()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = new string('a', 101);  // 101 characters
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreNotEqual("", Error, "UsernameMaxPlusOne test failed: No error message was returned for a username exceeding the maximum length.");
+            }
+
+            [TestMethod]
+            public void UsernameMid()
+            {
+                clsRegister ARegister = new clsRegister();
+                string Error = "";
+                string Username = new string('a', 50);  // 50 characters
+                Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+                Assert.AreEqual("", Error, "UsernameMid test failed: An error message was returned for a valid username.");
+            }
+        }
+
+
+
+
+
+
+
     }
-}
+
