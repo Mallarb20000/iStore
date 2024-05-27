@@ -101,7 +101,33 @@ namespace ClassLibrary
 
         public string Valid(string username, string name, string password, string salary, string timestamp)
         {
-            return "";
+            //create a string variable to store the error
+            String Error = "";
+
+            // Validate Username
+            if (string.IsNullOrEmpty(username))
+            {
+                Error += "Username cannot be empty. ";
+            }
+            else if (username.Length > 30)
+            {
+                Error += "Username cannot exceed 30 characters. ";
+            }
+            //if the name is blank 
+            if ( name.Length == 0 )
+            {
+                //record the error
+                Error += "Name cannot be blank";
+            }
+
+            //if the name is longer than 100 characters
+
+            else if (name.Length > 100)
+            {
+                Error += "Name cannot be longer than 100 characters:";
+            }
+            //return any error message
+            return Error;
         }
     }
 }
