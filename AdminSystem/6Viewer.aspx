@@ -7,81 +7,68 @@
     <title></title>
 </head>
     <style>
-        body {
+    
+
+
+
+body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.header {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    height: 100vh;
 }
 
-.product-view {
-    display: flex;
-    border: 1px solid #ccc;
+.container {
+    background: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.product-item:last-child {
+    margin-bottom: 0;
 }
 
 .product-image img {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
 }
 
-.product-details {
-    margin-left: 20px;
+.product-details h2 {
+    margin: 0;
+    color: #333;
 }
 
-.product-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.product-description {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.product-price {
-    font-size: 22px;
-    color: #b12704;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.add-to-cart-btn {
-    background-color: #ff9900;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.add-to-cart-btn:hover {
-    background-color: #e68a00;
+.product-details p {
+    margin: 5px 0;
+    color: #666;
 }
     </style>
 <body>
@@ -107,5 +94,52 @@
     </div>
         </div>
     </form>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchased Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Purchased Products</h1>
+        <ul class="product-list">
+            <li class="product-item">
+                <div class="product-image">
+                    <img src="product1.jpg" alt="Product 1">
+                </div>
+                <div class="product-details">
+                    <h2>Product 1</h2>
+                    <p>Price: $100</p>
+                    <p>Quantity: 2</p>
+                </div>
+            </li>
+            <li class="product-item">
+                <div class="product-image">
+                    <img src="product2.jpg" alt="Product 2">
+                </div>
+                <div class="product-details">
+                    <h2>Product 2</h2>
+                    <p>Price: $50</p>
+                    <p>Quantity: 1</p>
+                </div>
+            </li>
+            <li class="product-item">
+                <div class="product-image">
+                    <img src="product3.jpg" alt="Product 3">
+                </div>
+                <div class="product-details">
+                    <h2>Product 3</h2>
+                    <p>Price: $200</p>
+                    <p>Quantity: 3</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
 </body>
 </html>
