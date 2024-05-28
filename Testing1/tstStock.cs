@@ -15,7 +15,7 @@ namespace Testing1
         {
             //create an intsance of the class we want to create
             clsStock AnStock = new clsStock();
-                // test to see that it exists
+            // test to see that it exists
             Assert.IsNotNull(AnStock);
 
 
@@ -83,7 +83,7 @@ namespace Testing1
             //create an instance of the class we want to create 
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property 
-           Int32 TestData = 100;
+            Int32 TestData = 100;
             //assign the data to the property 
             AnStock.ProductQuantity = TestData;
             //test to see that the two values are the same 
@@ -106,7 +106,7 @@ namespace Testing1
         }
 
 
-     
+
 
         [TestMethod]
         public void ProductImgPropertyOK()
@@ -123,7 +123,7 @@ namespace Testing1
         }
 
         [TestMethod]
-         public void FindMethodOK()
+        public void FindMethodOK()
         {
             //create an instance of the class we want to create 
             clsStock AnStock = new clsStock();
@@ -150,11 +150,11 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductID = 21;
+            Int32 ProductID = 6;
             //invoke the method
             Found = AnStock.Find(ProductID);
             //check the ProductID Property
-            if (AnStock.ProductID != 21)
+            if (AnStock.ProductID != 6)
             {
                 OK = false;
             }
@@ -172,12 +172,12 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductName = 21;
+            Int32 ProductName = 6;
             //create a Boolean variable to store the results of the validation 
             //invoke the method
             bool Found = AnStock.Find(ProductName);
             //check the product name property
-            if (AnStock.ProductName != "Test ProductName")
+            if (AnStock.ProductName != "mac6")
             {
                 OK = false;
             }
@@ -197,7 +197,7 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductPrice = 21;
+            Int32 ProductPrice = 6;
             //invoke the method
             Found = AnStock.Find(ProductPrice);
             //check the product price property
@@ -221,11 +221,11 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductQuantity = 21;
+            Int32 ProductQuantity = 6;
             //invoke the method
             Found = AnStock.Find(ProductQuantity);
             //check the product quantity property
-            if (AnStock.ProductQuantity != Convert.ToInt32("50"))
+            if (AnStock.ProductQuantity != Convert.ToInt32("7"))
             {
                 OK = false;
             }
@@ -245,11 +245,11 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductDescription = 21;
+            Int32 ProductDescription = 6;
             //invoke the method
             Found = AnStock.Find(ProductDescription);
             //check the product description property
-            if (AnStock.ProductDescription != "Test ProductDescription")
+            if (AnStock.ProductDescription != "13 inch")
             {
                 OK = false;
             }
@@ -269,7 +269,7 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductImg = 21;
+            Int32 ProductImg = 6;
             //invoke the method
             Found = AnStock.Find(ProductImg);
             //check the product Img property
@@ -293,7 +293,7 @@ namespace Testing1
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 ProductID = 21;
+            Int32 ProductID = 6;
             //invoke the method
             Found = AnStock.Find(ProductID);
             //check the Active property
@@ -304,10 +304,7 @@ namespace Testing1
 
             //test to see if the result is correct
             Assert.IsTrue(OK);
-
         }
-
-
 
     }
 }
