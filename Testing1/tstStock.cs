@@ -9,6 +9,15 @@ namespace Testing1
     [TestClass]
     public class tstStock
     {
+
+         //good test data
+         //create some test data to pass the method
+        string ProductName = "Mac2";
+        string ProductPrice = "800";
+        string ProductQuantity = "15";
+        string ProductDescription = "15 inch";
+        string ProductImg = "";
+
         [TestMethod]
         public void InstanceOK()
 
@@ -305,6 +314,43 @@ namespace Testing1
             //test to see if the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            // create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            // String variable to stor any error message
+            string Error = "";
+            //invoke the method
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductDescription, ProductImg);
+            //test to see that the results is correct
+            Assert.AreEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ProductNameMinLessOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            // String variable to stor any error message
+            string Error = "";
+            //invoke the method
+
+            //create some test to pass to the method
+            string ProductName = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductDescription, ProductImg);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        
+
+
 
     }
 }

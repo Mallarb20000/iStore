@@ -192,5 +192,21 @@ namespace ClassLibrary
 
             
         }
+
+        public string Valid(string productName, string productPrice, string productDescription, string productImg)
+        {
+            //create a string variable to store the error
+            string Error = "";
+
+
+            if (productName.Length == 0)
+            {
+                //record the error
+                Error += "Name cannot be blank";
+            }
+            return Error;
+
+        }
+
     }
 }
