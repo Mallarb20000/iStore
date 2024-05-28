@@ -311,6 +311,8 @@ namespace Testing5
             Assert.AreEqual(Error, "");
         }
 
+        /******************Parameter Tests for Name******************/
+
         [TestMethod]
         public void NameMinLessOne()
         {
@@ -454,7 +456,7 @@ namespace Testing5
             String Error = "";
 
             //create some test to pass to the method
-            string Name = Name.PadRight(500, 'a');
+            string Name = new string('a', 550);
 
             //invoke the method 
             Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
@@ -464,6 +466,8 @@ namespace Testing5
         }
 
 
+
+        /******************Parameter Tests for Username******************/
         [TestMethod]
             public void UsernameMinLessOne()
             {
@@ -499,7 +503,7 @@ namespace Testing5
             {
                 clsRegister ARegister = new clsRegister();
                 string Error = "";
-                string Username = new string('a', 99);  // 99 characters
+                string Username = new string('a', 29);  // 29 characters
                 Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
                 Assert.AreEqual("", Error, "UsernameMaxLessOne test failed: An error message was returned for a valid username.");
             }
@@ -509,7 +513,7 @@ namespace Testing5
             {
                 clsRegister ARegister = new clsRegister();
                 string Error = "";
-                string Username = new string('a', 100);  // 100 characters
+                string Username = new string('a', 30);  // 30 characters
                 Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
                 Assert.AreEqual("", Error, "UsernameMax test failed: An error message was returned for a valid username.");
             }
@@ -519,7 +523,7 @@ namespace Testing5
             {
                 clsRegister ARegister = new clsRegister();
                 string Error = "";
-                string Username = new string('a', 101);  // 101 characters
+                string Username = new string('a', 101);  // 31 characters
                 Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
                 Assert.AreNotEqual("", Error, "UsernameMaxPlusOne test failed: No error message was returned for a username exceeding the maximum length.");
             }
@@ -529,17 +533,387 @@ namespace Testing5
             {
                 clsRegister ARegister = new clsRegister();
                 string Error = "";
-                string Username = new string('a', 50);  // 50 characters
+                string Username = new string('a', 15);  // 15 characters
                 Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
                 Assert.AreEqual("", Error, "UsernameMid test failed: An error message was returned for a valid username.");
             }
+
+
+        [TestMethod]
+        public void UsernameExtremeMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsRegister ARegister = new clsRegister();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string Username = new string('a', 550);
+
+            //invoke the method 
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
 
 
+        /******************Parameter Tests for TimeStamp******************/
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        { 
+            clsRegister ARegister = new clsRegister();
+            String Error = "";
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-100);
+            string Timestamp = TestDate.ToString();
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            String Error = "";
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-1);
+            string Timestamp = TestDate.ToString();
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            clsRegister ARegister = new clsRegister();
+            String Error = "";
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+
+            
+            string Timestamp = TestDate.ToString();
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            String Error = "";
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(+1);
+            string Timestamp = TestDate.ToString();
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            clsRegister ARegister = new clsRegister();
+            String Error = "";
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(100);
+            string Timestamp = TestDate.ToString();
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            clsRegister ARegister = new clsRegister();
+            String Error = "";
+            
+            string Timestamp = "this is not a date";
+            
+            Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        /******************PARAMETER TESTS FOR PASSWORD******************/
+
+        [TestMethod]
+        public void PasswordExtremeMin()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "";  
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error, "PasswordMinLessOne test failed: No error message was returned for an empty password.");
+        }
+        [TestMethod]
+        public void PasswordMinLessOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "aaaaaaa";  // 7 characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error, "PasswordMinLessOne test failed: No error message was returned for an empty password.");
+        }
+
+        [TestMethod]
+        public void PasswordMin()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "P@sswor1";  // 8 character
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error, "PasswordMin test failed: An error message was returned for a valid password.");
+        }
+
+        [TestMethod]
+        public void PasswordMinPlusOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "P@ssword1234";  // 9 characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error, "PasswordMinPlusOne test failed: An error message was returned for a valid password.");
+        }
+
+        [TestMethod]
+        public void PasswordMaxLessOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = new string('a', 29);  // 29 characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error, "PasswordMaxLessOne test failed: An error message was returned for a valid password.");
+        }
+
+        [TestMethod]
+        public void PasswordMax()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = new string('a', 30);  // 30 characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void PasswordMaxPlusOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = new string('a', 31);  // 31 characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        [TestMethod]
+        public void PasswordMid()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = new string('a', 15);  // 15 characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void PasswordExtremeMax()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = new string('a', 550);
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        /*[TestMethod]
+        public void InvalidCharacterAtBeginning()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "$Password";  // Starts with an invalid character '$'
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        [TestMethod]
+        public void InvalidCharacterAtEnd()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "Password@";  // Ends with an invalid character '@'
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        [TestMethod]
+        public void InvalidCharacterInMiddle()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "Pass!word";  // Contains an invalid character '!'
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        [TestMethod]
+        public void MixedCaseLettersAndNumbers()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "PaSsWoRd123";  // Contains both uppercase, lowercase letters, and numbers
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void MixedCaseWithSpecialCharacters()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "Pa$$w0rd!";  // Contains a mix of uppercase, lowercase letters, numbers, and special characters
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void PasswordWithSymbols()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "P@$$w0rd";  // Contains symbols like '@' and '$'
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void PasswordWithNonAlphanumericCharacters()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            string Password = "Pässwôrd";  // Contains non-alphanumeric characters like 'ä' and 'ô'
+            Error = ARegister.Valid(Username, Name, Password, Salary, Timestamp);
+            Assert.AreEqual("", Error);
+        }*/
 
 
 
+        /******************PARAMETER TESTS FOR SALARY******************/
 
+        public void SalaryExtremeMin()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = -100000001;  // Just below minimum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
 
+        [TestMethod]
+        public void SalaryMinLessOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = -1;  // Just below minimum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        [TestMethod]
+        public void SalaryMin()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = 0.00;  // Minimum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void SalaryMinPlusOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = 0.01;  // Just above minimum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+       
+
+        [TestMethod]
+        public void SalaryMaxLessOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = 9999999;  // Just below maximum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void SalaryMax()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = 10000000;  // Maximum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreEqual("", Error);
+        }
+
+        [TestMethod]
+        public void SalaryMaxPlusOne()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = 10000000.01;  // Just above maximum value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
+
+        [TestMethod]
+        public void SalaryExtremeMax()
+        {
+            clsRegister ARegister = new clsRegister();
+            string Error = "";
+            double Salary = 10000000000;  // Extremely large value
+            Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
+            Assert.AreNotEqual("", Error);
+        }
     }
+
+
+
+
+
+
+
+
+
+}
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 
 namespace ClassLibrary
 {
@@ -104,15 +106,10 @@ namespace ClassLibrary
             //create a string variable to store the error
             String Error = "";
 
-            // Validate Username
-            if (string.IsNullOrEmpty(username))
-            {
-                Error += "Username cannot be empty. ";
-            }
-            else if (username.Length > 30)
-            {
-                Error += "Username cannot exceed 30 characters. ";
-            }
+            //temperory variable for data values
+            DateTime DateTemp;
+
+            
             //if the name is blank 
             if ( name.Length == 0 )
             {
@@ -122,10 +119,88 @@ namespace ClassLibrary
 
             //if the name is longer than 100 characters
 
-            else if (name.Length > 100)
+            if (name.Length > 100)
             {
                 Error += "Name cannot be longer than 100 characters:";
             }
+
+            // Validate Username
+            if (string.IsNullOrEmpty(username))
+            {
+                Error += "Username cannot be empty. ";
+            }
+            if (username.Length > 30)
+            {
+                Error += "Username cannot exceed 30 characters. ";
+            }
+
+            /******************Validate Timestamp***************/
+            //copy the dateAdded value to the DateTemp
+            //
+            try
+            {
+                DateTemp = Convert.ToDateTime(timestamp);
+
+                //check to see if the less than today's data 
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be past";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error += "The date cannot be future";
+                }
+            }
+            catch
+            {
+                Error += "The date was not a valid date";
+            }
+            
+
+
+            // Validate Password
+            if (password.Length<8)
+            {
+                Error += "Password cannot be less than 8. ";
+            }
+            if (password.Length > 30)
+            {
+                Error += "Password cannot exceed 30 characters. ";
+            }
+            /*if (Regex.IsMatch(password, @"[^a-zA-Z0-9]"))
+            {
+                Error += "Password contains invalid characters. ";
+            }
+            if (!password.Any(char.IsUpper) || !password.Any(char.IsLower))
+            {
+                Error += "Password must contain both uppercase and lowercase letters. ";
+            }
+            if (!Regex.IsMatch(password, @"[^a-zA-Z0-9\s]"))
+            {
+                Error += "Password must contain at least one special character. ";
+            }*/
+
+            // Validate Salary
+            decimal salaryValue;
+            if (!decimal.TryParse(salary, out salaryValue))
+            {
+                Error += "Salary must be a valid decimal number. ";
+            }
+            else
+            {
+                if (salaryValue < 0)
+                {
+                    Error += "Salary cannot be negative. ";
+                }
+                if (salaryValue > 10000000)
+                {
+                    Error += "Salary cannot exceed 10 billion. ";
+                }
+            }
+
+
+
             //return any error message
             return Error;
         }
