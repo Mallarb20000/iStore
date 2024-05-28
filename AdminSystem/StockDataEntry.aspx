@@ -72,18 +72,10 @@
         .auto-style24 {
             height: 45px;
         }
-        .auto-style25 {
-            position: absolute;
-            top: 364px;
-            left: 281px;
-            z-index: 1;
-            width: 97px;
-            right: 1749px;
-        }
         .auto-style26 {
             position: absolute;
-            top: 362px;
-            left: 32px;
+            top: 373px;
+            left: 23px;
             z-index: 1;
             width: 135px;
         }
@@ -122,20 +114,90 @@
             width: 1597px;
             height: 351px;
             position: absolute;
-            top: 444px;
-            left: 12px;
+            top: 467px;
+            left: 14px;
             z-index: 1;
         }
         .auto-style32 {
             position: absolute;
-            top: 364px;
-            left: 197px;
+            top: 373px;
+            left: 188px;
             z-index: 1;
         }
         .auto-style33 {
             position: absolute;
-            top: 365px;
-            left: 409px;
+            top: 27px;
+            left: 560px;
+            z-index: 1;
+        }
+        .auto-style34 {
+            position: absolute;
+            top: 369px;
+            left: 275px;
+            z-index: 1;
+        }
+        .auto-style35 {
+            width: 100%;
+        }
+        .auto-style36 {
+            position: absolute;
+            top: 2px;
+            left: 77px;
+            z-index: 1;
+        }
+        .auto-style37 {
+            position: absolute;
+            top: 470px;
+            left: 280px;
+            z-index: 1;
+        }
+        .auto-style39 {
+            width: 225px;
+        }
+        .auto-style40 {
+            position: absolute;
+            top: 2px;
+            left: 512px;
+            z-index: 1;
+        }
+        .auto-style41 {
+            position: absolute;
+            top: 0px;
+            left: 790px;
+            z-index: 1;
+        }
+        .auto-style43 {
+            position: absolute;
+            top: 3px;
+            left: 980px;
+            z-index: 1;
+        }
+        .auto-style44 {
+            position: absolute;
+            top: 1px;
+            left: 1456px;
+            z-index: 1;
+        }
+        .auto-style45 {
+            position: absolute;
+            top: 4px;
+            left: 1194px;
+            z-index: 1;
+            width: 137px;
+        }
+        .auto-style47 {
+            width: 223px;
+        }
+        .auto-style48 {
+            width: 224px;
+        }
+        .auto-style49 {
+            width: 215px;
+        }
+        .auto-style50 {
+            position: absolute;
+            top: 368px;
+            left: 402px;
             z-index: 1;
         }
     </style>
@@ -166,7 +228,7 @@
                         <asp:Label ID="Label3" runat="server" CssClass="auto-style16" height="27px" Text="Description" width="139px"></asp:Label>
                     </td>
                     <td class="auto-style23">
-                        <asp:FileUpload ID="FileUploadUploadImage" runat="server" CssClass="auto-style28" ForeColor="#0066FF" />
+                        <asp:FileUpload ID="ImgProduct" runat="server" CssClass="auto-style28" ForeColor="#0066FF" AllowMultiple="True" />
                         <asp:TextBox ID="TxtPrice" runat="server" CssClass="auto-style27" height="30px" width="322px"></asp:TextBox>
                     </td>
                     <td class="auto-style24"></td>
@@ -197,12 +259,99 @@
 
         </p>
         <asp:Panel ID="Panel1" runat="server" CssClass="auto-style31">
+            <table class="auto-style35">
+                <tr>
+                    <td class="auto-style39">
+                        <asp:Label ID="Label8" runat="server" CssClass="auto-style36" Text="ProductID"></asp:Label>
+                    </td>
+                    <td></td>
+                    <td class="auto-style48">
+                        <asp:Label ID="Label10" runat="server" CssClass="auto-style40" Text="Description"></asp:Label>
+                        <asp:Label ID="Label11" runat="server" CssClass="auto-style41" Text="Price"></asp:Label>
+                    </td>
+                    <td></td>
+                    <td class="auto-style49">
+                        <asp:Label ID="Label12" runat="server" CssClass="auto-style43" Text="Quantity"></asp:Label>
+                    </td>
+                    <td class="auto-style47">
+                        <asp:Label ID="Label13" runat="server" CssClass="auto-style44" Text="Active"></asp:Label>
+                        <asp:Label ID="Label14" runat="server" CssClass="auto-style45" Text="Upload Image"></asp:Label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style39">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style48">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style49">&nbsp;</td>
+                    <td class="auto-style47">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
         </asp:Panel>
         <p>
-        <asp:Button ID="BtnAddProduct" runat="server" CssClass="auto-style26" OnClick="BtnAddProduct_Click1" Text="Add Product" ForeColor="#0066FF" />
+        <asp:Button ID="BtnAddProduct" runat="server" CssClass="auto-style26" OnClick="BtnAddProduct_Click1" Text="Add Product" ForeColor="#00CC00" />
             <asp:Button ID="BtnEdit" runat="server" CssClass="auto-style32" ForeColor="#0066FF" Text="Edit" />
-            <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" />
+            <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" OnClick="BtnFind_Click" />
         </p>
+        <asp:Button ID="Btnupdate" runat="server" CssClass="auto-style34" ForeColor="#0066FF" Text="Update" />
+        <asp:Button ID="btnDelete" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Delete" />
+        <asp:Label ID="Label9" runat="server" CssClass="auto-style37" Text="Product Name"></asp:Label>
     </form>
 </body>
 </html>
