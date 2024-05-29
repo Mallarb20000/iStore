@@ -182,10 +182,10 @@ namespace ClassLibrary
             }*/
 
             // Validate Salary
-            decimal salaryValue;
-            if (!decimal.TryParse(salary, out salaryValue))
+            double salaryValue;
+            if (!double.TryParse(salary, out salaryValue))
             {
-                Error += "Salary must be a valid decimal number. ";
+                Error += "Salary must be a valid double number. ";
             }
             else
             {
@@ -195,7 +195,7 @@ namespace ClassLibrary
                 }
                 if (salaryValue > 10000000)
                 {
-                    Error += "Salary cannot exceed 10 billion. ";
+                    Error += "Salary cannot exceed 10million. ";
                 }
             }
 
