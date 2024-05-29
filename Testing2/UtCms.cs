@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using TestingCms.TestingCms;
+
 
 namespace TestingCms
 {
@@ -95,9 +96,9 @@ namespace TestingCms
             //create some test data to assign to the property 
             string TestData = "LE1 4AB";
             //assign the data to the property 
-            aCustomer.SetPostCode(TestData);
+            aCustomer.PostCode=TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(aCustomer.GetPostCode(), TestData);
+            Assert.AreEqual(aCustomer.PostCode, TestData);
 
 
         }
@@ -145,18 +146,18 @@ namespace TestingCms
         {
             // Create an instance of the class we want to test
             clsCms aCustomer = new clsCms();
-            // create a boolean variable to store the result of the search
-            bool Found = false;
 
+            Boolean Found = false;
             // Create a boolean variable to record if the data is OK
             bool OK = false;
 
             // Create some test data to use with the method
-            Int32 CustomerId = 21;
+            Int32 CustomerId = 1;
 
             //check the Customer id
+            Found = aCustomer.Find(CustomerId);
 
-            if(aCustomer.CustomerID != 21)
+            if (aCustomer.CustomerId != 1)
             {
                 OK = false;
             }
@@ -240,10 +241,10 @@ namespace TestingCms
             string TestData = "LE1 4AB";
 
             // Assign the data to the property
-            aCustomer.SetPostCode(TestData);
+            aCustomer.PostCode= TestData;
 
             // Test to see that the two values are the same
-            Assert.AreEqual(aCustomer.GetPostCode(), TestData);
+            Assert.AreEqual(aCustomer.PostCode, TestData);
         }
         [TestMethod]
         public void TestMembershipActivePropertyOK()
