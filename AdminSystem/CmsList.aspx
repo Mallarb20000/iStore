@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsRegister.aspx.cs" Inherits="_1_ConfirmDelete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsList.aspx.cs" Inherits="_1_ConfirmDelete" %>
 
 <!DOCTYPE html>
 <html lang="en">
