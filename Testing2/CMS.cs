@@ -7,6 +7,13 @@ namespace Testing2
     [TestClass]
     public class CMS
     {
+
+        // GOOD TEST DATA
+        string CustomerName = "Hasibe";
+        string CustomerEmail = "hasibeegencc@gmail.com";
+        string CustomerPassword = "Hasibe03";
+        string CustomerPostCode = "LE1 1ST";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -111,7 +118,7 @@ namespace Testing2
         }
         //===========find method tests
         [TestMethod]
-        public void FindCustomerIdMethodOk()
+        public void FindCustomerIdMethodOK()
         {
             // Create an instance of the class we want to test
             clsCms aCustomer = new clsCms();
@@ -171,7 +178,7 @@ namespace Testing2
             //invoke the method
             Found = aCustomer.Find(CustomerId);
             //check the timestamp property
-            if (aCustomer.TimeStrap != Convert.ToDateTime("12/10/2023"))
+            if (aCustomer.TimeStrap != Convert.ToDateTime("12/05/2024"))
             {
                 OK = false;
             }
@@ -214,7 +221,7 @@ namespace Testing2
             //invoke the method
             Found = aCustomer.Find(CustomerId);
             //check the timestamp property
-            if (aCustomer.CustomerEmail != "Hasibeegencc@gmail.com")
+            if (aCustomer.CustomerEmail != "hasibeegencc@gmail.com")
             {
                 OK = false;
             }
@@ -255,7 +262,7 @@ namespace Testing2
             //invoke the method
             Found = aCustomer.Find(CustomerId);
             //check the timestamp property
-            if (aCustomer.PostCode != "LE1 1ST")
+            if (aCustomer.PostCode != "LE11ST")
             {
                 OK = false;
             }
@@ -282,7 +289,23 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void ValidMehtodOk()
+        {
+            //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //string variable to store any error message
+            String Error = "";
+            // invoke the method
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");  
+        }
+    
     }
+
+
 
 }
 

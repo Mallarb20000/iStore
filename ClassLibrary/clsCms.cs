@@ -5,6 +5,7 @@ namespace ClassLibrary
 {
     public class clsCms
     {
+        
         private Int32 mC_id;
         private int mCustomerId;
         private DateTime mTimeStrap;
@@ -13,6 +14,7 @@ namespace ClassLibrary
         private String mCustomerPassword;
         private String mPostCode;
         private Boolean mMembership;
+       
 
         public int CustomerId
         {
@@ -61,6 +63,7 @@ namespace ClassLibrary
 
 
 
+
         //Find Method
         public bool Find(int C_id)
         {
@@ -81,7 +84,7 @@ namespace ClassLibrary
                 mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
                 mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
                 mPostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
-                mMembership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_membership"]);
+                mMembership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_memership"]);
 
                 //return that everything worked OK
 
@@ -95,5 +98,10 @@ namespace ClassLibrary
 
             }
 
+        public string Valid(string customerName, string customerEmail, string customerPassword, string customerPostCode)
+        {
+            return "";
         }
+
+    }
     }
