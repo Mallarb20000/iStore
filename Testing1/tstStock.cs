@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
 using System.Reflection;
 using System.Security.Policy;
 
@@ -16,7 +17,7 @@ namespace Testing1
         string ProductPrice = "800";
         string ProductQuantity = "15";
         string ProductDescription = "15 inch";
-        string ProductImg = "";
+        
 
         [TestMethod]
         public void InstanceOK()
@@ -268,7 +269,7 @@ namespace Testing1
 
         }
 
-        [TestMethod]
+       /* [TestMethod]
         public void TestProductImgFound()
         {
             //create an instance of the class we want to create 
@@ -290,7 +291,7 @@ namespace Testing1
             //test to see if the result is correct
             Assert.IsTrue(OK);
 
-        }
+        }*/
 
         [TestMethod]
         public void TestActiveFound()
@@ -323,7 +324,7 @@ namespace Testing1
             // String variable to stor any error message
             string Error = "";
             //invoke the method
-            Error = AnStock.Valid(ProductName, ProductPrice, ProductDescription, ProductImg);
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
             //test to see that the results is correct
             Assert.AreEqual(Error, "");
 
@@ -342,13 +343,578 @@ namespace Testing1
             string ProductName = "";
 
             //invoke the method 
-            Error = AnStock.Valid(ProductName, ProductPrice, ProductDescription, ProductImg);
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
-        
+        [TestMethod]
+        public void ProductNameNoMin()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test to pass to the method
+            string ProductName = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMinPlusOne()
+        {
+        //create an instance of the class we want to create
+         clsStock AnStock = new clsStock();
+        //string variable to store any error message
+        String Error = "";
+
+        //create some test to pass to the method
+        string ProductName = "aa";
+
+        //invoke the method 
+        Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+          //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductName = new string ('a', 49);  // 49 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductName = new string('a', 50);  // 50 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductNameMid()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductName = new string('a', 25);  // 25 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductNameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductName = new string('a', 51);  // 51 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription );
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductNameExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductName = new string('a', 500);  // 500 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProducPriceMinLessOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            // String variable to stor any error message
+            string Error = "";
+            //invoke the method
+
+            //create some test to pass to the method
+            string ProductPrice = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoMin()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test to pass to the method
+            string ProductPrice = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductPrice = "aa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductPrice = "aaaaa"; 
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductPrice = "aaaaaa";  
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductPriceMid()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductPrice = "aaa";  
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductPriceMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductPrice = "aaaaaaa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProducPriceExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductPrice = new string('a', 10);  // 10 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProducQuantityMinLessOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            // String variable to stor any error message
+            string Error = "";
+            //invoke the method
+
+            //create some test to pass to the method
+            string ProductQuantity = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityNoMin()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test to pass to the method
+            string ProductQuantity = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductQuantity = "aa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductQuantity = "aaaaa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductQuantity = "aaaaaa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductQuantityMid()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductQuantity = "aaa";
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductQuantityMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductQuantity = "aaaaaaa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductQuantityExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductQuantity = new string('a', 10);  // 10 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMinLessOne()
+        {
+            // create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            // String variable to stor any error message
+            string Error = "";
+            //invoke the method
+
+            //create some test to pass to the method
+            string ProductDescription = "";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoMin()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+            //create some test to pass to the method
+            string ProductDescription = "a";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductDescription = "aa";
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptioneMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductDescription = new string('a', 49);  // 49 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductDescription = new string('a', 50);  // 50 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductDescriptionMid()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductDescription = new string('a', 25);  // 25 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void ProductDescriptionMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductDescription = new string('a', 51);  // 51 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStock AnStock = new clsStock();
+            //string variable to store any error message
+            String Error = "";
+
+            //create some test to pass to the method
+            string ProductDescription = new string('a', 500);  // 500 characters;
+
+            //invoke the method 
+            Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
 
 
 
