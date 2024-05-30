@@ -22,28 +22,28 @@ namespace TestingCms
         //=================property ok tests
  
         [TestMethod]
-        public void CustomerIDPropertyOK()
+        public void CustomerIdPropertyOK()
         {
             //create an instance of the class we want to create 
             clsCms aCustomer = new clsCms();
             //create some test data to assign to the property 
-            Int32 TestData = 100;
+            Int32 TestData = 1;
             //assign the data to the property 
-            aCustomer.CustomerID = TestData;
+            aCustomer.CustomerId = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(aCustomer.CustomerID, TestData);
+            Assert.AreEqual(aCustomer.CustomerId, TestData);
         }
         [TestMethod]
-        public void CustomerDateAddedPropertyOK()
+        public void CustomerTimeStrapPropertyOK()
         {
             //create an instance of the class we want to create 
             clsCms aCustomer = new clsCms();
             //create some test data to assign to the property 
-            DateTime TestData = DateTime.Now.Date;
+            DateTime TestData = DateTime.Now;
             //assign the data to the property 
-            aCustomer.PaymentDate = TestData;
+            aCustomer.TimeStrap = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(aCustomer.PaymentDate, TestData);
+            Assert.AreEqual(aCustomer.TimeStrap, TestData);
         }
         [TestMethod]
         public void CustomerNamePropertyOK()
@@ -51,7 +51,7 @@ namespace TestingCms
             //create an instance of the class we want to create 
             clsCms aCustomer = new clsCms();
             //create some test data to assign to the property 
-            Int32 TestData = 100;
+            string TestData = "Hasibe Genc";
             //assign the data to the property 
             aCustomer.CustomerName = TestData;
             //test to see that the two values are the same 
@@ -66,7 +66,7 @@ namespace TestingCms
             clsCms aCustomer = new clsCms();
 
             // Create some test data to assign to the property
-            string TestData = "hasibeegenc@gmail.com";
+            string TestData = "hasibeegencc@gmail.com";
 
             // Assign the data to the property
             aCustomer.CustomerEmail = TestData;
@@ -80,7 +80,7 @@ namespace TestingCms
             clsCms aCustomer = new clsCms();
 
             // Create some test data to assign to the property
-            string TestData = "Hasibe2003";
+            string TestData = "Hasibe03";
 
             // Assign the data to the property
             aCustomer.CustomerPassword = TestData;
@@ -129,27 +129,28 @@ namespace TestingCms
             bool Found = false;
 
             // Create some test data to use with the method
-            int CustomerId = 21;
+            int CustomerId = 1;
 
             // Invoke the method
             Found = aCustomer.Find(CustomerId);
 
             // Test to see if the result is true
             Assert.IsTrue(Found);
+
         }
 
        //========Property data tests
 
         
         [TestMethod]
-        public void TestCsutomerIdMethodOK()
+        public void TestCustomerIdMethodOK()
         {
             // Create an instance of the class we want to test
             clsCms aCustomer = new clsCms();
 
             Boolean Found = false;
             // Create a boolean variable to record if the data is OK
-            bool OK = false;
+            Boolean OK = false;
 
             // Create some test data to use with the method
             Int32 CustomerId = 1;
@@ -177,10 +178,10 @@ namespace TestingCms
             DateTime TestData = DateTime.Now.Date;
 
             // Assign the data to the property
-            aCustomer.PaymentDate = TestData;
+            aCustomer.TimeStrap = TestData;
 
             // Test to see that the two values are the same
-            Assert.AreEqual(aCustomer.PaymentDate, TestData);
+            Assert.AreEqual(aCustomer.TimeStrap, TestData);
         }
 
 
@@ -263,6 +264,7 @@ namespace TestingCms
         }
 
     }
+    
 }
 
 
