@@ -8,7 +8,7 @@ namespace ClassLibrary
         
         private Int32 mC_id;
         private int mCustomerId;
-        private DateTime mTimeStrap;
+        private DateTime mDateAdded;
         private string mCustomerName;
         private string mCustomerEmail;
         private String mCustomerPassword;
@@ -21,10 +21,10 @@ namespace ClassLibrary
             get { return mCustomerId; }
             set { mCustomerId = value; }
         }
-        public DateTime TimeStrap
+        public DateTime DateAdded
         {
-            get { return mTimeStrap; }
-            set { mTimeStrap = value; }
+            get { return mDateAdded; }
+            set { mDateAdded = value; }
         }
 
 
@@ -79,7 +79,7 @@ namespace ClassLibrary
             if (DB.Count == 1)
             {
                 mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
-                mTimeStrap = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
                 mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
                 mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
                 mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
@@ -98,10 +98,81 @@ namespace ClassLibrary
 
             }
 
-        public string Valid(string customerName, string customerEmail, string customerPassword, string customerPostCode)
+       
+
+        public string Valid( string customerName, string customerEmail, string customerPassword, string PostCode, string dateAdded)
         {
-            return "";
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary vatriable to store the data values
+            DateTime DateTemp;
+            // if the Post code is blank
+            if (PostCode.Length==0) 
+            {
+                //record the error
+                Error = Error + "The Post Code may not be blank:";
+            }
+            //iff the post code is grater than 10 characters
+            if (PostCode.Length > 10)
+            {
+                Error = Error + "The Post Code must be less than 10 characters:";
+
+            }
+            if(customerName.Length == 0) 
+            {
+                //record the error
+                Error = Error + "The Name may not be blank:";
+
+            }
+            if (customerName.Length > 20)
+            {
+                Error = Error + "The Post Code must be less than 20 characters:";
+
+            }
+            if(customerEmail.Length == 0)
+            {
+                Error = Error + "The Email may not be blank:";
+            }
+            if(customerEmail.Length > 50) 
+            {
+                Error = Error + "The Post Code must be less than 50 characters:";
+            }
+            //if(CustomerPassword.Length == 0) 
+            //{
+            //    Error = Error + "The Password may not be blank:";
+            //}
+            //if (CustomerPassword.Length > 20)
+            //{
+            //    Error = Error + "The Post Code must be less than 20 characters:";
+            //}
+            // create an instance of DateTime to compare with DateTemp
+            // in the if statement
+            DateTime DateComp= DateTime.Now;
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateAdded);
+                //check to see if the data is less than today's date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past;";
+
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future;";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date;";
+            }
+
+           
+            //returm any error messages
+            return Error;
         }
 
+       
     }
     }
