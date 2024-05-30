@@ -104,6 +104,7 @@
                  </select>
  
             <button type="submit">Register</button>
+                    <button type="button">Find</button>
 
         </form>
     </div>
