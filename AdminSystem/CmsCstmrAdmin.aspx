@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsRegister.aspx.cs" Inherits="_1_ConfirmDelete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsCstmrAdmin.aspx.cs" Inherits="_1_List" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +28,7 @@
 
         .main h2 {
             color: blue;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         label {
@@ -59,7 +59,8 @@
             border-radius: 5px;
         }
 
-        button[type="submit"] {
+        button[type="submit"]
+        {
             padding: 15px;
             border-radius: 10px;
             border: none;
@@ -69,11 +70,21 @@
             width: 100%;
             font-size: 16px;
         }
+        .auto-style1 {
+            width: 282px;
+        }
     </style>
 </head>
 <body>
+        <div class="customerInfoEdit-form">
     <form action="action_page.php" method="post" class="main">
-        <h2>Register</h2>
+        <h2>Customer Edit</h2>
+         <label for="customerId">Customer ID:</label> 
+         <input type="text" id="customerId" name="customerId" required> 
+        
+        <label for="timeStrap">Time Strap:</label> 
+        <input type="text" id="name0" name="name0" required>
+
         <label for="name">Name:</label> 
         <input type="text" id="name" name="name" required>
 
@@ -90,8 +101,11 @@
        <select id="membership" name="membership">
             <option value="regular">Regular</option>
             <option value="premium">Premium</option>
-      </select>
-        <button type="submit">Register</button>
-    </form>
+                 </select>
+ 
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
 </body>
 </html>

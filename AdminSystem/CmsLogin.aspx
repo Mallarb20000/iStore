@@ -84,7 +84,7 @@
 </head>
 <body>
     <form action="action_page.php" method="post" class="main">
-        <h2>Sign In</h2>
+        <h2>&nbsp;Sign In</h2>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
