@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace ClassLibrary
@@ -193,7 +194,7 @@ namespace ClassLibrary
             
         }
 
-        public string Valid(string productName, string productPrice, string productDescription, string productImg)
+        public string Valid(string productName, string productPrice, String productQuantity, string productDescription )
         {
             //create a string variable to store the error
             string Error = "";
@@ -204,6 +205,49 @@ namespace ClassLibrary
                 //record the error
                 Error += "Name cannot be blank";
             }
+
+            if (productName.Length > 50)
+            {
+                //record the error
+                Error += " the Product Name must be less then 51";
+            }
+
+            if (productPrice.Length == 0)
+            {
+                //record the error
+                Error += "Price cannot be blank";
+            }
+
+            if (productPrice.Length > 6)
+            {
+                //record the error
+                Error += " the Product Price must be less then 7";
+            }
+
+            if (productQuantity.Length == 0)
+            {
+                //record the error
+                Error += "Quantity cannot be blank";
+            }
+
+            if (productQuantity.Length > 6)
+            {
+                //record the error
+                Error += " the Product Quantity must be less then 7";
+            }
+
+            if (productDescription.Length == 0)
+            {
+                //record the error
+                Error += "Description cannot be blank";
+            }
+
+            if (productDescription.Length > 50)
+            {
+                //record the error
+                Error += " the Product Description must be less then 51";
+            }
+
             return Error;
 
         }
