@@ -12,18 +12,20 @@ namespace ClassLibrary
         private string mCustomerEmail;
         private String mCustomerPassword;
         private String mPostCode;
-        private Boolean mActive;
+        private Boolean mMembership;
 
         public int CustomerId
         {
             get { return mCustomerId; }
             set { mCustomerId = value; }
         }
-        public DateTime Timestamp
+        public DateTime TimeStrap
         {
             get { return mTimeStrap; }
             set { mTimeStrap = value; }
         }
+
+
         public String CustomerName
         {
             get { return mCustomerName; }
@@ -40,10 +42,10 @@ namespace ClassLibrary
             get { return mCustomerPassword; }
             set { mCustomerPassword = value; }
         }
-        public Boolean Active
+        public Boolean Membership
         {
-            get { return mActive; }
-            set { mActive = value; }
+            get { return mMembership; }
+            set { mMembership = value; }
         }
         public string PostCode
         {
@@ -56,43 +58,42 @@ namespace ClassLibrary
             set { mC_id = value; }
         }
 
-        public DateTime TimeStrap { get; set; }
+
 
 
         //Find Method
         public bool Find(int C_id)
         {
 
-            //    //create a instance of the data connection 
-            //    clsDataConnection DB = new clsDataConnection();
-            //    //add the parameter for the E_Id to search for 
-            //    DB.AddParameter("@C_id", C_id);
-            //    //execute the stored procedure
-            //    DB.Execute("sproc_TableCms_FilterByC_id");
+            //create a instance of the data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the E_Id to search for 
+            DB.AddParameter("@C_id", C_id);
+            //execute the stored procedure
+            DB.Execute("sproc_TableCms_FilterByC_id");
 
-            //    //if one record is found(there should be either one or zero)
-            //    if (DB.Count == 1)
-            //    {
-            //        mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
-            //        mTimeStrap = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
-            //        mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
-            //        mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
-            //        mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
-            //        mPostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
-            //        mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["C_membership"]);
+            //if one record is found(there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
+                mTimeStrap = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
+                mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
+                mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
+                mMembership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_membership"]);
 
-            //        //return that everything worked OK
+                //return that everything worked OK
 
-            return true;
-            //    }
-            //    else
-            //    {
-            //        //return false indicating an problem 
-            //        return false;
-            //    }
+                return true;
+                }
+                else
+                {
+                    //return false indicating an problem 
+                    return false;
+                }
 
-            //}
+            }
 
         }
     }
-}

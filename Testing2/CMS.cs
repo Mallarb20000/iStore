@@ -98,16 +98,16 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void MemebershipActivePropertyOK()
+        public void MemebershipPropertyOK()
         {
             //create an instance of the class we want to create 
             clsCms aCustomer = new clsCms();
             //create some test data to assign to the property 
             Boolean TestData = true;
             //assign the data to the property 
-            aCustomer.Active = TestData;
+            aCustomer.Membership = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(aCustomer.Active, TestData);
+            Assert.AreEqual(aCustomer.Membership, TestData);
         }
         //===========find method tests
         [TestMethod]
@@ -130,31 +130,159 @@ namespace Testing2
         //========Property data tests
 
 
-        //[TestMethod]
-        //public void TestCustomerIdFound()
-        //{
-        //    // Create an instance of the class we want to test
-        //    clsCms aCustomer = new clsCms();
+        [TestMethod]
+        public void TestCustomerIdFound()
+        {
+            // Create an instance of the class we want to test
+            clsCms aCustomer = new clsCms();
 
-        //    Boolean Found = false;
-        //    // Create a boolean variable to record if the data is OK
-        //    Boolean OK = true;
+            Boolean Found = false;
+            // Create a boolean variable to record if the data is OK
+            Boolean OK = true;
 
-        //    // Create some test data to use with the method
-        //    Int32 CustomerId = 1;
+            // Create some test data to use with the method
+            Int32 CustomerId = 1;
 
-        //    //check the Customer id
-        //    Found = aCustomer.Find(CustomerId);
+            //check the Customer id
+            Found = aCustomer.Find(CustomerId);
 
-        //    if (aCustomer.CustomerId != 1)
-        //    {
-        //        OK = false;
-        //    }
-        //    // test to see that the result is correct
-        //    Assert.IsTrue(OK);
+            if (aCustomer.CustomerId != 1)
+            {
+                OK = false;
+            }
+            // test to see that the result is correct
+            Assert.IsTrue(OK);
 
 
 
-        //}
+        }
+
+        [TestMethod]
+        public void TestTimeStrapFound()
+        {
+            //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = aCustomer.Find(CustomerId);
+            //check the timestamp property
+            if (aCustomer.TimeStrap != Convert.ToDateTime("12/10/2023"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerNameFound()
+        { //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = aCustomer.Find(CustomerId);
+            //check the timestamp property
+            if (aCustomer.CustomerName != "Hasibe Genc")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestCustomerEmailFound()
+        { //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = aCustomer.Find(CustomerId);
+            //check the timestamp property
+            if (aCustomer.CustomerEmail != "Hasibeegencc@gmail.com")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCustomerPasswordFound()
+        { //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = aCustomer.Find(CustomerId);
+            //check the timestamp property
+            if (aCustomer.CustomerPassword != "Hasibe03")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerPostCodeFound()
+        { //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = aCustomer.Find(CustomerId);
+            //check the timestamp property
+            if (aCustomer.PostCode != "LE1 1ST")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestMembershipFound()
+        { //create an instance of the class we want to create
+            clsCms aCustomer = new clsCms();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = aCustomer.Find(CustomerId);
+            //check the timestamp property
+            if (aCustomer.Membership != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
+
 }
+
