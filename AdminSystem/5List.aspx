@@ -7,10 +7,10 @@
     <title></title>
 </head>
 <body>
-    GG
-    <form id="form1" runat="server">
+    &nbsp;<form id="form1" runat="server">
         <div>
         </div>
+        <asp:ListBox ID="lstRegisterList" runat="server" style="z-index: 1; left: 10px; top: 37px; position: absolute; height: 293px; width: 420px"></asp:ListBox>
     </form>
 </body>
 </html>

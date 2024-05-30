@@ -51,8 +51,10 @@
             <br />
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 44px; top: 463px; position: absolute"></asp:Label>
             <br />
-            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" Width="286px" />
-            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 545px; top: 380px; position: absolute; height: 23px; width: 85px" Text="OK" />
+            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" Width="156px" />
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 199px; top: 379px; position: absolute; height: 23px; width: 85px" Text="OK" />
+            <asp:Button ID="Button1" runat="server" style="z-index: 1; left: 329px; top: 381px; position: absolute" Text="Delete" />
+            <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 442px; top: 381px; position: absolute" Text="Edit" />
             <br />
             <br />
         </div>

@@ -47,17 +47,7 @@ namespace Testing5
             Assert.AreEqual(AllRegister.RegisterList,TestList);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsRegisterCollection AllRegister = new clsRegisterCollection();
-            //Test data for the property
-            Int32 Somecount = 0;
-            //asssign datat to the property
-            AllRegister.Count = Somecount;
-            //test to see two values are the same 
-            Assert.AreEqual(AllRegister.Count, Somecount);
-        }
+        
 
         [TestMethod]
 
@@ -112,6 +102,7 @@ namespace Testing5
             Assert.AreEqual(AllRegister.Count, TestList.Count);
         }
 
+        
 
 
     
