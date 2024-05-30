@@ -23,48 +23,19 @@ namespace ClassLibrary
             while (Index<RecordCount)
             {
                 clsRegister ARegister = new clsRegister();
-                ARegister.E_Id = Convert.ToInt32(DB.DataTable.Rows[0]["E_Id"]);
-                ARegister.Name = Convert.ToString(DB.DataTable.Rows[0]["E_Name"]);
-                ARegister.Username = Convert.ToString(DB.DataTable.Rows[0]["E_username"]);
-                ARegister .Password= Convert.ToString(DB.DataTable.Rows[0]["E_password"]);
-                ARegister .Trained= Convert.ToBoolean(DB.DataTable.Rows[0]["E_trained"]);
-                ARegister.Timestamp = Convert.ToDateTime(DB.DataTable.Rows[0]["E_Idcreated"]);
-                ARegister.Salary = Convert.ToInt32(DB.DataTable.Rows[0]["E_salary"]);
+                ARegister.E_Id = Convert.ToInt32(DB.DataTable.Rows[Index]["E_Id"]);
+                ARegister.Name = Convert.ToString(DB.DataTable.Rows[Index]["E_Name"]);
+                ARegister.Username = Convert.ToString(DB.DataTable.Rows[Index]["E_username"]);
+                ARegister .Password= Convert.ToString(DB.DataTable.Rows[Index]["E_password"]);
+                ARegister .Trained= Convert.ToBoolean(DB.DataTable.Rows[Index]["E_trained"]);
+                ARegister.Timestamp = Convert.ToDateTime(DB.DataTable.Rows[Index]["E_Idcreated"]);
+                ARegister.Salary = Convert.ToInt32(DB.DataTable.Rows[Index]["E_salary"]);
                 //add the record to private data memnber 
                 mRegisterlist.Add(ARegister);
                 //point to next record
                 Index++;
             }
-            //create the item of test data
-            clsRegister TestItem = new clsRegister();
-            //set its properties
-            TestItem.Username = "username";
-            TestItem.Password = "password";
-            TestItem.Name = "name";
-            TestItem.E_Id = 1;
-            TestItem.Salary = 1;
-            TestItem.Trained = true;
-            TestItem.Timestamp = DateTime.Now;
-
-            //add the test item to list 
-            mRegisterlist.Add(TestItem);
-
-            //reinitiate the object for some new data
-            TestItem = new clsRegister();
-            //set its properties
-            TestItem.Username = "username1";
-            TestItem.Password = "password1";
-            TestItem.Name = "name1";
-            TestItem.E_Id = 2;
-            TestItem.Salary = 2;
-            TestItem.Trained = true;
-            TestItem.Timestamp = DateTime.Now;
-
-            //add the test item to list 
-            mRegisterlist.Add(TestItem);
-
-
-
+            
         }
         //Private Data members
         List<clsRegister> mRegisterlist = new List<clsRegister> ();
