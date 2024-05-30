@@ -8,7 +8,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            height: 248px;
+            height: 115px;
         }
         .auto-style11 {
             position: absolute;
@@ -44,9 +44,10 @@
         }
         .auto-style18 {
             z-index: 1;
-            left: 17px;
-            top: 294px;
+            left: 20px;
+            top: 271px;
             position: absolute;
+            height: 38px;
         }
         .auto-style19 {
             z-index: 1;
@@ -74,10 +75,11 @@
         }
         .auto-style26 {
             position: absolute;
-            top: 373px;
-            left: 23px;
+            top: 393px;
+            left: 21px;
             z-index: 1;
-            width: 135px;
+            width: 91px;
+            height: 28px;
         }
         .auto-style27 {
             position: absolute;
@@ -89,40 +91,27 @@
         }
         .auto-style28 {
             position: absolute;
-            top: 288px;
-            left: 213px;
+            top: 258px;
+            left: 210px;
             z-index: 1;
             width: 336px;
             height: 35px;
         }
         .auto-style29 {
             position: absolute;
-            top: 229px;
-            left: 19px;
+            top: 218px;
+            left: 17px;
             z-index: 1;
             width: 111px;
             height: 22px;
         }
         .auto-style30 {
             position: absolute;
-            top: 221px;
+            top: 211px;
             z-index: 1;
             width: 299px;
-            bottom: 504px;
-        }
-        .auto-style31 {
-            width: 1597px;
-            height: 351px;
-            position: absolute;
-            top: 467px;
-            left: 14px;
-            z-index: 1;
-        }
-        .auto-style32 {
-            position: absolute;
-            top: 373px;
-            left: 188px;
-            z-index: 1;
+            bottom: 429px;
+            left: 211px;
         }
         .auto-style33 {
             position: absolute;
@@ -130,79 +119,17 @@
             left: 560px;
             z-index: 1;
         }
-        .auto-style34 {
-            position: absolute;
-            top: 369px;
-            left: 275px;
-            z-index: 1;
-        }
-        .auto-style35 {
-            width: 100%;
-        }
-        .auto-style36 {
-            position: absolute;
-            top: 2px;
-            left: 77px;
-            z-index: 1;
-        }
-        .auto-style37 {
-            position: absolute;
-            top: 470px;
-            left: 280px;
-            z-index: 1;
-        }
-        .auto-style39 {
-            width: 225px;
-        }
-        .auto-style40 {
-            position: absolute;
-            top: 2px;
-            left: 512px;
-            z-index: 1;
-        }
-        .auto-style41 {
-            position: absolute;
-            top: 0px;
-            left: 790px;
-            z-index: 1;
-        }
-        .auto-style43 {
-            position: absolute;
-            top: 3px;
-            left: 980px;
-            z-index: 1;
-        }
-        .auto-style44 {
-            position: absolute;
-            top: 1px;
-            left: 1456px;
-            z-index: 1;
-        }
-        .auto-style45 {
-            position: absolute;
-            top: 4px;
-            left: 1194px;
-            z-index: 1;
-            width: 137px;
-        }
-        .auto-style47 {
-            width: 223px;
-        }
-        .auto-style48 {
-            width: 224px;
-        }
-        .auto-style49 {
-            width: 215px;
-        }
         .auto-style50 {
             position: absolute;
-            top: 368px;
-            left: 402px;
+            top: 392px;
+            left: 128px;
             z-index: 1;
+            width: 99px;
+            height: 28px;
         }
     </style>
 </head>
-<body style="height: 321px; width: 1231px">
+<body style="height: 456px; width: 1231px">
     <form id="form1" runat="server">
         <div>
             <table class="auto-style1">
@@ -255,103 +182,19 @@
         </div>
         <p class="auto-style24">
 
-            <asp:Label ID="Label5" runat="server" CssClass="auto-style18" height="27px" Text="Upload Image" width="139px"></asp:Label>
+            <asp:Label ID="Label5" runat="server" CssClass="auto-style18" Text="Upload Image" width="139px"></asp:Label>
+
+            <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 22px; top: 353px; position: absolute" Text="Active" />
 
         </p>
-        <asp:Panel ID="Panel1" runat="server" CssClass="auto-style31">
-            <table class="auto-style35">
-                <tr>
-                    <td class="auto-style39">
-                        <asp:Label ID="Label8" runat="server" CssClass="auto-style36" Text="ProductID"></asp:Label>
-                    </td>
-                    <td></td>
-                    <td class="auto-style48">
-                        <asp:Label ID="Label10" runat="server" CssClass="auto-style40" Text="Description"></asp:Label>
-                        <asp:Label ID="Label11" runat="server" CssClass="auto-style41" Text="Price"></asp:Label>
-                    </td>
-                    <td></td>
-                    <td class="auto-style49">
-                        <asp:Label ID="Label12" runat="server" CssClass="auto-style43" Text="Quantity"></asp:Label>
-                    </td>
-                    <td class="auto-style47">
-                        <asp:Label ID="Label13" runat="server" CssClass="auto-style44" Text="Active"></asp:Label>
-                        <asp:Label ID="Label14" runat="server" CssClass="auto-style45" Text="Upload Image"></asp:Label>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style39">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style48">&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td class="auto-style49">&nbsp;</td>
-                    <td class="auto-style47">&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
-        </asp:Panel>
         <p>
-        <asp:Button ID="BtnAddProduct" runat="server" CssClass="auto-style26" OnClick="BtnAddProduct_Click1" Text="Add Product" ForeColor="#00CC00" />
-            <asp:Button ID="BtnEdit" runat="server" CssClass="auto-style32" ForeColor="#0066FF" Text="Edit" />
             <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" OnClick="BtnFind_Click" />
         </p>
-        <asp:Button ID="Btnupdate" runat="server" CssClass="auto-style34" ForeColor="#0066FF" Text="Update" />
-        <asp:Button ID="btnDelete" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Delete" />
-        <asp:Label ID="Label9" runat="server" CssClass="auto-style37" Text="Product Name"></asp:Label>
+        <p>
+        <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" />
+        <asp:Button ID="BtnOK" runat="server" CssClass="auto-style26" OnClick ="BtnOK_Click1" Text="OK" ForeColor="#00CC00" />
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]"></asp:Label>
+        </p>
     </form>
 </body>
 </html>

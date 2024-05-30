@@ -15,27 +15,51 @@ public partial class _1_DataEntry : System.Web.UI.Page
     }
 
 
-    protected void BtnAddProduct_Click1(object sender, EventArgs e)
+    protected void BtnOK_Click1(object sender, EventArgs e)
     {
         //create a new istance of clsStock
         clsStock AnStock = new clsStock();
-        // capture the ProductID
-
-        AnStock.ProductID = Convert.ToInt32(TxtProductID.Text);
         // capture the ProductName
-        AnStock.ProductName = TxtProductName.Text;
+        string ProductName = TxtProductName.Text;
         //capture the ProductDescription
-        AnStock.ProductDescription = TxtDescription.Text;
+        string ProductDescription = TxtDescription.Text;
         //capture the ProductPrice
-        AnStock.ProductPrice = Convert.ToInt32(TxtPrice.Text);
+        string ProductPrice = TxtPrice.Text;
         //capture the ProductQuantity
-        AnStock.ProductQuantity = Convert.ToInt32(TxtQuantity.Text);
+        string ProductQuantity = TxtQuantity.Text;
         // capture the ProductImg
-        AnStock.ProductImg = ImgProduct.FileName;
-        //store the stock in the session object
-        Session["AnStock"] = AnStock;
-        //navigate to the Stock Detail View  page
-        Response.Redirect("StockDetailViewer.aspx");
+        string ProductImg = ImgProduct.FileName;
+        //capture Active check box 
+        string Active = chkActive.Text;
+        //variable to store any error message 
+        string Error = "";
+        //validate the data 
+        Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
+        if (Error == "")
+        {
+            // capture the ProductName
+            AnStock.ProductName = ProductName;
+            //capture the ProductDescription
+            AnStock.ProductDescription = ProductDescription;
+            //capture the ProductPrice
+            AnStock.ProductPrice = Convert.ToInt32(ProductPrice);
+            //capture the ProductQuantity
+            AnStock.ProductQuantity = Convert.ToInt32(ProductQuantity);
+            //store the stock in the session object
+            Session["AnStock"] = AnStock;
+            //navigate to the Stock Detail View  page
+            Response.Redirect("StockList.aspx");
+
+        }
+
+
+        else
+        {
+
+            //display the error message 
+            lblError.Text = Error;
+        }
+        
     }
 
 
