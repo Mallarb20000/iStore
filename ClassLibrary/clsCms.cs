@@ -126,25 +126,33 @@ namespace ClassLibrary
             }
             if (customerName.Length > 20)
             {
-                Error = Error + "The Post Code must be less than 20 characters:";
+                Error = Error + "The Name must be less than 20 characters:";
 
             }
-            if(customerEmail.Length == 0)
+            if(customerEmail.Length < 11)
             {
-                Error = Error + "The Email may not be blank:";
+                Error = Error + "The Email may not be less than 11:";
             }
-            if(customerEmail.Length > 50) 
+            if (customerEmail.Length > 50) 
             {
-                Error = Error + "The Post Code must be less than 50 characters:";
+                Error = Error + "The Email must be less than 50 characters:";
             }
-            //if(CustomerPassword.Length == 0) 
-            //{
-            //    Error = Error + "The Password may not be blank:";
-            //}
-            //if (CustomerPassword.Length > 20)
-            //{
-            //    Error = Error + "The Post Code must be less than 20 characters:";
-            //}
+            if (customerPassword.Length < 5)
+            {
+                Error = Error + "The Password may not be less than 5:";
+            }
+            if (customerPassword.Length > 20)
+            {
+                Error = Error + "The Password must be less than 20 characters:";
+            }
+            if (PostCode.Length < 4)
+            {
+                Error = Error + "The PostCode may not be less than 4:";
+            }
+            if (PostCode.Length > 10)
+            {
+                Error = Error + "The PostCode must be less than 10 characters:";
+            }
             // create an instance of DateTime to compare with DateTemp
             // in the if statement
             DateTime DateComp= DateTime.Now;

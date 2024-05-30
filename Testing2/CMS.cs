@@ -549,25 +549,25 @@ namespace Testing2
             Assert.AreNotEqual(Error, "");
         }
 
-        //============parameter test for password
-        //[TestMethod]
-        //public void CustomerPasswordMinLessOne()
-        //{
-        //    //Create a instamce of the class we want to create 
-        //    clsCms aCustomer = new clsCms();
+       // ============parameter test for password
+        [TestMethod]
+        public void CustomerPasswordMinLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
 
-        //    //string variable for error message 
-        //    String Error = "";
+            //string variable for error message 
+            String Error = "";
 
-        //    //create some test to pass to the method
-        //    string CustomerPassword = "aaaa";
+            //create some test to pass to the method
+            string CustomerPassword = "aaaa";
 
-        //    //invoke the method 
-        //    Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
 
-        //    //test to see that the result is correct
-        //    Assert.AreNotEqual(Error, "");
-        //}
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
         [TestMethod]
         public void CustomerPasswordMin()
         {
@@ -605,23 +605,23 @@ namespace Testing2
             Assert.AreEqual(Error, "");
         }
 
-        //[TestMethod]
-        //public void CustomerPasswordMaxLessOne()
-        //{
-        //    //Create a instamce of the class we want to create 
-        //    clsCms aCustomer = new clsCms();
+        [TestMethod]
+        public void CustomerPasswordMaxLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
 
-        //    //string variable for error message 
-        //    String Error = "";
-        //    string CustomerName = "";
-        //    //create some test to pass to the method
-        //    CustomerPassword = CustomerPassword.PadRight(19, 'a');
-        //    //invoke the method 
-        //    Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            //string variable for error message 
+            String Error = "";
+            string CustomerPassword = "";
+            //create some test to pass to the method
+            CustomerPassword = CustomerPassword.PadRight(19, 'a');
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
 
-        //    //test to see that the result is correct
-        //    Assert.AreEqual(Error, "");
-        //}
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
         [TestMethod]
         public void CustomerPasswordMax()
         {
@@ -630,10 +630,28 @@ namespace Testing2
 
             //string variable for error message 
             String Error = "";
-            string CustomerName = "";
+            string CustomerPassword = "";
 
             //create some test to pass to the method
-            CustomerPassword = CustomerPassword.PadRight(50, 'a');
+            CustomerPassword = CustomerPassword.PadRight(20, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPasswordExtremeMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPassword = new string('a', 100);
 
             //invoke the method 
             Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
@@ -641,42 +659,24 @@ namespace Testing2
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-        //[TestMethod]
-        //public void CustomerPasswordExtremeMax()
-        //{
-        //    //Create a instamce of the class we want to create 
-        //    clsCms aCustomer = new clsCms();
-
-        //    //string variable for error message 
-        //    String Error = "";
-
-        //    //create some test to pass to the method
-        //    string CustomerPassword = new string('a', 100);
-
-        //    //invoke the method 
-        //    Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
-
-        //    //test to see that the result is correct
-        //    Assert.AreNotEqual(Error, "");
-        //}
         [TestMethod]
-        //public void CustomerPasswordMaxPlusOne()
-        //{
-        //    //Create a instamce of the class we want to create 
-        //    clsCms aCustomer = new clsCms();
+        public void CustomerPasswordMaxPlusOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
 
-        //    //string variable for error message 
-        //    String Error = "";
-        //    string CustomerPassword = "";
-        //    //create some test to pass to the method
-        //    CustomerPassword = CustomerPassword.PadRight(51, 'a');
+            //string variable for error message 
+            String Error = "";
+            string CustomerPassword = "";
+            //create some test to pass to the method
+            CustomerPassword = CustomerPassword.PadRight(51, 'a');
 
-        //    //invoke the method 
-        //    Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
 
-        //    //test to see that the result is correct
-        //    Assert.AreNotEqual(Error, "");
-        //}
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
         [TestMethod]
         public void CustomerPasswordMid()
         {
@@ -695,13 +695,301 @@ namespace Testing2
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        //============parameter test for postCode
 
         //============parameter test for email
+        [TestMethod]
+        public void CustomerEmailMinLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
 
+            //string variable for error message 
+            String Error = "";
 
+            //create some test to pass to the method
+            string CustomerEmail = "aaaaaaaaaa"; //10
 
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
 
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailMin()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPassword = "aaaaaaaaaa";//11
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailMinPlussOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPassword = "aaaaaaaaaaa";//12
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerEmailMaxLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerEmail = "";
+            //create some test to pass to the method
+            CustomerEmail = CustomerEmail.PadRight(49, 'a');
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerEmail = "";
+
+            //create some test to pass to the method
+            CustomerEmail = CustomerEmail.PadRight(50, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailExtremeMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerEmail = new string('a', 100);
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailMaxPlusOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerEmail = "";
+            //create some test to pass to the method
+            CustomerEmail = CustomerEmail.PadRight(51, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerEmailMid()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerEmail = "";
+            //create some test to pass to the method
+            CustomerEmail = CustomerEmail.PadRight(25, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        //============parameter test for postCode
+
+        [TestMethod]
+        public void CustomerPostCodeMinLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPostCode = "aaa"; //3
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMin()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPostCode = "aaaa";//4
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMinPlussOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPostCode = "aaaaa";//5
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerPostCodeMaxLessOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerPostCode = "";
+            //create some test to pass to the method
+            CustomerPostCode = CustomerPostCode.PadRight(9, 'a');
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerEmail = "";
+
+            //create some test to pass to the method
+            CustomerEmail = CustomerEmail.PadRight(10, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeExtremeMax()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+
+            //create some test to pass to the method
+            string CustomerPostCode = new string('a', 50);
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMaxPlusOne()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerPostCode = "";
+            //create some test to pass to the method
+            CustomerPostCode = CustomerPostCode.PadRight(11, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerPostCodeMid()
+        {
+            //Create a instamce of the class we want to create 
+            clsCms aCustomer = new clsCms();
+
+            //string variable for error message 
+            String Error = "";
+            string CustomerPostCode = "";
+            //create some test to pass to the method
+            CustomerPostCode = CustomerPostCode.PadRight(5, 'a');
+
+            //invoke the method 
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
     }
 }
 
