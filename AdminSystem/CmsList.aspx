@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsRegister.aspx.cs" Inherits="_1_ConfirmDelete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsList.aspx.cs" Inherits="_1_ConfirmDelete" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +73,8 @@
 </head>
 <body>
     <form action="action_page.php" method="post" class="main">
-        <h2>Registration Form</h2>
-        <label for="name">Name:</label>
+        <h2>Register</h2>
+        <label for="name">Name:</label> 
         <input type="text" id="name" name="name" required>
 
         <label for="email">Email:</label>
@@ -86,20 +86,12 @@
         <label for="postcode">Postcode:</label>
         <input type="text" id="postcode" name="postcode" required>
 
-    
-    </style>
-</head>
-<body>
-    <form action="action_page.php" method="post" class="main">
-
-        <label class="status-label">Membership Status:</label>
-        <input type="radio" id="active" name="status" value="active" class="status-input">
-        <label for="active">Active</label>
-        
-
+       <label for="membership">Choose Membership:</label>
+       <select id="membership" name="membership">
+            <option value="regular">Regular</option>
+            <option value="premium">Premium</option>
+      </select>
         <button type="submit">Register</button>
     </form>
 </body>
 </html>
-     
-

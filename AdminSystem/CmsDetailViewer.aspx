@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsLogin.aspx.cs" Inherits="_1_DataEntry" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsDetailViewer.aspx.cs" Inherits="_1_DataEntry" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +84,7 @@
 </head>
 <body>
     <form action="action_page.php" method="post" class="main">
-        <h2>Sign In</h2>
+        <h2>&nbsp;Sign In</h2>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
