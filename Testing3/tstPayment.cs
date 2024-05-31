@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -8,27 +9,11 @@ namespace Testing3
     [TestClass]
     public class tstPayment
     {
-        private int PaymentDate;
-
-        public int OrderID { get; private set; }
-
         [TestMethod]
         public void TestMethod1()
         {
             clsPayment AnPayment = new clsPayment();
             Assert.IsNotNull(AnPayment);
-        }
-        [TestMethod]
-        public void ActivePropertyOK()
-        {
-            //create an instance of the class we want to create 
-            clsPayment AnPayment = new clsPayment();
-            //create some test data to assign to the property 
-            Boolean TestData = true;
-            //assign the data to the property 
-            AnPayment.Active = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(AnPayment.Active, TestData);
         }
             [TestMethod]
             public void PaymentAmountPropertyOK()
@@ -43,6 +28,18 @@ namespace Testing3
                 Assert.AreEqual(AnPayment.PaymentAmount, TestData);
             }
         [TestMethod]
+        public void NamePropertyOK()
+        {
+            //create an instance of the class we want to create 
+            clsPayment AnPayment = new clsPayment();
+            //create some test data to assign to the property 
+            string TestData = "Siyam";
+            //assign the data to the property 
+            AnPayment.Name = TestData;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AnPayment.Name, TestData);
+        }
+        [TestMethod]
         public void PaymentDatePropertyOK()
         {
             //create an instance of the class we want to create 
@@ -55,16 +52,16 @@ namespace Testing3
             Assert.AreEqual(AnPayment.PaymentDate, TestData);
         }
         [TestMethod]
-        public void PaymentMethodPropertyOK()
+        public void PostCodePropertyOK()
         {
             //create an instance of the class we want to create 
             clsPayment AnPayment = new clsPayment();
             //create some test data to assign to the property 
-            Int32 TestData = 50;
+            string TestData = "LE30BS";
             //assign the data to the property 
-            AnPayment.PaymentMethod = TestData;
+            AnPayment.PostCode = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnPayment.PaymentMethod, TestData);
+            Assert.AreEqual(AnPayment.PostCode, TestData);
         }
         [TestMethod]
         public void TransactionStatusPropertyOK()
@@ -79,32 +76,32 @@ namespace Testing3
             Assert.AreEqual(AnPayment.TransactionStatus, TestData);
         }
         [TestMethod]
-        public void OrderIDPropertyOK()
+        public void EmailPropertyOK()
         {
             //create an instance of the class we want to create 
             clsPayment AnPayment = new clsPayment();
             //create some test data to assign to the property 
-            Int32 TestData = 100;
+            string TestData = "sbsr31@gmail.com";
             //assign the data to the property 
-            AnPayment.OrderID = TestData;
+            AnPayment.Email = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnPayment.OrderID, TestData);
+            Assert.AreEqual(AnPayment.Email, TestData);
         }
         [TestMethod]
-        public void TransactionIDPropertyOK()
+        public void PaymentIDPropertyOK()
         {
             //create an instance of the class we want to create 
             clsPayment AnPayment = new clsPayment();
             //create some test data to assign to the property 
             Int32 TestData = 10;
             //assign the data to the property 
-            AnPayment.TransactionID = TestData;
+            AnPayment.PaymentID = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnPayment.TransactionID, TestData);
+            Assert.AreEqual(AnPayment.PaymentID, TestData);
         }
 
         [TestMethod]
-        public void TestTransactionIDFound()
+        public void TestPaymentIDFound()
         {
             //create an instance of the class we want to create 
             clsPayment AnPayment = new clsPayment();
@@ -113,11 +110,11 @@ namespace Testing3
             //create a Boolean variable to record if the data is OK (assume it is) 
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 TransactionID = 1;
+            Int32 PaymentID = 1;
             //invoke the method 
-            Found = AnPayment.Find(TransactionID);
+            Found = AnPayment.Find(PaymentID);
             //check the address id property 
-            if (AnPayment.TransactionID != 1)
+            if (AnPayment.PaymentID != 1)
             {
                 OK = false;
             }
@@ -125,7 +122,7 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestOrderIDFound()
+        public void TestNameFound()
         {
             //create an instance of the class we want to create 
             clsPayment AnPayment = new clsPayment();
@@ -133,35 +130,19 @@ namespace Testing3
             Boolean Found = false;
             //create a Boolean variable to record if data is OK (assume it is) 
             Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 PaymentID = 1;
             //invoke the method 
-            Found = AnPayment.Find(OrderID);
+            Found = AnPayment.Find(PaymentID);
             //check the house no property 
-            if (AnPayment.OrderID != 10)
+            if (AnPayment.Name != "Siyam")
             {
                 OK = false;
             }
             //test to see that the result is correct 
             Assert.IsTrue(OK);
         }
-        [TestMethod]
-        public void TestPaymentAmountFound()
-        {
-            //create an instance of the class we want to create 
-            clsPayment AnPayment = new clsPayment();
-            //create a Boolean variable to store the result of the search 
-            Boolean Found = false;
-            //create a Boolean variable to record if data is OK (assume it is) 
-            Boolean OK = true;
-            //invoke the method 
-            Found = AnPayment.Find(PaymentAmount);
-            //check the street property 
-            if (AnPayment.PaymentAmount != "PaymentAmount")
-            {
-                OK = false;
-            }
-            //test to see that the result is correct 
-            Assert.IsTrue(OK);
-        }
+  
         [TestMethod]
         public void TestPaymentDateFound()
         {
@@ -171,12 +152,12 @@ namespace Testing3
             Boolean Found = false;
             //create Boolean variable to record if the data is OK (assume it is) 
             Boolean OK = true;
-            //create some test data to use with the method 
-            Int32 TransactionID = 21;
+            //create some test data to use with the method
+            Int32 PaymentID = 1;
             //invoke the method 
-            Found = AnPayment.Find(PaymentDate);
+            Found = AnPayment.Find(PaymentID);
             //check the date added property 
-            if (AnPayment.PaymentDate != Convert.ToDateTime("23/12/2022"))
+            if (AnPayment.PaymentDate != Convert.ToDateTime(value: "12/12/2023"))
             {
                 OK = false;
             }
@@ -184,25 +165,23 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestActiveFound()
+        public void TestEmailFound()
         {
             //create an instance of the class we want to create 
-            clsPayment AnPaymenmt = new clsPayment();
+            clsPayment AnPayment = new clsPayment();
             //create a Boolean variable to store the result of the search 
             Boolean Found = false;
-            //create Boolean variable to record if the data is OK (assume it is) 
+            //create a Boolean variable to record if data is OK (assume it is) 
             Boolean OK = true;
             //create some test data to use with the method 
-            Int32 PaymentID = 21;
+            Int32 PaymentID = 1;
             //invoke the method 
-            Found = AnPayment.Find(PaymentDate);
-            //check the active property 
-            if (AnPayment.Active != true)
+            Found = AnPayment.Find(PaymentID);
+            //check the house no property 
+            if (AnPayment.Name != "sbsr31@gmail.com")
             {
                 OK = false;
             }
-            //test to see that the result is correct 
-            Assert.IsTrue(OK);
         }
     }
 }
