@@ -102,9 +102,35 @@ namespace Testing5
             Assert.AreEqual(AllRegister.Count, TestList.Count);
         }
 
-        
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsRegisterCollection AllRegister = new clsRegisterCollection();
+            //test data 
+            clsRegister TestRegister = new clsRegister();
+            TestRegister.Username = "username";
+            TestRegister.Password = "password";
+            TestRegister.Name = "name";
+            TestRegister.E_Id = 1;
+            TestRegister.Salary = 1;
+            TestRegister.Trained = true;
+            TestRegister.Timestamp = DateTime.Now;
 
 
-    
+            //asssign the data to a property
+            AllRegister.ThisRegister = TestRegister;
+            //add record
+            Int32 PrimaryKey = 0;
+            PrimaryKey = AllRegister.Add();
+            //set the primary key to test data
+            TestRegister.E_Id = PrimaryKey;
+            //find the record
+            AllRegister.ThisRegister.Find(PrimaryKey);
+            //test to see that two values are the same
+            Assert.AreEqual(AllRegister.ThisRegister, TestRegister);
+        }
+
+
+
     }
 }
