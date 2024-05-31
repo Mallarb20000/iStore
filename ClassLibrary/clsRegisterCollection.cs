@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 
 namespace ClassLibrary
 
 {
     public class clsRegisterCollection
     {
-
+        //Private Data members
+        List<clsRegister> mRegisterlist = new List<clsRegister>();
+        clsRegister mThisRegister = new clsRegister();
         public clsRegisterCollection()
         {
 
@@ -37,8 +40,7 @@ namespace ClassLibrary
             }
             
         }
-        //Private Data members
-        List<clsRegister> mRegisterlist = new List<clsRegister> ();
+        
 
         public List<clsRegister> RegisterList
         {
@@ -62,6 +64,34 @@ namespace ClassLibrary
                // return mRegisterlist.Count = value;
             } 
         }
-        public clsRegister ThisRegister { get; set; }
+        
+        public clsRegister ThisRegister
+        {
+            get
+            {
+                return mThisRegister;
+            }
+            set
+            {
+                mThisRegister = value;
+            }
+        }
+
+        public int Add()
+        {
+            ///connect to DB
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters sfor stored procedure
+            DB.AddParameter("@E_Id", mThisRegister.E_Id );
+            DB.AddParameter("@E_name", mThisRegister.Name);
+            DB.AddParameter("@E_username",mThisRegister.Username);
+            DB.AddParameter("@E_password", mThisRegister.Password);
+            DB.AddParameter("E_salary", mThisRegister.Salary);
+            DB.AddParameter("E_trained", mThisRegister.Trained);
+            DB.AddParameter("E_Idcreated", mThisRegister.Timestamp);
+
+            //execute the query returning the primary key
+            return DB.Execute("sproc_tblEMS_Insert");
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace ClassLibrary
         private string mE_password;
         private Boolean mE_trained;
         private DateTime mTimestamp;
-        private Int32 mSalary;
+        private float mSalary;
 
         //Getters and setter
         public string Username
@@ -32,7 +32,7 @@ namespace ClassLibrary
         }
 
         // Getter and Setter for Salary
-        public int Salary
+        public float Salary
         {
             get { return mSalary; }
             set { mSalary = value; }
