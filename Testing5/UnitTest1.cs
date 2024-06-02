@@ -111,7 +111,7 @@ namespace Testing5
             TestRegister.Username = "username";
             TestRegister.Password = "password";
             TestRegister.Name = "name";
-            TestRegister.E_Id = 1;
+            TestRegister.E_Id = 10;
             TestRegister.Salary = 1;
             TestRegister.Trained = true;
             TestRegister.Timestamp = DateTime.Now;
@@ -125,6 +125,48 @@ namespace Testing5
             //set the primary key to test data
             TestRegister.E_Id = PrimaryKey;
             //find the record
+            AllRegister.ThisRegister.Find(PrimaryKey);
+            //test to see that two values are the same
+            Assert.AreEqual(AllRegister.ThisRegister, TestRegister);
+        }
+
+        [TestMethod]
+
+        public void UpdateMethodOK() 
+        {
+            clsRegisterCollection AllRegister = new clsRegisterCollection();
+            //test data 
+            clsRegister TestRegister = new clsRegister();
+
+            Int32 PrimaryKey = 0;
+
+            TestRegister.Username = "username";
+            TestRegister.Password = "password";
+            TestRegister.Name = "name";
+            TestRegister.E_Id = 10;
+            TestRegister.Salary = 1;
+            TestRegister.Trained = true;
+            TestRegister.Timestamp = DateTime.Now;
+
+
+            //asssign the data to a property
+            AllRegister.ThisRegister = TestRegister;
+            //add record
+         
+            PrimaryKey = AllRegister.Add();
+            //set the primary key to test data
+            TestRegister.E_Id = PrimaryKey;
+            //modyfy the record
+
+            TestRegister.Username = "username12";
+            TestRegister.Password = "password12";
+            TestRegister.Name = "name12";
+            TestRegister.E_Id = 11;
+            TestRegister.Salary = 12;
+            TestRegister.Trained = true;
+            TestRegister.Timestamp = DateTime.Now;
+            AllRegister.ThisRegister = TestRegister;
+            AllRegister.Update();
             AllRegister.ThisRegister.Find(PrimaryKey);
             //test to see that two values are the same
             Assert.AreEqual(AllRegister.ThisRegister, TestRegister);
