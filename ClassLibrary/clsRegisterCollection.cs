@@ -82,7 +82,7 @@ namespace ClassLibrary
             ///connect to DB
             clsDataConnection DB = new clsDataConnection();
             //set the parameters sfor stored procedure
-            DB.AddParameter("@E_Id", mThisRegister.E_Id );
+            //DB.AddParameter("@E_Id", mThisRegister.E_Id );
             DB.AddParameter("@E_name", mThisRegister.Name);
             DB.AddParameter("@E_username",mThisRegister.Username);
             DB.AddParameter("@E_password", mThisRegister.Password);
