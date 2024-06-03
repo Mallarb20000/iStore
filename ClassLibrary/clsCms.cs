@@ -60,6 +60,8 @@ namespace ClassLibrary
             set { mC_id = value; }
         }
 
+        public object TimeStrap { get; set; }
+
 
 
 

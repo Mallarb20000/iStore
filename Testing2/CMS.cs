@@ -21,8 +21,9 @@ namespace Testing2
         {
             clsCms aCustomer = new clsCms();
             Assert.IsNotNull(aCustomer);
+         
         }
-
+        
         [TestMethod]
         public void CustomerIdPropertyOK()
         {
