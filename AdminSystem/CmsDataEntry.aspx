@@ -2,108 +2,83 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .main {
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 300px;
-        }
-
-        .main h2 {
-            color: blue;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        input[type="email"],
-        input[type="number"] {
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
             width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
         }
-
-        select {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .auto-style2 {
+            width: 132px;
         }
-
-        button[type="submit"] {
-            padding: 15px;
-            border-radius: 10px;
-            border: none;
-            background-color: blue;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-        
-        button[type="register"] {
-            padding: 15px;
-            border-radius: 10px;
-            border: none;
-            background-color: blue;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
+        .auto-style3 {
+            width: 129px;
         }
     </style>
 </head>
-<body>
-    <form action="action_page.php" method="post" class="main">
-        <h2>&nbsp;Sign In</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+<body style="height: 563px; width: 448px">
+    <form id="form1" runat="server">
+        <div>
+            <asp:Panel ID="Panel1" runat="server" Width="445px">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Customer Registration</asp:Panel>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">Customer Id</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerId" runat="server"></asp:TextBox>
+                        <asp:Button ID="BtnFind" runat="server" Text="Find" OnClick="BtnFind_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Date of Registration</td>
+                    <td>
+                        <asp:TextBox ID="TxtDateAdded" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Name</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerName" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Email</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerEmail" runat="server" OnTextChanged="TxtCustomerEmail_TextChanged"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Password</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerPassword" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Post Code</td>
+                    <td>
+                        <asp:TextBox ID="TxtPostCode" runat="server" OnTextChanged="TxtPostCode_TextChanged"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Premium Member</td>
+                    <td>
+                        <asp:CheckBox ID="ChkActive" runat="server" OnCheckedChanged="ChkActive_CheckedChanged" AutoPostBack="true" Text="Premium" />
+                    </td>
+                </tr>
+            </table>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Button ID="BtnOk" runat="server" Text="Ok" OnClick="BtnOk_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
+                    </td>
+                </tr>
+            </table>
+            <asp:Label ID="lblError" runat="server" Text="."></asp:Label>
 
-       
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-   
-    </style>
-</head>
-<body>
-
-        <button type="submit">Log In</button>
-       
-                <p>I don't have an account</p>
-
-            <button type="register">Register</button>
-        </form>
-        <p>
+        </div>
+    </form>
 </body>
 </html>
