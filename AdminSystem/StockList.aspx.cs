@@ -10,24 +10,31 @@ public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //create a new istance of clsStock
-        clsStock AnStock = new clsStock();
-        //get the data from the session object
-        AnStock = (clsStock)Session["AnStock"];
-        //disply the ProductID for this entry
-        Response.Write(AnStock.ProductID);
-        //disply the ProductName for this entry
-        Response.Write(AnStock.ProductName);
-        //disply the ProductDescription for this entry
-        Response.Write(AnStock.ProductDescription);
-        //disply the ProductPrice for this entry
-        Response.Write(AnStock.ProductPrice);
-        //disply the ProductQuantity for this entry
-        Response.Write(AnStock.ProductQuantity);
-        //disply the ProductImg for this entry
-        Response.Write(AnStock.ProductImg);
-        //disply the Active  for this entry
-        Response.Write(AnStock.Active);
+        //if this is the first time 
+        if (IsPostBack == false)
+        {
 
+            //upated the list box
+            DisplayStocks();
+
+
+
+        }
     }
+        void DisplayStocks()
+        {
+            //create an istance of the Address collection
+            clsStockCollection Stocks = new clsStockCollection();
+            //set the data source to list of stocks in the collection
+            lstStockList.DataSource = Stocks.StockList;
+            //set the name of the primary key
+            lstStockList.DataValueField = "ProductId";
+            //set the data field to display
+            lstStockList.DataTextField = "ProductName";
+            //bind the data to the list 
+            lstStockList.DataBind();
+
+        }
+
+    
 }

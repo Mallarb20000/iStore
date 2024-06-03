@@ -153,7 +153,9 @@ namespace ClassLibrary
             }
         }
 
-      
+        public int Count { get; set; }
+
+
 
 
         // find method//
