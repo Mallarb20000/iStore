@@ -20,7 +20,7 @@
         <asp:Label ID="LBLEmail" runat="server" height="22px" style="z-index: 1; left: 51px; top: 189px; position: absolute; " Text="Email" width="40"></asp:Label>
         <asp:Label ID="LBLPostCode" runat="server" height="22px" style="z-index: 1; left: 51px; top: 276px; position: absolute; bottom: 378px" Text="Post Code"></asp:Label>
         <asp:Label ID="LBLName" runat="server" height="22px" style="z-index: 1; left: 51px; top: 232px; position: absolute" Text="Name"></asp:Label>
-        <asp:Label ID="Label2" runat="server" style="z-index: 1; left: 294px; top: 553px; position: absolute"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 294px; top: 553px; position: absolute"></asp:Label>
         <asp:Button ID="BtnDelete" runat="server" style="z-index: 1; left: 223px; top: 477px; position: absolute; width: 50px;" Text="Delete" Height="33px" />
         <asp:Label ID="LBLPaymentAmount" runat="server" height="22px" style="z-index: 1; left: 51px; top: 322px; position: absolute" Text="Payment Amount"></asp:Label>
         <asp:TextBox ID="TXTPaymentDate" runat="server" height="25px" style="z-index: 1; left: 207px; top: 409px; position: absolute"></asp:TextBox>

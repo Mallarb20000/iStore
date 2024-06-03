@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,14 +18,42 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void BtnAdd_Click(object sender, EventArgs e)
     {
-        //create a new instance of clsPayment
-        clsPayment AnPayment = new clsPayment();
-        //capture the Payment Status
-        AnPayment.TransactionStatus = TXTTransactionStutas.Text;
-        //store the status in the bsession object
-        Session["AnPayment"] = AnPayment;
-        //navigate to the list page
-        Response.Redirect("PaymentList.aspx");
+            //create a new instance of clsPayment
+            clsPayment AnPayment = new clsPayment(); 
+            //capture the Name
+            string Name = TXTName.Text;
+            //capture the Email
+            string Email = TXTEmail.Text; 
+            //capture the PaymentAmount
+            string PaymentAmount = TXTPaymentAmount.Text;
+            //capture the Post Code
+            string PostCode = TXTPostCode.Text;
+            //capture the PaymentDate
+            string PaymentDate = TXTPaymentDate.Text;
+            //capture the TranscationStatus
+            string TransactionStatus = TXTTransactionStutas.Text;
+            //variable to store any error messages
+            string Error = "";
+            //validate the data
+            Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus); if (Error == "")
+            if (Error == "")
+            {
+                AnPayment.Name = Name;
+                AnPayment.Email = Email;
+                AnPayment.TransactionStatus = TransactionStatus;
+                AnPayment.PostCode = PostCode;
+                AnPayment.PaymentAmount = PaymentAmount;
+                AnPayment.PaymentDate = Convert.ToDateTime(PaymentDate);
+                //store the status in the bsession object
+                Session["AnPayment"] = AnPayment;
+                //navigate to the list page
+                Response.Redirect("PaymentList.aspx");
+            }
+            else
+            {
+                //display the error message
+                lblError.Text = Error;
+            }
     }
 
     protected void BtnFind_Click(object sender, EventArgs e)
