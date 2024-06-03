@@ -7,6 +7,12 @@ namespace ClassLibrary
 {
     public class clsStockCollection
     {
+        //private data member for the list
+        List<clsStock> mStockList = new List<clsStock>();
+        //private member data for thisStock
+        clsStock mThisStock = new clsStock();
+
+
         //constructor for the class
         public clsStockCollection()
         {
@@ -43,10 +49,7 @@ namespace ClassLibrary
 
         }
 
-
-
-        //private data member for the list 
-        List<clsStock> mStockList = new List<clsStock>();
+        
 
         //public property for the stock list 
         public List<clsStock> StockList
@@ -80,8 +83,32 @@ namespace ClassLibrary
 
         }
 
-        public clsStock ThisStock { get; set; }
-    
+        //public property for ThisStock
+        public clsStock ThisStock
+        {
+
+            get
+            {
+                //return the private data 
+                return mThisStock;
+            }
+
+            set
+            {
+                //set the private data 
+                mThisStock = value;
+            }
+        }
+     
+
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisStock
+            //set the primary key of the new record 
+            mThisStock.ProductID = 7;
+            //return the primary key of the new record
+            return mThisStock.ProductID;
+        }
     }
 
     

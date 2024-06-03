@@ -11,7 +11,7 @@
         
         <div>
         </div>
-        <asp:ListBox ID="lstStockList" runat="server" Height="388px" Width="380px"></asp:ListBox>
+        <asp:ListBox ID="lstStockList" runat="server" Height="388px" Width="380px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged"></asp:ListBox>
     </form>
 </body>
 </html>
