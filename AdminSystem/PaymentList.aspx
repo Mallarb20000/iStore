@@ -17,8 +17,8 @@
         </div>
         <asp:Button ID="BtnDelete" runat="server" style="z-index: 1; left: 165px; top: 417px; position: absolute" Text="Delete" />
         <asp:ListBox ID="PaymentListBox" runat="server" style="z-index: 1; left: 102px; top: 44px; position: absolute; height: 359px; width: 388px"></asp:ListBox>
-        <asp:Button ID="BtnAdd" runat="server" style="z-index: 1; left: 32px; top: 417px; position: absolute" Text="Add" />
-        <asp:Button ID="BtnEdit" runat="server" style="z-index: 1; left: 97px; top: 417px; position: absolute" Text="Edit" />
+        <asp:Button ID="BtnAdd" runat="server" style="z-index: 1; left: 32px; top: 417px; position: absolute" Text="Add" OnClick="BtnAdd_Click" />
+        <asp:Button ID="BtnEdit" runat="server" style="z-index: 1; left: 97px; top: 417px; position: absolute" Text="Edit" OnClick="BtnEdit_Click" />
         <p>
             <asp:Button ID="BtnApplyFilter" runat="server" style="z-index: 1; left: 583px; top: 156px; position: absolute" Text="Apply Filter" />
             <asp:Button ID="BtnClearFilter" runat="server" style="z-index: 1; left: 733px; top: 155px; position: absolute" Text="Clear Filter" />

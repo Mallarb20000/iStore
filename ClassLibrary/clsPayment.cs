@@ -152,7 +152,7 @@ namespace Testing3
             //create a string variable to store th error
             string Error = "";
             //if the Name is blank
-            if (Name.Length <0)
+            if (Name ==null)
             {
                 //record the error
                 Error = Error + "The Name may not be blank : ";
