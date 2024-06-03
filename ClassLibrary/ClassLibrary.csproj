@@ -47,6 +47,7 @@
     <Compile Include="clsPayment.cs" />
     <Compile Include="clsRegister.cs" />
     <Compile Include="clsStock.cs" />
+    <Compile Include="Date.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserPurchaces.cs" />
   </ItemGroup>
