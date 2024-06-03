@@ -28,7 +28,7 @@ public partial class _1_List : System.Web.UI.Page
             //set the data source to list of stocks in the collection
             lstStockList.DataSource = Stocks.StockList;
             //set the name of the primary key
-            lstStockList.DataValueField = "ProductId";
+            lstStockList.DataValueField = "ProductID";
             //set the data field to display
             lstStockList.DataTextField = "ProductName";
             //bind the data to the list 
@@ -36,5 +36,10 @@ public partial class _1_List : System.Web.UI.Page
 
         }
 
-    
+
+
+    protected void lstStockList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
