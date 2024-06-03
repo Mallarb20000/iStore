@@ -34,4 +34,25 @@ public partial class _1_List : System.Web.UI.Page
     {
 
     }
+
+    protected void BtnAdd_Click(object sender, EventArgs e)
+    {
+        Session["CustomerId"] = -1;
+        Response.Redirect("CmsDataEntry.aspx");
+    }
+
+    protected void BtnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 CustomerId;
+        if (lstCustomersList.SelectedIndex != -1)
+        {
+            CustomerId = Convert.ToInt32(lstCustomersList.SelectedValue);
+            Session["CustomerId"]= CustomerId;
+            Response.Redirect("CmsDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a ecord from the list to edit";
+        }
+    }
 }

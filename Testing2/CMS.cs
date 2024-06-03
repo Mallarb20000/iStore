@@ -16,6 +16,8 @@ namespace Testing2
         string CustomerPostCode = "LE1 1ST";
         string DateAdded = DateTime.Now.ToShortDateString();
 
+        public string Membership { get; private set; }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -301,7 +303,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             // invoke the method
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -321,7 +323,7 @@ namespace Testing2
             string CustomerName = "";
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -339,7 +341,7 @@ namespace Testing2
             string CustomerName = "a";
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -357,7 +359,7 @@ namespace Testing2
             string CustomerName = "ac";
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -375,7 +377,7 @@ namespace Testing2
             //create some test to pass to the method
             CustomerName = CustomerName.PadRight(19, 'a');
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -394,7 +396,7 @@ namespace Testing2
             CustomerName = CustomerName.PadRight(50, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -412,7 +414,7 @@ namespace Testing2
             string CustomerName = new string('a', 100);
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -430,7 +432,7 @@ namespace Testing2
             CustomerName = CustomerName.PadRight(51,'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -448,7 +450,7 @@ namespace Testing2
             CustomerName = CustomerName.PadRight(10,'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -471,7 +473,7 @@ namespace Testing2
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -491,7 +493,7 @@ namespace Testing2
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString("");
             //invoke the method
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
 
@@ -511,7 +513,7 @@ namespace Testing2
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -531,7 +533,7 @@ namespace Testing2
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -545,7 +547,7 @@ namespace Testing2
             //set the DateAdded to a non date value
             string DateAdded = "This is mot a date!";
             //invoke the method
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -564,7 +566,7 @@ namespace Testing2
             string CustomerPassword = "aaaa";
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -582,7 +584,7 @@ namespace Testing2
             string CustomerPassword = "aaaaa";
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -600,7 +602,7 @@ namespace Testing2
             string CustomerPassword = "aaaaaa";
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -618,7 +620,7 @@ namespace Testing2
             //create some test to pass to the method
             CustomerPassword = CustomerPassword.PadRight(19, 'a');
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -637,7 +639,7 @@ namespace Testing2
             CustomerPassword = CustomerPassword.PadRight(20, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -655,7 +657,7 @@ namespace Testing2
             string CustomerPassword = new string('a', 100);
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -673,7 +675,7 @@ namespace Testing2
             CustomerPassword = CustomerPassword.PadRight(51, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -691,7 +693,7 @@ namespace Testing2
             CustomerPassword = CustomerPassword.PadRight(10, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -711,7 +713,7 @@ namespace Testing2
             string CustomerEmail = "aaaaaaaaaa"; //10
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -729,7 +731,7 @@ namespace Testing2
             string CustomerPassword = "aaaaaaaaaa";//11
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -747,7 +749,7 @@ namespace Testing2
             string CustomerPassword = "aaaaaaaaaaa";//12
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -765,7 +767,7 @@ namespace Testing2
             //create some test to pass to the method
             CustomerEmail = CustomerEmail.PadRight(49, 'a');
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -784,7 +786,7 @@ namespace Testing2
             CustomerEmail = CustomerEmail.PadRight(50, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -802,7 +804,7 @@ namespace Testing2
             string CustomerEmail = new string('a', 100);
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -820,7 +822,7 @@ namespace Testing2
             CustomerEmail = CustomerEmail.PadRight(51, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -838,7 +840,7 @@ namespace Testing2
             CustomerEmail = CustomerEmail.PadRight(25, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -859,7 +861,7 @@ namespace Testing2
             string CustomerPostCode = "aaa"; //3
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -877,7 +879,7 @@ namespace Testing2
             string CustomerPostCode = "aaaa";//4
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -895,7 +897,7 @@ namespace Testing2
             string CustomerPostCode = "aaaaa";//5
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -913,7 +915,7 @@ namespace Testing2
             //create some test to pass to the method
             CustomerPostCode = CustomerPostCode.PadRight(9, 'a');
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -932,7 +934,7 @@ namespace Testing2
             CustomerEmail = CustomerEmail.PadRight(10, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -950,7 +952,7 @@ namespace Testing2
             string CustomerPostCode = new string('a', 50);
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -968,7 +970,7 @@ namespace Testing2
             CustomerPostCode = CustomerPostCode.PadRight(11, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -986,7 +988,7 @@ namespace Testing2
             CustomerPostCode = CustomerPostCode.PadRight(5, 'a');
 
             //invoke the method 
-            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+            Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
 
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
