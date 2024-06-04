@@ -102,7 +102,6 @@
             top: 218px;
             left: 17px;
             z-index: 1;
-            width: 111px;
             height: 22px;
         }
         .auto-style30 {
@@ -174,7 +173,7 @@
                         <asp:Label ID="Label7" runat="server" CssClass="auto-style29" Text="Quantity" width="139px"></asp:Label>
                     </td>
                     <td class="auto-style23">
-                        <asp:TextBox ID="TxtQuantity" runat="server" CssClass="auto-style30" height="30px" width="322px"></asp:TextBox>
+                        <asp:TextBox ID="TxtQuantity" runat="server" CssClass="auto-style30" height="30px" width="322px" OnTextChanged="TxtQuantity_TextChanged"></asp:TextBox>
                     </td>
                     <td class="auto-style24"></td>
                 </tr>
