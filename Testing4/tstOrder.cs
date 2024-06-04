@@ -127,7 +127,7 @@ namespace Testing4
             //create a Boolean Variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 2;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //test to see if the result is true
@@ -145,11 +145,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the Order ID
-            if (AnOrder.OrderID !=21)
+            if (AnOrder.OrderID !=1)
             {
                 OK = false;
             }
@@ -167,7 +167,7 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 2;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the dateAdded property
@@ -189,7 +189,7 @@ namespace Testing4
             //create Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 2;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the active property
