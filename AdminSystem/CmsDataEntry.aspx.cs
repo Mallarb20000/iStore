@@ -11,13 +11,34 @@ using System.Xml.Linq;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    public int CustomerId { get; private set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        CustomerId = Convert.ToInt32(Session["CustomerId"]);
+        if (IsPostBack == false)
+        {
+            if (CustomerId != -1)
+            {
+                DisplayCustomers();
+            }
+        }
 
 
     }
+    void DisplayCustomers()
+    {
+        clsCmsCollection CustomerBook = new clsCmsCollection();
+        CustomerBook.ThisCustomer.Find(CustomerId);
+        TxtCustomerId.Text=CustomerBook.ThisCustomer.CustomerId.ToString();
+        TxtDateAdded.Text = CustomerBook.ThisCustomer.DateAdded.ToString();
+        TxtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName;
+        TxtCustomerEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
+        TxtCustomerPassword.Text = CustomerBook.ThisCustomer.CustomerPassword;
+        TxtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
+        ChkActive.Checked = CustomerBook.ThisCustomer.Membership;
 
+    }
     protected void TxtCustomerEmail_TextChanged(object sender, EventArgs e)
     {
         // Your event handler logic here
@@ -72,20 +93,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //variable to store any error message 
         string Error = "";
         //validate the data 
-        Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded);
+        Error = aCustomer.Valid(CustomerName, CustomerEmail, CustomerPassword, CustomerPostCode, DateAdded, Membership);
         if (Error == "")
         {
-            // capture the ProductName
+            aCustomer.CustomerId = CustomerId;   
             aCustomer.CustomerName = CustomerName;
-            //capture the ProductDescription
             aCustomer.DateAdded = Convert.ToDateTime(DateTime.Now);
-            //capture the ProductPrice
             aCustomer.CustomerEmail = CustomerEmail;
-            //capture the ProductQuantity
             aCustomer.CustomerPassword = CustomerPassword;
-            //store the stock in the session object
-            Session["aCustomer"] = aCustomer;
-            //navigate to the Stock Detail View  page
+            aCustomer.PostCode = CustomerPostCode;
+            aCustomer.Membership = ChkActive.Checked;
+            clsCmsCollection CustomerList = new clsCmsCollection();
+            // create a new instance of the class collection
+           if (CustomerId == -1)
+            {
+                CustomerList.ThisCustomer= aCustomer;
+                CustomerList.Add();
+            }
+           else
+            {
+                CustomerList.ThisCustomer.Find(CustomerId);
+                CustomerList.ThisCustomer = aCustomer;  
+                CustomerList.Update();
+            }
             Response.Redirect("CmsList.aspx");
 
         }

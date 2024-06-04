@@ -102,7 +102,7 @@ namespace ClassLibrary
 
        
 
-        public string Valid( string customerName, string customerEmail, string customerPassword, string PostCode, string dateAdded)
+        public string Valid( string customerName, string customerEmail, string customerPassword, string PostCode, string dateAdded, string membership)
         {
             //create a string variable to store the error
             String Error = "";

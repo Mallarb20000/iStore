@@ -69,7 +69,7 @@
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style3">
-                        <asp:Button ID="BtnOk" runat="server" Text="Ok" OnClick="BtnOk_Click" />
+                        <asp:Button ID="BtnOk" runat="server" Text="Ok" OnClick="BtnOk_Click" style="width: 31px" />
                     </td>
                     <td>
                         <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
