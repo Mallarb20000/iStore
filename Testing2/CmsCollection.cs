@@ -153,6 +153,73 @@ namespace Testing2
             Assert.AreEqual(allCustomer.ThisCustomer, TestItem);
            
         }
+        [TestMethod]        
+        public void DeleteMethodOk() 
+        {
+            //create an instance of the class we want to create
+            clsCmsCollection allCustomer = new clsCmsCollection();
+            clsCms TestItem = new clsCms();
+            //variable to stroe the primary key
+            Int32 PrimaryKey = 0;
+            TestItem.CustomerId = 1;
+            TestItem.DateAdded = DateTime.Now;
+            TestItem.CustomerName = "Hasibe Genc";
+            TestItem.CustomerEmail = "hasibeegencc@gmail.com";
+            TestItem.CustomerPassword = "Hasibe04";
+            TestItem.PostCode = "LE1 1ST";
+            TestItem.Membership = true;
+            allCustomer.ThisCustomer = TestItem;
+            //set ThisCustomer to the tes data
+            PrimaryKey = allCustomer.Add(); 
+            //set the primary key of the test data
+            TestItem.CustomerId = PrimaryKey;
+            allCustomer.ThisCustomer.Find(PrimaryKey);
+            //find the record
+            allCustomer.Delete();
+            //now find the record
+            Boolean Found = allCustomer.ThisCustomer.Find(PrimaryKey);  
+            Assert.IsTrue(Found); 
+        }
 
+        [TestMethod]    
+        public void ReportByPostCodeMethodOK()
+        {
+            clsCmsCollection allCustomers = new clsCmsCollection(); 
+            clsCmsCollection FilteredCustomer = new clsCmsCollection();
+            FilteredCustomer.ReportByPostCode("");
+            Assert.AreEqual(allCustomers.Count, FilteredCustomer.Count);
+        }
+        [TestMethod]
+        public void ReportByPostCodeNoneFound() 
+        { 
+            clsCmsCollection FilteredCustomer= new clsCmsCollection();
+            FilteredCustomer.ReportByPostCode("xxx xxx");
+            Assert.AreEqual(0, FilteredCustomer.Count);
+        }
+
+        [TestMethod]
+        public void ReportByPostCodeTestDataFound()
+        {
+            clsCmsCollection FilteredCustomer = new clsCmsCollection();
+            Boolean OK = true;
+            FilteredCustomer.ReportByPostCode("yyy yyy");
+            if(FilteredCustomer.Count == 2)
+            {
+                if (FilteredCustomer.CustomerList[0].CustomerId != 25)
+                {
+                    OK = false;
+                }
+            }  
+            if (FilteredCustomer.CustomerList[1].CustomerId != 26)
+            { 
+                OK = false; 
+            }
+            else
+            {
+                OK = false; 
+            }
+            Assert.IsTrue(OK);
     }
+
+}
 }

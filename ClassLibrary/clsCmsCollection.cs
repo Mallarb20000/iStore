@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 
 namespace ClassLibrary
@@ -15,27 +16,28 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_TableCms_SelectAll");
+            PopulateArray(DB);  
             //et the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank address
-                clsCms aCustomer = new clsCms();
-                //read in the fileds for the curent record
-                aCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
-                aCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
-                aCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
-                aCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
-                aCustomer.CustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
-                aCustomer.PostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
-                aCustomer.Membership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_memership"]);
-                // add the record to the private data memeber
-                mCustomerList.Add(aCustomer);
-                //point at the next record
-                Index++;
+            //RecordCount = DB.Count;
+            ////while there are records to process
+            //while (Index < RecordCount)
+            //{
+            //    //create a blank address
+            //    clsCms aCustomer = new clsCms();
+            //    //read in the fileds for the curent record
+            //    aCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
+            //    aCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
+            //    aCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
+            //    aCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
+            //    aCustomer.CustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
+            //    aCustomer.PostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
+            //    aCustomer.Membership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_memership"]);
+            //    // add the record to the private data memeber
+            //    mCustomerList.Add(aCustomer);
+            //    //point at the next record
+            //    Index++;
 
-            }
+            //}
         }
 
        
@@ -114,5 +116,41 @@ namespace ClassLibrary
             DB.AddParameter("@C_memership", mThisCustomer.Membership);
             DB.Execute("sproc_TableCms_Update");
         }
+        
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection(); 
+            DB.AddParameter("C_id",mThisCustomer.CustomerId);
+            DB.Execute("sproc_TableCms_Delete");
+        }
+
+        public void ReportByPostCode(string PostCode)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@C_postCode", PostCode);
+            DB.Execute("sproc_TableCmc_FilteredByPostCode");
+            PopulateArray(DB);  
+        }
+        void PopulateArray (clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mCustomerList = new List<clsCms> ();
+            while (Index < RecordCount) 
+            {
+                clsCms aCustomer = new clsCms ();
+                aCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
+                aCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
+                aCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
+                aCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
+                aCustomer.CustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
+                aCustomer.PostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
+                aCustomer.Membership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_memership"]);
+                mCustomerList.Add (aCustomer);  
+                Index++;
+            }
+
+        }
     }
-    }
+}

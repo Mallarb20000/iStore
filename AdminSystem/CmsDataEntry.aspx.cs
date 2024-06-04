@@ -32,10 +32,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         CustomerBook.ThisCustomer.Find(CustomerId);
         TxtCustomerId.Text=CustomerBook.ThisCustomer.CustomerId.ToString();
         TxtDateAdded.Text = CustomerBook.ThisCustomer.DateAdded.ToString();
-        TxtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName.ToString();
-        TxtCustomerEmail.Text = CustomerBook.ThisCustomer.CustomerEmail.ToString();
-        TxtCustomerPassword.Text = CustomerBook.ThisCustomer.CustomerPassword.ToString();
-        TxtPostCode.Text = CustomerBook.ThisCustomer.PostCode.ToString();
+        TxtCustomerName.Text = CustomerBook.ThisCustomer.CustomerName;
+        TxtCustomerEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
+        TxtCustomerPassword.Text = CustomerBook.ThisCustomer.CustomerPassword;
+        TxtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
         ChkActive.Checked = CustomerBook.ThisCustomer.Membership;
 
     }
@@ -101,6 +101,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             aCustomer.DateAdded = Convert.ToDateTime(DateTime.Now);
             aCustomer.CustomerEmail = CustomerEmail;
             aCustomer.CustomerPassword = CustomerPassword;
+            aCustomer.PostCode = CustomerPostCode;
             aCustomer.Membership = ChkActive.Checked;
             clsCmsCollection CustomerList = new clsCmsCollection();
             // create a new instance of the class collection
