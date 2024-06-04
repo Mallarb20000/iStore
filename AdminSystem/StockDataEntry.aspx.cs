@@ -37,6 +37,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
         if (Error == "")
         {
+
             // capture the ProductName
             AnStock.ProductName = ProductName;
             //capture the ProductDescription
@@ -45,10 +46,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStock.ProductPrice = Convert.ToInt32(ProductPrice);
             //capture the ProductQuantity
             AnStock.ProductQuantity = Convert.ToInt32(ProductQuantity);
-            //store the stock in the session object
-            Session["AnStock"] = AnStock;
-            //navigate to the Stock Detail View  page
+            //capture the ProductImg
+            AnStock.ProductImg = ProductImg;
+            //capture Active
+            AnStock.Active = chkActive.Checked;
+            //create the new instance of the Stock Collection
+            clsStockCollection StockList = new clsStockCollection();
+            //set the ThisStock property
+            StockList.ThisStock = AnStock;
+            //add the new record
+            StockList.Add();
+            //Redirect back to the list page
             Response.Redirect("StockList.aspx");
+
 
         }
 
