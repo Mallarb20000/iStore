@@ -91,10 +91,21 @@ namespace ClassLibrary
             mTown = Convert.ToString(DB.DataTable.Rows[0]["City"]);*/
             
             //always return true
-            return true;
+           // return true;
             
         }
-        //private data member for the Order ID property
-        
+        //function for the public validation method
+       /* public string Valid(string Town,
+                            string Street,
+                            DateTime DateAdded) 
+        //// this function accepts 3 parameters for validation
+        //// the function returns a string containing any error message
+        //// if no errors found then a blank string is returned
+        { }*/
+
+        public string Valid(string town, string street, string dateAdded)
+        {
+            return "";
+        }
     }
 }
