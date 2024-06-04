@@ -121,7 +121,7 @@ namespace Testing1
             TestItem.ProductPrice = 1000;
             TestItem.ProductDescription = "12 inch";
             TestItem.ProductQuantity = 1;
-            TestItem.ProductImg = null;
+            TestItem.ProductImg = "pic1";
             //set ThisStock to the test data
             AllStocks.ThisStock = TestItem;
             //add the record

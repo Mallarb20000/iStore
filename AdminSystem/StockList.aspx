@@ -10,8 +10,13 @@
     <form id="form1" runat="server">
         
         <div>
+                    <asp:ListBox ID="lstStockList" runat="server" Height="388px" Width="380px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged"></asp:ListBox>
+
         </div>
-        <asp:ListBox ID="lstStockList" runat="server" Height="388px" Width="380px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged"></asp:ListBox>
+        
+        <p>
+            <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" style="z-index: 1; left: 16px; top: 416px; position: absolute" Text="Add" />
+        </p>
     </form>
 </body>
 </html>
