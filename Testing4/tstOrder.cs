@@ -127,7 +127,7 @@ namespace Testing4
             //create a Boolean Variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 2;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //test to see if the result is true
@@ -145,15 +145,59 @@ namespace Testing4
             //create a Boolean variable to record if the data is ok (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 21;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the Order ID
-            if (AnOrder.OrderID !=21)
+            if (AnOrder.OrderID !=1)
             {
                 OK = false;
             }
             //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false; 
+            //create a Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 2;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the dateAdded property
+            if (AnOrder.DateAdded != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 2;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the active property
+            if (AnOrder.Active != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
             Assert.IsTrue(OK);
         }
     }
