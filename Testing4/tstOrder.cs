@@ -7,6 +7,11 @@ namespace Testing4
     [TestClass]
     public class tstOrder
     {
+        //good test data 
+        //create some test data to pass the method
+        String Town = "Leicester";
+        String Street = "Some Street";
+        String DateAdded = DateTime.Now.ToShortDateString();
         [TestMethod]
         public void InstanceOK()
         {
@@ -149,7 +154,7 @@ namespace Testing4
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the Order ID
-            if (AnOrder.OrderID !=1)
+            if (AnOrder.OrderID != 1)
             {
                 OK = false;
             }
@@ -163,7 +168,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create a Boolean variable to store the result of the search
-            Boolean Found = false; 
+            Boolean Found = false;
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
@@ -200,5 +205,33 @@ namespace Testing4
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AnOrder.Valid(Town, Street, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Street = ""; //this should be ok
+            //invoke the method
+            Error = AnOrder.Valid( Street, Town, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        } 
     }
 }
