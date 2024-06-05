@@ -34,7 +34,7 @@
             <asp:Label ID="Label2" runat="server" Text="Username"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtUsername" runat="server" width="128px"></asp:TextBox>
-            <asp:TextBox ID="Timestamp" runat="server" Enabled="False" Style="z-index: 1; left: 725px; top: 147px; position: absolute" ReadOnly="True" OnTextChanged="Timestamp_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="Timestamp" runat="server" Enabled="False" Style="z-index: 1; left: 725px; top: 147px; position: absolute" ReadOnly="True" ></asp:TextBox>
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
