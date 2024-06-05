@@ -209,8 +209,31 @@ namespace Testing1
 
         }
 
+        [TestMethod]
 
+        public void ReportByProductNameMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStockCollection AllStocks = new clsStockCollection();
+            //create an instance of the filtered data 
+            clsStockCollection FilteredStocks = new clsStockCollection();
+            //apply a blank string (should return all records);
+            FilteredStocks.ReportByProductName("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStocks.Count, FilteredStocks.Count);
+        }
 
+        [TestMethod]
+
+        public void ReportByProductNameNoneFound()
+        {
+            //create an instance of the class we want to create 
+            clsStockCollection FilteredStocks = new clsStockCollection();
+            //apply a  produc name that doesnt exist 
+            FilteredStocks.ReportByProductName("mac102");
+            //test to see that there are no records 
+            Assert.AreEqual(0,FilteredStocks.Count);
+        }
 
 
 
