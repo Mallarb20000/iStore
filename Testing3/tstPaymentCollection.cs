@@ -191,12 +191,46 @@ namespace Testing3
             Assert.IsFalse(Found);
         }
         [TestMethod]
-        public void ReportByPostCodeMethodOK() 
+        public void ReportByPostCodeMethodOK()
         {
             clsPaymentCollection AllPayments = new clsPaymentCollection();
             clsPaymentCollection FilteredPayments = new clsPaymentCollection();
             FilteredPayments.ReportByPostCode("");
             Assert.AreEqual(AllPayments.Count, FilteredPayments.Count);
+        }
+
+
+
+        [TestMethod]
+        public void ReportByPostCodeTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsPaymentCollection FilteredPayments = new clsPaymentCollection();
+            //variable to store the outcome
+            Boolean OK = true;
+            //apply a post code that doesn't exist
+            FilteredPayments.ReportByPostCode("yyy yyy");
+            //check that the correct number of records are found
+            if (FilteredPayments.Count == 2)
+            {
+                //check to see that the first record is 25
+                if (FilteredPayments.PaymentList[0].PaymentID != 25)
+                {
+                    OK = false;
+                }
+                //check to see that the first record is 26
+                if (FilteredPayments.PaymentList[1].PaymentID != 26)
+                {
+                    OK = false;
+                }
+                else
+                {
+                    OK = false;
+                }
+                //test to see that there are no records
+                Assert.IsTrue(OK);
+            }
+
         }
     }
 }

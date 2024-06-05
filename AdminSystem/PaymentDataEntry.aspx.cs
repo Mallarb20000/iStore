@@ -11,6 +11,7 @@ using Testing3;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 PaymentID;
     protected void Page_Load(object sender, EventArgs e)
     {
 
