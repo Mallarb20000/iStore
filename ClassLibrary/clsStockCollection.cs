@@ -12,6 +12,38 @@ namespace ClassLibrary
         //private member data for thisStock
         clsStock mThisStock = new clsStock();
 
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //variable for the index
+            Int32 Index = 0;
+            //variable to store the record count 
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list 
+            mStockList = new List<clsStock>();
+            //while there are rcords to process
+            while (Index < RecordCount)
+            {
+                //create a blank stock
+                clsStock AnStock = new clsStock();
+                //read in the fields
+                AnStock.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnStock.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
+                AnStock.ProductName = Convert.ToString(DB.DataTable.Rows[Index]["ProductName"]);
+                AnStock.ProductPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductPrice"]);
+                AnStock.ProductQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductQuantity"]);
+                AnStock.ProductDescription = Convert.ToString(DB.DataTable.Rows[Index]["ProductDescription"]);
+                AnStock.ProductImg = Convert.ToString(DB.DataTable.Rows[Index]["ProductImg"]);
+                //add the record to the  the private data member
+                mStockList.Add(AnStock);
+                //point at the next record
+                Index++;
+            }
+
+        }
+
 
         //constructor for the class
         public clsStockCollection()
@@ -24,6 +56,8 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             //exacute the stored procedure
             DB.Execute("sproc_tblStock_SelectAll");
+            //populate the array list  with the data table
+            PopulateArray(DB);
             //get the count of records
             RecordCount = DB.Count;
             //while there are rcords to process
@@ -46,7 +80,7 @@ namespace ClassLibrary
 
             }
 
-
+            
         }
 
         
@@ -128,6 +162,17 @@ namespace ClassLibrary
             DB.AddParameter("@ProductID", mThisStock.ProductID);
             //Exacute the stored procedure
             DB.Execute("sproc_tblStock_Delete");
+        }
+
+        public void ReportByProductName(string ProductName )
+        {
+            //filters the records based on a full or partial product name 
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the product =name parameter to the database 
+            DB.AddParameter("@ProductName", ProductName);
+            //exacute  the stored procedure
+            DB.Execute("sproc_tblStock_FilterByProductName");
         }
 
         public void Update()
