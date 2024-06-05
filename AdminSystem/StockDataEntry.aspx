@@ -91,8 +91,8 @@
         }
         .auto-style28 {
             position: absolute;
-            top: 258px;
-            left: 210px;
+            top: 268px;
+            left: 209px;
             z-index: 1;
             width: 336px;
             height: 35px;
@@ -110,8 +110,7 @@
             z-index: 1;
             width: 299px;
             bottom: 429px;
-            left: 211px;
-        }
+            }
         .auto-style33 {
             position: absolute;
             top: 27px;
@@ -173,7 +172,7 @@
                         <asp:Label ID="Label7" runat="server" CssClass="auto-style29" Text="Quantity" width="139px"></asp:Label>
                     </td>
                     <td class="auto-style23">
-                        <asp:TextBox ID="TxtQuantity" runat="server" CssClass="auto-style30" height="30px" width="322px" OnTextChanged="TxtQuantity_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="TxtQuantity" runat="server" CssClass="auto-style30" height="30px" width="322px"></asp:TextBox>
                     </td>
                     <td class="auto-style24"></td>
                 </tr>
@@ -192,7 +191,7 @@
         <p>
         <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" />
         <asp:Button ID="BtnOK" runat="server" CssClass="auto-style26" OnClick ="BtnOK_Click1" Text="OK" ForeColor="#00CC00" />
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]" Visible="False"></asp:Label>
         </p>
     </form>
 </body>
