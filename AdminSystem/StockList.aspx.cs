@@ -93,34 +93,43 @@ public partial class _1_List : System.Web.UI.Page
         }
     }
 
-    protected void btnApplyFilter_Click(object sender, EventArgs e)
-    {
-        {
-            clsStockCollection  AnStock = new clsStockCollection();
-           AnStock.ReportByProductName(txtFilter.Text);
-            lstStockList.DataSource = AnStock.StockList;
-            lstStockList.DataValueField = "ProductID";
-            lstStockList.DataTextField = "ProductName";
-            lstStockList.DataBind();
-        }
+    //protected void btnApplyFilter_Click(object sender, EventArgs e)
+    //{
+    //    {
+            
+    //    }
 
+    //}
+
+    //protected void btnClearFilter_Click(object sender, EventArgs e)
+    //{
+    //    {
+    //    }
+
+    //}
+
+
+
+
+
+    protected void btnApplyFilter_Click1(object sender, EventArgs e)
+    {
+        clsStockCollection AnStock = new clsStockCollection();
+        AnStock.ReportByProductName(txtFilter.Text);
+        lstStockList.DataSource = AnStock.StockList;
+        lstStockList.DataValueField = "ProductID";
+        lstStockList.DataTextField = "ProductName";
+        lstStockList.DataBind();
     }
 
-    protected void btnClearFilter_Click(object sender, EventArgs e)
+    protected void BtnClearFilter_Click(object sender, EventArgs e)
     {
-        {
-            clsStockCollection AnStock = new clsStockCollection();
-            AnStock.ReportByProductName("");
-            txtFilter.Text = "";
-            lstStockList.DataSource = AnStock.StockList;
-            lstStockList.DataValueField = "ProductID";
-            lstStockList.DataTextField = "ProductName";
-            lstStockList.DataBind();
-        }
-
+        clsStockCollection AnStock = new clsStockCollection();
+        AnStock.ReportByProductName("");
+        txtFilter.Text = "";
+        lstStockList.DataSource = AnStock.StockList;
+        lstStockList.DataValueField = "ProductID";
+        lstStockList.DataTextField = "ProductName";
+        lstStockList.DataBind();
     }
-
-
-
-
 }
