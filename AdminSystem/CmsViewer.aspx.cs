@@ -11,4 +11,10 @@ public partial class _1Viewer : System.Web.UI.Page
     {
 
     }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CmsList.aspx");
+
+    }
 }
