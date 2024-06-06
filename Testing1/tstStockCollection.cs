@@ -235,6 +235,37 @@ namespace Testing1
             Assert.AreEqual(0,FilteredStocks.Count);
         }
 
+        [TestMethod]    
+        public void ReportByProductNameTestDataFound()
+        {
+            //create an instance of the class we want to create
+            clsStockCollection FilteredStocks= new clsStockCollection();
+
+            //create a Boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //non-existing product name 
+            FilteredStocks.ReportByProductName("mac15");
+
+            //check the ucorrect is found
+            if (FilteredStocks.Count == 2)
+            {
+                //checked to see that the first record is 23
+                if (FilteredStocks.StockList[0].ProductID != 1)
+                {
+                    OK = false;
+                }
+                if (FilteredStocks.StockList[1].ProductID!= 3)
+                {
+                    OK = false;
+                }
+
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
 
 
 
