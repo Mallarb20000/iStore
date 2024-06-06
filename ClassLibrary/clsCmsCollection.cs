@@ -9,10 +9,7 @@ namespace ClassLibrary
 
         public clsCmsCollection()
         {
-            //variable for the index
-            Int32 Index = 0;
-            //variable to store he record count
-            Int32 RecordCount = 0;
+            
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_TableCms_SelectAll");
@@ -140,13 +137,13 @@ namespace ClassLibrary
             while (Index < RecordCount) 
             {
                 clsCms aCustomer = new clsCms ();
-                aCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["C_id"]);
-                aCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["C_timeStrap"]);
-                aCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[0]["C_name"]);
-                aCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["C_email"]);
-                aCustomer.CustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["C_password"]);
-                aCustomer.PostCode = Convert.ToString(DB.DataTable.Rows[0]["C_postCode"]);
-                aCustomer.Membership = Convert.ToBoolean(DB.DataTable.Rows[0]["C_memership"]);
+                aCustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["C_id"]);
+                aCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["C_timeStrap"]);
+                aCustomer.CustomerName = Convert.ToString(DB.DataTable.Rows[Index]["C_name"]);
+                aCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["C_email"]);
+                aCustomer.CustomerPassword = Convert.ToString(DB.DataTable.Rows[Index]["C_password"]);
+                aCustomer.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["C_postCode"]);
+                aCustomer.Membership = Convert.ToBoolean(DB.DataTable.Rows[Index]["C_memership"]);
                 mCustomerList.Add (aCustomer);  
                 Index++;
             }

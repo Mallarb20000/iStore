@@ -267,7 +267,7 @@ namespace Testing2
             //invoke the method
             Found = aCustomer.Find(CustomerId);
             //check the timestamp property
-            if (aCustomer.PostCode != "LE11ST")
+            if (aCustomer.PostCode != "SS0")
             {
                 OK = false;
             }
