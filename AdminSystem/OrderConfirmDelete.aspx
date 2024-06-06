@@ -22,7 +22,7 @@
         <asp:Label ID="Label7" runat="server" height="19px" style="z-index: 1; left: 87px; top: 272px; position: absolute" Text="Payment Amount" width="111px"></asp:Label>
         <p>
             <asp:Label ID="Label9" runat="server" height="19px" style="z-index: 1; left: 87px; top: 387px; position: absolute" Text="Order Status" width="111px"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server" height="22px" style="z-index: 1; left: 222px; top: 387px; position: absolute" width="128px"></asp:TextBox>
+            <asp:TextBox ID="txtorderstat" runat="server" height="22px" style="z-index: 1; left: 222px; top: 387px; position: absolute" width="128px"></asp:TextBox>
             <asp:TextBox ID="TextBox2" runat="server" height="22px" style="z-index: 1; left: 222px; top: 274px; position: absolute" width="128px"></asp:TextBox>
             <asp:TextBox ID="txtproductid" runat="server" height="22px" style="z-index: 1; left: 212px; top: 108px; position: absolute" width="128px"></asp:TextBox>
             <asp:TextBox ID="txtcity" runat="server" height="22px" style="z-index: 1; left: 214px; top: 142px; position: absolute" width="128px"></asp:TextBox>
@@ -36,6 +36,7 @@
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 488px; top: 323px; position: absolute" Text="OK" />
         <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 551px; top: 322px; position: absolute" Text="Cancel" />
         <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" style="z-index: 1; left: 553px; top: 90px; position: absolute" Text="Find" />
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 521px; top: 223px; position: absolute" Text="LblError"></asp:Label>
     </form>
 </body>
 </html>
