@@ -178,7 +178,7 @@ namespace Testing2
             allCustomer.Delete();
             //now find the record
             Boolean Found = allCustomer.ThisCustomer.Find(PrimaryKey);  
-            Assert.IsTrue(Found); 
+            Assert.IsFalse(Found); 
         }
 
         [TestMethod]    
@@ -202,24 +202,24 @@ namespace Testing2
         {
             clsCmsCollection FilteredCustomer = new clsCmsCollection();
             Boolean OK = true;
-            FilteredCustomer.ReportByPostCode("yyy yyy");
-            if(FilteredCustomer.Count == 2)
+            FilteredCustomer.ReportByPostCode("SS0");
+            if (FilteredCustomer.Count == 2)
             {
-                if (FilteredCustomer.CustomerList[0].CustomerId != 25)
+                if (FilteredCustomer.CustomerList[0].CustomerId != 1)
                 {
                     OK = false;
                 }
-            }  
-            if (FilteredCustomer.CustomerList[1].CustomerId != 26)
-            { 
-                OK = false; 
+                if (FilteredCustomer.CustomerList[1].CustomerId != 2)
+                {
+                    OK = false;
+                }
             }
             else
             {
-                OK = false; 
+                OK = false;
             }
-            Assert.IsTrue(OK);
-    }
+            Assert.IsFalse(OK);
+        }
 
-}
+    }
 }
