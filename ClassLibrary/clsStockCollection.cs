@@ -48,42 +48,14 @@ namespace ClassLibrary
         //constructor for the class
         public clsStockCollection()
         {
-            //variable for the index
-            Int32 Index = 0;
-            //variable to store the record count 
-            Int32 RecordCount= 0;   
-            //object for the data connect 
+            //onject for data connection
             clsDataConnection DB = new clsDataConnection();
-            //exacute the stored procedure
             DB.Execute("sproc_tblStock_SelectAll");
-            //populate the array list  with the data table
             PopulateArray(DB);
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are rcords to process
-            while ( Index < RecordCount )
-            {
-                //create a blank stock
-                clsStock AnStock = new clsStock();
-                //read in the fields
-                AnStock.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnStock.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
-                AnStock.ProductName = Convert.ToString(DB.DataTable.Rows[Index]["ProductName"]);
-                AnStock.ProductPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductPrice"]);
-                AnStock.ProductQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductQuantity"]);
-                AnStock.ProductDescription = Convert.ToString(DB.DataTable.Rows[Index]["ProductDescription"]);
-                AnStock.ProductImg = Convert.ToString(DB.DataTable.Rows[Index]["ProductImg"]);
-                //add the record to the  the private data member
-                mStockList.Add( AnStock );
-                //point at the next record
-                Index++;
 
-            }
-
-            
         }
 
-        
+
 
         //public property for the stock list 
         public List<clsStock> StockList
@@ -98,19 +70,19 @@ namespace ClassLibrary
                 //set the private data 
                 mStockList = value;
             }
-        
+
         }
-         //public property for count
-         public int Count
+        //public property for count
+        public int Count
         {
             get
             {
-               //return the count of the list 
+                //return the count of the list 
                 return mStockList.Count;
 
             }
 
-        set
+            set
             {
 
             }
@@ -133,7 +105,7 @@ namespace ClassLibrary
                 mThisStock = value;
             }
         }
-     
+
 
         public int Add()
         {
@@ -164,7 +136,7 @@ namespace ClassLibrary
             DB.Execute("sproc_tblStock_Delete");
         }
 
-        public void ReportByProductName(string ProductName )
+        public void ReportByProductName(string ProductName)
         {
             //filters the records based on a full or partial product name 
             //connect to the database
@@ -173,6 +145,9 @@ namespace ClassLibrary
             DB.AddParameter("@ProductName", ProductName);
             //exacute  the stored procedure
             DB.Execute("sproc_tblStock_FilterByProductName");
+            //populate the array list  with the data table
+            PopulateArray(DB);
+
         }
 
         public void Update()
@@ -195,8 +170,8 @@ namespace ClassLibrary
 
         }
     }
+}
 
     
    
 
-}
