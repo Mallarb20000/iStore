@@ -14,7 +14,9 @@
 
                     <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 152px; top: 477px; position: absolute; width: 90px; height: 43px;" Text="Edit" />
 
-            <asp:Button ID="BtnClearFilter" runat="server" style="z-index: 1; top: 679px; position: absolute; right: 1290px; height: 28px; width: 93px; margin-top: 0px;" Text="Clear Filter " OnClick="BtnClearFilter_Click" />
+            <asp:Button ID="BtnClearFilter" runat="server" style="z-index: 1; top: 652px; position: absolute; right: 1305px; height: 28px; width: 93px; margin-top: 0px;" Text="Clear Filter " OnClick="BtnClearFilter_Click" />
+
+        <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 17px; top: 610px; position: absolute" Text="Enter a Product Name"></asp:Label>
 
         </div>
         
@@ -26,15 +28,14 @@
             <asp:Label ID="LblError1" runat="server" style="z-index: 1; left: 18px; top: 551px; position: absolute" Text="[lblError]" Visible="False"></asp:Label>
         </p>
         <p>
-            <asp:Button ID="btnApplyFilter" runat="server" style="z-index: 1; left: 56px; top: 678px; position: absolute; height: 30px;" Text="Apply Filter" OnClick="btnApplyFilter_Click1" />
+            <asp:Button ID="btnApplyFilter" runat="server" style="z-index: 1; left: 20px; top: 651px; position: absolute; height: 30px;" Text="Apply Filter" OnClick="btnApplyFilter_Click1" />
         </p>
         <p>
             &nbsp;</p>
-        <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 17px; top: 625px; position: absolute" Text="Enter a Product Name"></asp:Label>
-        <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 164px; top: 615px; position: absolute; height: 37px"></asp:TextBox>
+        <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 163px; top: 592px; position: absolute; height: 37px"></asp:TextBox>
         <p>
             &nbsp;</p>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 61px; top: 717px; position: absolute; height: 24px" Text="Return to Main Menu" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 35px; top: 699px; position: absolute; height: 24px" Text="Return to Main Menu" />
     </form>
 </body>
 </html>

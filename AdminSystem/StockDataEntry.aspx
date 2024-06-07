@@ -190,7 +190,7 @@
             <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" OnClick="BtnFind_Click" />
         </p>
         <p>
-        <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="BtnOK" runat="server" CssClass="auto-style26" OnClick ="BtnOK_Click1" Text="OK" ForeColor="#00CC00" />
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]" Visible="False"></asp:Label>
         </p>
