@@ -34,6 +34,7 @@
         <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 164px; top: 615px; position: absolute; height: 37px"></asp:TextBox>
         <p>
             &nbsp;</p>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 61px; top: 717px; position: absolute; height: 24px" Text="Return to Main Menu" />
     </form>
 </body>
 </html>

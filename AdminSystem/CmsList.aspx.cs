@@ -19,6 +19,10 @@ public partial class _1_List : System.Web.UI.Page
             //update the list box
             DisplayCustomers();
         }
+
+        clsTstUser AnUser = new clsTstUser();
+        AnUser = (clsTstUser)Session["AnUser"];
+        Response.Write("Logged in as: "+AnUser.UserName);
     }
     void DisplayCustomers()
     {
@@ -91,5 +95,10 @@ public partial class _1_List : System.Web.UI.Page
         lstCustomersList.DataValueField = "CustomerId";
         lstCustomersList.DataTextField = "PostCode";
         lstCustomersList.DataBind();
+    }
+
+    protected void BtnReturn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

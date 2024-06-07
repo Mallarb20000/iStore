@@ -29,6 +29,7 @@
 <body>
     <form id="form1" runat="server" class="auto-style1">
         <div>
+            <asp:Button ID="BtnReturn" runat="server" style="z-index: 1; left: 374px; top: 562px; position: absolute; height: 19px; width: 154px" Text="Return to Main Menu" OnClick="BtnReturn_Click" />
         </div>
         <asp:ListBox ID="lstCustomersList" runat="server" Height="435px" OnSelectedIndexChanged="lstCustomersList_SelectedIndexChanged" Width="587px"></asp:ListBox>
         <br />

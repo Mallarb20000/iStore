@@ -145,4 +145,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //chkActive.Checked = AnStock.Active;
         }
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+
+    }
 }

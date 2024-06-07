@@ -130,6 +130,7 @@
 <body style="height: 456px; width: 1231px">
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 254px; top: 393px; position: absolute" Text="Return to Main Menu" />
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style22">

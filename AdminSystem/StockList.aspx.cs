@@ -16,10 +16,11 @@ public partial class _1_List : System.Web.UI.Page
 
             //upated the list box
             DisplayStocks();
-
-
-
         }
+
+        clsTstStockUser AnUser= new clsTstStockUser();
+        AnUser = (clsTstStockUser)Session["AnUser"];
+        Response.Write("Logged in as: " + AnUser.UserName);
     }
         void DisplayStocks()
         {
@@ -131,5 +132,11 @@ public partial class _1_List : System.Web.UI.Page
         lstStockList.DataValueField = "ProductID";
         lstStockList.DataTextField = "ProductName";
         lstStockList.DataBind();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+
     }
 }

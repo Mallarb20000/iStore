@@ -73,6 +73,7 @@
                     </td>
                     <td>
                         <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
+                        <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 302px; top: 226px; position: absolute; height: 24px; width: 152px" Text="Return to Main Menu" />
                     </td>
                 </tr>
             </table>
