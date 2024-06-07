@@ -16,6 +16,7 @@
             <asp:Button ID="btnstock" runat="server" OnClick="btnstock_Click" style="z-index: 1; left: 407px; top: 201px; position: absolute; height: 21px; width: 275px" Text="Stock Managment System" />
             <asp:Button ID="BtnCms" runat="server" OnClick="BtnCms_Click" style="z-index: 1; left: 43px; top: 261px; position: absolute; height: 23px; width: 271px" Text="Customer Managment System" />
         </p>
+        <asp:Button ID="btnPaymentManagementSystem" runat="server" height="23px" OnClick="btnPaymentManagementSystem_Click" style="z-index: 1; left: 411px; top: 258px; position: absolute" Text="Payment Management System" width="271px" />
     </form>
 </body>
 </html>

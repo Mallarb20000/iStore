@@ -26,4 +26,9 @@ public partial class TeamMainMenu : System.Web.UI.Page
     {
         Response.Redirect("CmsViewer.aspx");
     }
+
+    protected void btnPaymentManagementSystem_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaymentManagementLogin.aspx");
+    }
 }

@@ -103,10 +103,7 @@ namespace ClassLibrary
         }
 
 
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
+       
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
