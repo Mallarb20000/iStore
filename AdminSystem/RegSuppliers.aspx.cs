@@ -6,12 +6,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class AddSuppliers : System.Web.UI.Page
+public partial class RegSuppliers : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
     }
+
     protected void btnAddSupplier_Click(object sender, EventArgs e)
     {
         ClsSuppliersCollection suppliersCollection = new ClsSuppliersCollection();
@@ -23,7 +23,8 @@ public partial class AddSuppliers : System.Web.UI.Page
             txtContactEmail.Text,
             chkIsActive.Checked.ToString(),
             txtJoinDate.Text,
-            txtRating.Text
+            txtRating.Text,
+            txtPassword.Text
         );
 
         if (string.IsNullOrEmpty(validationMessage))
@@ -34,6 +35,7 @@ public partial class AddSuppliers : System.Web.UI.Page
             newSupplier.IsActive = chkIsActive.Checked;
             newSupplier.JoinDate = DateTime.Parse(txtJoinDate.Text);
             newSupplier.Rating = int.Parse(txtRating.Text);
+            newSupplier.Password = txtPassword.Text;
 
             suppliersCollection.ThisSupplier = newSupplier;
             suppliersCollection.Add();
@@ -57,5 +59,6 @@ public partial class AddSuppliers : System.Web.UI.Page
         chkIsActive.Checked = false;
         txtJoinDate.Text = string.Empty;
         txtRating.Text = string.Empty;
+        txtPassword.Text = string.Empty;
     }
 }

@@ -61,6 +61,7 @@ namespace ClassLibrary
                 ASupplier.IsActive = Convert.ToBoolean(DB.DataTable.Rows[Index]["IsActive"]);
                 ASupplier.JoinDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["JoinDate"]);
                 ASupplier.Rating = Convert.ToInt32(DB.DataTable.Rows[Index]["Rating"]);
+                ASupplier.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
                 mSuppliersList.Add(ASupplier);
                 Index++;
             }
@@ -89,6 +90,7 @@ namespace ClassLibrary
             DB.AddParameter("@IsActive", mThisSupplier.IsActive);
             DB.AddParameter("@JoinDate", mThisSupplier.JoinDate);
             DB.AddParameter("@Rating", mThisSupplier.Rating);
+            DB.AddParameter("@Password", mThisSupplier.Password);
             // Execute the query returning the primary key value
             return DB.Execute("sproc_tblPMS_Insert");
         }
@@ -115,6 +117,7 @@ namespace ClassLibrary
             DB.AddParameter("@IsActive", mThisSupplier.IsActive);
             DB.AddParameter("@JoinDate", mThisSupplier.JoinDate);
             DB.AddParameter("@Rating", mThisSupplier.Rating);
+            DB.AddParameter("@Password", mThisSupplier.Password);
             // Execute the stored procedure
             DB.Execute("sproc_tblPMS_Update");
         }
