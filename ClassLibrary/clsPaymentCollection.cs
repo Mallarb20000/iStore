@@ -158,5 +158,10 @@ namespace ClassLibrary
                 Index++;
             }
         }
+
+        public void Filter(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

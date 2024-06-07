@@ -22,10 +22,11 @@
         <p>
             <asp:Button ID="BtnApplyFilter" runat="server" style="z-index: 1; left: 583px; top: 156px; position: absolute" Text="Apply Filter" OnClick="BtnApplyFilter_Click" />
             <asp:Button ID="BtnClearFilter" runat="server" style="z-index: 1; left: 733px; top: 155px; position: absolute" Text="Clear Filter" OnClick="BtnClearFilter_Click" />
-            <asp:Button ID="BtnBackToMenu" runat="server" style="z-index: 1; left: 648px; top: 225px; position: absolute" Text="Back To Menu" />
-            <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 577px; top: 106px; position: absolute; right: 494px" Text="Enter a Payment ID"></asp:Label>
-            <asp:TextBox ID="txtPaymentID" runat="server" style="z-index: 1; left: 714px; top: 105px; position: absolute"></asp:TextBox>
+            <asp:Button ID="BtnBackToMenu" runat="server" style="z-index: 1; left: 648px; top: 225px; position: absolute" Text="Back To Menu" OnClick="BtnBackToMenu_Click" />
+            <asp:Label ID="lblLocation" runat="server" style="z-index: 1; left: 577px; top: 106px; position: absolute; right: 783px" Text="Enter a PostCode"></asp:Label>
+            <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 735px; top: 104px; position: absolute"></asp:TextBox>
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 275px; top: 419px; position: absolute"></asp:Label>
+            <asp:Label ID="lblMessage" runat="server" style="z-index: 1; left: 674px; top: 309px; position: absolute"></asp:Label>
         </p>
     </form>
 </body>
