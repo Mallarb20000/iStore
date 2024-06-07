@@ -7,84 +7,73 @@ namespace ClassLibrary
     {
         //private data member of the list
         List<clsOrder> mOrderList = new List<clsOrder>();
-        public List<clsOrder> OrderList 
-        { 
+        //private member data for this Order
+        clsOrder mThisOrder = new clsOrder();
+        public List<clsOrder> OrderList
+        {
             get
             {
                 //return the private data
                 return mOrderList;
-            } 
-                set
+            }
+            set
             {
                 mOrderList = value;
             }
         }
-        public int Count 
+        
+        //public property for thisorder
+        public clsOrder ThisOrder 
         { 
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+                set
+            {
+                mThisOrder = value;
+            }
+        }
+        public int Count
+        {
             get
             {
                 //return the count of the list
                 return mOrderList.Count;
             }
-                set
+            set
             {
                 //Later
             }
         }
-        public clsOrder ThisOrder { get; set; }
 
-        public clsOrderCollection()
+        public int Add()
         {
-            //variable for the index
-            Int32 Index = 0;
-            //variable to store the record count
-            Int32 RecordCount = 0;
-            //onject for the data connect
+            //adds a record to the database 
+            //connect to the database
             clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblOrder_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank address
-                clsOrder AnOrder = new clsOrder();
-                //read in the fields for the current record
-                AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnOrder.OrderID = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderID"]);
-                AnOrder.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                AnOrder.Town = Convert.ToString(DB.DataTable.Rows[Index]["Town"]);
-                AnOrder.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                AnOrder.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
-                AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
-                //add the record to the private data member
-                mOrderList.Add( AnOrder );
-                //point at the next record
-                Index++;
-            }
-            /*//create the items of test data
-            clsOrder TestItem = new clsOrder();
-            //set the properties
-            TestItem.Active = true;
-            TestItem.OrderID = 1;
-            TestItem.DateAdded = DateTime.Now;
-            TestItem.OrderStatus = "pending";
-            TestItem.Town = "Leicester";
-            TestItem.CustomerID = 101;
-            //add the test items to test list
-            mOrderList.Add(TestItem);
-            // re initialise the object for some new data
-            TestItem = new clsOrder();
-            //set its properties
-            TestItem.Active = true;
-            TestItem.OrderID = 1;
-            TestItem.DateAdded = DateTime.Now;
-            TestItem.OrderStatus = "pending";
-            TestItem.Town = "Leicester";
-            TestItem.CustomerID = 101;
-            // ad the item to the test list
-            mOrderList.Add(TestItem);*/
+            //set the parameters  
+            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@City", mThisOrder.Town);
+            DB.AddParameter("@OrderDate", mThisOrder.DateAdded);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            //execute the query returning the primary key value
+            return DB.Execute(" sproc_tblOrder_Insert");
+        }
+
+        public void Update()
+        {
+           //update an existing record based on the values
+           //connect to the database
+           clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the new stored procedure
+            DB.AddParameter("OrderID", mThisOrder.OrderID);
+            DB.AddParameter("DateAdded", mThisOrder.DateAdded);
+            DB.AddParameter("OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("Town", mThisOrder.Town);
+            // execute the stored procedure
+            DB.Execute("sproc_tblOrder_Update");
         }
     }
 }

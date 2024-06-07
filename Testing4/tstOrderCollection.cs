@@ -16,9 +16,8 @@ namespace Testing4
             //test to see that it exists
             Assert.IsNotNull(AllOrders);
         }
-
         [TestMethod]
-        public void OrderListOK ()
+        public void OrderListOK()
         {
             //create an instance of the class we want
             clsOrderCollection AllOrders = new clsOrderCollection();
@@ -102,13 +101,69 @@ namespace Testing4
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
 
-        /*[TestMethod]
-        public void TwoRecordsPresent()
+        [TestMethod]
+        public void AddMethodOK()
         {
             //create an instance of the class we want
             clsOrderCollection AllOrders = new clsOrderCollection();
+            //create the item of the test data
+            clsOrder TestItem = new clsOrder();
+            //variable to store the primary Key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.OrderID = 1;
+            TestItem.DateAdded = DateTime.Now;
+            TestItem.OrderStatus = "pending";
+            TestItem.Town = "Leicester";
+            // set thisOrder to the testData
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
             //test to see that the two values are the same
-            Assert.AreEqual(AllOrders.Count, 2);
-        }*/
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            // create an instance of the class we want
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its propeerties
+            TestItem.Active = true;
+            TestItem.OrderID = 1;
+            TestItem.DateAdded = DateTime.Now;
+            TestItem.OrderStatus = "pending";
+            TestItem.Town = "Leicester";
+            //set thisorderto test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of test data
+            TestItem.OrderID = PrimaryKey;
+            //modify the test record
+            TestItem.Active = false;
+            TestItem.OrderID = 3;
+            TestItem.DateAdded = DateTime.Now;
+            TestItem.OrderStatus = "completed";
+            TestItem.Town = "Hull";
+            //set the record based on new data
+            AllOrders.ThisOrder = TestItem;
+            //update the record
+            AllOrders.Update();
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see if this Order matches the test data
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
     }
 }
