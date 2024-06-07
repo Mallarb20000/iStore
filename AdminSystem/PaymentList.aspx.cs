@@ -14,19 +14,20 @@ public partial class _1_List : System.Web.UI.Page
     Int32 PaymentID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack == false)
-        {
-            //update the listbox
-            DisplayPayments();
-        }
-        clsPaymentUser AnUser = new clsPaymentUser();
-        AnUser = (clsPaymentUser)Session["AnUser"];
-        Response.Write("Logged in as : " + AnUser.UserName);
-    }
+        // Create an instance of the payment collection object
+        clsPaymentCollection paymentCollection = new clsPaymentCollection();
 
-    protected void BtnFind_Click(object sender, EventArgs e)
-    {
+        // Set the data source to the list of all payments in the collection
+        PaymentListBox.DataSource = paymentCollection.PaymentList;
 
+        // Set the name of the primary key
+        PaymentListBox.DataValueField = "PaymentID";
+
+        // Set the name of the field to display
+        PaymentListBox.DataTextField = "PostCode";
+
+        // Bind the data to the list
+        PaymentListBox.DataBind();
     }
 
     void DisplayPayments()
@@ -43,13 +44,12 @@ public partial class _1_List : System.Web.UI.Page
         Session["PaymentID"] = -1;
         Response.Redirect("PaymentDataEntry.aspx");
     }
-
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
         Int32 PaymentID;
-        if(PaymentListBox.SelectedIndex != -1)
+        if (PaymentListBox.SelectedIndex != -1)
         {
-            PaymentID= Convert.ToInt32(PaymentListBox.SelectedIndex);
+            PaymentID = Convert.ToInt32(PaymentListBox.SelectedIndex);
             Session["PaymentID"] = PaymentID;
             Response.Redirect("PaymentDataEntry.aspx");
         }
@@ -58,37 +58,79 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to edit";
         }
     }
-
     protected void BtnApplyFilter_Click(object sender, EventArgs e)
     {
-            //create an instance of the address object
-            clsPaymentCollection AnPayment = new clsPaymentCollection(); 
-            //retrieve the value of post code from the presentation layer
-            AnPayment.ReportByPostCode(txtPaymentID.Text);
-            //set the data source to the list of addresses in the collection
-            PaymentListBox.DataSource = AnPayment.PaymentList;
-            //set the name of the primary key
-            PaymentListBox.DataValueField = "PaymentID"; 
-            //set the name of the field to display
-            PaymentListBox.DataTextField = "PostCode";
-            //bind the data to the list
-            PaymentListBox.DataBind();
+        try
+        {
+            // Retrieve the value of post code from the presentation layer
+            string postCode = txtPostCode.Text.Trim();
+
+            if (!string.IsNullOrEmpty(postCode))
+            {
+                // Create an instance of the payment collection object
+                clsPaymentCollection paymentCollection = new clsPaymentCollection();
+
+                // Apply the filter using the post code
+                paymentCollection.Filter(postCode);
+
+                // Check if any payments match the filter
+                if (paymentCollection.PaymentList.Count > 0)
+                {
+                    // Set the data source to the list of payments in the collection
+                    PaymentListBox.DataSource = paymentCollection.PaymentList;
+
+                    // Set the name of the primary key
+                    PaymentListBox.DataValueField = "PaymentID";
+
+                    // Set the name of the field to display
+                    PaymentListBox.DataTextField = "PostCode";
+
+                    // Bind the data to the list
+                    PaymentListBox.DataBind();
+                }
+                else
+                {
+                    // Handle the case where no payments match the filter
+                    PaymentListBox.DataSource = null;
+                    PaymentListBox.DataBind();
+                    // Optionally, display a message to the user
+                    lblMessage.Text = "No payments found for the specified post code.";
+                }
+            }
+            else
+            {
+                // Handle the case where the post code input is empty
+                lblMessage.Text = "Please enter a post code to filter.";
+            }
         }
+        catch (Exception ex)
+        {
+            // Handle any potential exceptions
+            lblMessage.Text = "An error occurred: " + ex.Message;
+        }
+    }
 
     protected void BtnClearFilter_Click(object sender, EventArgs e)
     {
-        //create an instance of the address object
-        clsPaymentCollection AnPayment = new clsPaymentCollection();
-        //retrieve the value of post code from the presentation layer
-        AnPayment.ReportByPostCode("");
-        txtPaymentID.Text = "";
-        //set the data source to the list of addresses in the collection
-        PaymentListBox.DataSource = AnPayment.PaymentList;
-        //set the name of the primary key
+        // Create an instance of the payment collection object
+        clsPaymentCollection paymentCollection = new clsPaymentCollection();
+
+        // Clear the filter by retrieving all payments (assuming an empty string will return all items)
+        paymentCollection.Filter("");
+
+        // Clear the text in the post code text box
+        txtPostCode.Text = "";
+
+        // Set the data source to the full list of payments in the collection
+        PaymentListBox.DataSource = paymentCollection.PaymentList;
+
+        // Set the name of the primary key
         PaymentListBox.DataValueField = "PaymentID";
-        //set the name of the field to display
+
+        // Set the name of the field to display
         PaymentListBox.DataTextField = "PostCode";
-        //bind the data to the list
+
+        // Bind the data to the list
         PaymentListBox.DataBind();
     }
 
@@ -111,5 +153,9 @@ public partial class _1_List : System.Web.UI.Page
             //display an error message
             lblError.Text = "Please select a record from the list to delete";
         }
+    }
+    protected void BtnBackToMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaymentManagementSystem.aspx");
     }
 }

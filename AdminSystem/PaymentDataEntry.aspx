@@ -32,11 +32,11 @@
         <asp:TextBox ID="TXTTransactionStutas" runat="server" height="25px" style="z-index: 1; left: 207px; top: 363px; position: absolute"></asp:TextBox>
         <p>
             &nbsp;</p>
-        <asp:Button ID="BtnFind" runat="server" OnClick="BtnFind_Click" style="z-index: 1; left: 310px; top: 479px; position: absolute; height: 33px; width: 38px;" Text="Find" />
+        <asp:Button ID="BtnFind" runat="server" OnClick="BtnFind_Click" style="z-index: 1; left: 414px; top: 140px; position: absolute; height: 33px; width: 57px;" Text="Find" />
         <asp:Button ID="BtnOK" runat="server" OnClick="BtnOK_Click" style="z-index: 1; left: 67px; top: 480px; position: absolute" Text="OK" />
         <p>
             &nbsp;</p>
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 134px; top: 481px; position: absolute; right: 1645px;" Text="Cancel" OnClick="btnCancel_Click" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; top: 481px; position: absolute; right: 1269px;" Text="Cancel" OnClick="btnCancel_Click" />
     </form>
 </body>
 </html>
