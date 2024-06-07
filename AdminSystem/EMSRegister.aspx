@@ -10,14 +10,12 @@
     <form id="form1" runat="server">
         <div style="height: 370px">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="20pt" Text="Staff Registeration"></asp:Label>
+            <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="20pt" Text="EMS Login"></asp:Label>
             <br />
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="txtName" runat="server" Text="Name" width="61px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtfname" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -29,18 +27,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Password" width="61px"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="Password" runat="server" width="128px"></asp:TextBox>
+            <asp:TextBox ID="Password" runat="server" width="128px" TextMode="Password"></asp:TextBox>
             <br />
             <br />
+            <asp:Label ID="lblError" runat="server" ForeColor="#CC3300" style="z-index: 1; left: 79px; top: 349px; position: absolute"></asp:Label>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label4" runat="server" Text="Salary" width="61px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtSalary" runat="server" Enabled="False" width="128px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
-            <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Register" Width="219px" />
-            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" Width="286px" />
+            <asp:Button ID="btnLogin" runat="server" OnClick="btnRegister_Click" Text="Login" Width="219px" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnFind_Click" Width="286px" />
             <br />
             <br />
         </div>

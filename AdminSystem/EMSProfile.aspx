@@ -34,13 +34,13 @@
             <asp:Label ID="Label2" runat="server" Text="Username"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtUsername" runat="server" width="128px"></asp:TextBox>
-            <asp:TextBox ID="Timestamp" runat="server" Enabled="False" Style="z-index: 1; left: 725px; top: 147px; position: absolute" ReadOnly="True" ></asp:TextBox>
+            <asp:TextBox ID="Timestamp" runat="server" Style="z-index: 1; left: 725px; top: 147px; position: absolute" OnTextChanged="Timestamp_TextChanged" ></asp:TextBox>
             <br />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Password" width="61px"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="Password" runat="server" width="128px"></asp:TextBox>
+            <asp:TextBox ID="Password" runat="server" width="128px" OnTextChanged="Password_TextChanged"></asp:TextBox>
             <br />
             <br />
             <br />
@@ -51,11 +51,10 @@
             <br />
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 44px; top: 463px; position: absolute"></asp:Label>
             <br />
-            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" Width="156px" />
-            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 199px; top: 379px; position: absolute; height: 23px; width: 85px" Text="OK" />
-            <asp:Button ID="Button1" runat="server" style="z-index: 1; left: 329px; top: 381px; position: absolute" Text="Delete" />
-            <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 442px; top: 381px; position: absolute" Text="Edit" />
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click1" style="z-index: 1; left: 259px; top: 359px; position: absolute; height: 29px; width: 85px" Text="OK" />
             <br />
+            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" Width="156px" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 400px; top: 348px; position: absolute" Text="Cancel" />
             <br />
         </div>
     </form>

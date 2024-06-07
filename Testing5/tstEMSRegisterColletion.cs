@@ -18,7 +18,7 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void AddressListOK()
+        public void RegisterListOK()
         {
             //instance of register collection class
             clsRegisterCollection AllRegister = new clsRegisterCollection();

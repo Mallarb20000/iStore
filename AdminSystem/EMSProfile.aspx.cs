@@ -32,6 +32,7 @@ public partial class _1_EMSProfile : System.Web.UI.Page
         //find record to update 
         AllRegister.ThisRegister.Find(E_Id);
         //display the data for the record
+        txtE_Id.Text = AllRegister.ThisRegister.E_Id.ToString();
         txtUsername.Text = AllRegister.ThisRegister.Username.ToString();
         txtfname.Text = AllRegister.ThisRegister.Name.ToString();
         Password.Text = AllRegister.ThisRegister.Password.ToString();
@@ -79,12 +80,13 @@ public partial class _1_EMSProfile : System.Web.UI.Page
         //capture and vaidate the data first
         string Username = txtUsername.Text;
         string Name = txtName.Text;
+        string Passwordvalue = Password.Text;
         string Salary = txtSalary.Text;
         string Trained = cbTrained.Text;
         string timestamp = Timestamp.Text;
 
         string Error = "";
-        Error = Aregister.Valid(Username, Name, Salary, Trained,timestamp);
+        Error = Aregister.Valid(Username, Name, Passwordvalue, Salary, timestamp);
         if (Error =="")
         {
             //Capture data from the text boxes
@@ -133,5 +135,20 @@ public partial class _1_EMSProfile : System.Web.UI.Page
 
     }
 
-    
+
+
+    protected void Password_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Timestamp_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("EMSList.aspx");
+    }
 }

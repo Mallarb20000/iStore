@@ -399,7 +399,7 @@ namespace Testing5
             String Error = "";
 
             //create some test to pass to the method
-            string Name = "aaaaaaaaaaa";
+            string Name = new string('a', 100);
 
             //invoke the method 
             Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
@@ -418,7 +418,7 @@ namespace Testing5
             String Error = "";
 
             //create some test to pass to the method
-            string Name = "aaa";
+            string Name = new string('a', 50);
 
             //invoke the method 
             Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
