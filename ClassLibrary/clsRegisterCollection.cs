@@ -102,6 +102,11 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblEMS_Insert");
         }
 
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
         public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
@@ -133,6 +138,5 @@ namespace ClassLibrary
             //execute the query returning the primary key
            DB.Execute("sproc_tblEMS_Update");
         }
-        
     }
 }
