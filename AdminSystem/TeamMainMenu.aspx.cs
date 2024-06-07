@@ -11,4 +11,9 @@ public partial class TeamMainMenu : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("EMSRegister.aspx");
+    }
 }

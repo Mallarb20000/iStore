@@ -7,8 +7,8 @@
     <title></title>
 </head>
 <body style="height: 715px">
-    &nbsp;<form id="form1" runat="server">
-        <div style="height: 430px">
+    <form id="form1" runat="server">
+        <div style="height: 512px">
             <br />
             <br />
             <br />
@@ -32,20 +32,26 @@
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
             <br />
             <br />
+            <asp:Button ID="btnMainMenu" runat="server" OnClick="btnMainMenu_Click" style="z-index: 1; left: 383px; top: 306px; position: absolute" Text="Return To Main Menu" />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label1" runat="server" Text="Enter the Username"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnFilter" runat="server" OnClick="btnFilter_Click" Text="Apply Filter" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
         </div>
-        <asp:ListBox ID="lstRegisterList" runat="server" style="z-index: 1; left: 22px; top: 71px; position: absolute; height: 293px; width: 420px"></asp:ListBox>
+    &nbsp;<asp:ListBox ID="lstRegisterList" runat="server" style="z-index: 1; left: 23px; top: 29px; position: absolute; height: 241px; width: 420px"></asp:ListBox>
         <p>
             &nbsp;</p>
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 43px; top: 620px; position: absolute"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 62px; top: 501px; position: absolute"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnFilter" runat="server" OnClick="btnFilter_Click" Text="Apply Filter" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
-    </form>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
 </body>
 </html>

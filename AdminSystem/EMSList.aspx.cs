@@ -16,6 +16,10 @@ public partial class _1_List : System.Web.UI.Page
             DisplayRegister();
         }
 
+        clsEMSuser AnUser = new clsEMSuser();
+        AnUser = (clsEMSuser)Session["AnUser"];
+        Response.Write("Logged in as:" + AnUser.UserName);
+
 
     }
 
@@ -39,7 +43,7 @@ public partial class _1_List : System.Web.UI.Page
         //store -1 2into the session object to indicate this a new record 
         Session["E_Id"] = -1;
         //refirect to datatentry page
-        Response.Redirect("EMSProfile");
+        Response.Redirect("EMSProfile.aspx");
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
@@ -74,7 +78,7 @@ public partial class _1_List : System.Web.UI.Page
             //store the data in the session
             Session["E_Id"] = E_Id;
             //redirect to the edit page
-            Response.Redirect("EMSProfile.aspx");
+            Response.Redirect("EMSConfirmDelete.aspx");
         }
         else
         {
@@ -106,5 +110,10 @@ public partial class _1_List : System.Web.UI.Page
         lstRegisterList.DataValueField = "E_Id";
         lstRegisterList.DataTextField = "Username";
         lstRegisterList.DataBind();
+    }
+
+    protected void btnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

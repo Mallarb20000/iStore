@@ -182,10 +182,10 @@ namespace ClassLibrary
             }*/
 
             // Validate Salary
-            double salaryValue;
-            if (!double.TryParse(salary, out salaryValue))
+            float salaryValue;
+            if (!float.TryParse(salary, out salaryValue))
             {
-                Error += "Salary must be a valid double number. ";
+                Error += "Salary must be a valid float number. ";
             }
             else
             {
