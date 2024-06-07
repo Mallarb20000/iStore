@@ -53,6 +53,6 @@ public partial class _1_EMSRegister : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
