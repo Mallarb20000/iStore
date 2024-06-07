@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstClsSupplier.cs" />
+    <Compile Include="tstClsSupplierCollection.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="UserPurchaseTests.cs" />
   </ItemGroup>
   <ItemGroup>
