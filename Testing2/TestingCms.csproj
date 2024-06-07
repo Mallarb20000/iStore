@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CMS.cs" />
+    <Compile Include="CmsCollection.cs" />
+    <Compile Include="tstUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

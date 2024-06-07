@@ -221,7 +221,7 @@ namespace Testing5
             //invoke the method
             Found = ARegister.Find(E_Id);
             //check the password property
-            if (ARegister.Password != "malla")
+            if (ARegister.Password != "wewewewewe")
             {
                 OK = false;
             }
@@ -399,7 +399,7 @@ namespace Testing5
             String Error = "";
 
             //create some test to pass to the method
-            string Name = "aaaaaaaaaaa";
+            string Name = new string('a', 100);
 
             //invoke the method 
             Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
@@ -418,7 +418,7 @@ namespace Testing5
             String Error = "";
 
             //create some test to pass to the method
-            string Name = "aaa";
+            string Name = new string('a', 50);
 
             //invoke the method 
             Error = ARegister.Valid(Username, Name, password, Salary, Timestamp);
@@ -871,7 +871,7 @@ namespace Testing5
         {
             clsRegister ARegister = new clsRegister();
             string Error = "";
-            double Salary = 9999999;  // Just below maximum value
+            float Salary = 9999999;  // Just below maximum value
             Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
             Assert.AreEqual("", Error);
         }
@@ -881,7 +881,7 @@ namespace Testing5
         {
             clsRegister ARegister = new clsRegister();
             string Error = "";
-            double Salary = 10000000;  // Maximum value
+            float Salary = 10000000;  // Maximum value
             Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
             Assert.AreEqual("", Error);
         }
@@ -891,7 +891,7 @@ namespace Testing5
         {
             clsRegister ARegister = new clsRegister();
             string Error = "";
-            double Salary = 10000000.01;  // Just above maximum value
+            float Salary = 1000000000;  // Just above maximum value
             Error = ARegister.Valid(Username, Name, password, Salary.ToString(), Timestamp);
             Assert.AreNotEqual("", Error);
         }

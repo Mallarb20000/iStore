@@ -9,9 +9,41 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+
+    //variable to store the primary key eith page level scope
+    Int32 ProductID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the stock to procesed 
+        ProductID = Convert.ToInt32(Session["ProductId"]);
+        if (IsPostBack ==false)
+        {
+            //if this is the not a new record 
+            if (ProductID != -1)
+            {
+                //display the current data for the record
+                DisplayStock();
+            }
+        }
 
+    }
+   
+
+
+    void DisplayStock()
+    {
+        //create an istance of the stock book
+        clsStockCollection StockBook = new clsStockCollection();
+        //find the record to update 
+        StockBook.ThisStock.Find(ProductID);
+        //display the data for the record 
+        TxtProductID.Text = StockBook.ThisStock.ProductID.ToString();
+        TxtProductName.Text = StockBook.ThisStock.ProductName;
+        TxtDescription.Text = StockBook.ThisStock.ProductDescription;
+        TxtPrice.Text = StockBook.ThisStock.ProductPrice.ToString();
+        TxtQuantity.Text = StockBook.ThisStock.ProductQuantity.ToString();
+        //ImgProduct.FileName = StockBook.ThisStock.ProductImg;
+        chkActive.Checked = StockBook.ThisStock.Active;
     }
 
 
@@ -37,6 +69,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnStock.Valid(ProductName, ProductPrice, ProductQuantity, ProductDescription);
         if (Error == "")
         {
+            //capture the productid
+            AnStock.ProductID = ProductID;
             // capture the ProductName
             AnStock.ProductName = ProductName;
             //capture the ProductDescription
@@ -45,11 +79,34 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStock.ProductPrice = Convert.ToInt32(ProductPrice);
             //capture the ProductQuantity
             AnStock.ProductQuantity = Convert.ToInt32(ProductQuantity);
-            //store the stock in the session object
-            Session["AnStock"] = AnStock;
-            //navigate to the Stock Detail View  page
-            Response.Redirect("StockList.aspx");
+            //capture the ProductImg
+            AnStock.ProductImg = ProductImg;
+            //capture Active
+            AnStock.Active = chkActive.Checked;
+            //create the new instance of the Stock Collection
+            clsStockCollection StockList = new clsStockCollection();
+            
+            //if this is a new record i.e. Productid = -1 then add the data 
+            if (ProductID == -1)
+            {
+                //set the ThisStock property
+                StockList.ThisStock = AnStock;
+                //add the new record
+               StockList.Add();
 
+            }
+            
+            else
+            {
+                //find the record to update 
+                StockList.ThisStock.Find(ProductID);
+                //set the ThisStock property
+                StockList.ThisStock = AnStock;
+                //Update teh record
+                StockList.Update(); 
+            }
+            //redirect back to the list page 
+            Response.Redirect("StockList.aspx");
         }
 
 
@@ -87,5 +144,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
            // ImgProduct.FileName = AnStock.ProductImg;
             //chkActive.Checked = AnStock.Active;
         }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StockList.aspx");
     }
 }

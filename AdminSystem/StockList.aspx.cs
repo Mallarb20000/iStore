@@ -10,24 +10,134 @@ public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //create a new istance of clsStock
-        clsStock AnStock = new clsStock();
-        //get the data from the session object
-        AnStock = (clsStock)Session["AnStock"];
-        //disply the ProductID for this entry
-        Response.Write(AnStock.ProductID);
-        //disply the ProductName for this entry
-        Response.Write(AnStock.ProductName);
-        //disply the ProductDescription for this entry
-        Response.Write(AnStock.ProductDescription);
-        //disply the ProductPrice for this entry
-        Response.Write(AnStock.ProductPrice);
-        //disply the ProductQuantity for this entry
-        Response.Write(AnStock.ProductQuantity);
-        //disply the ProductImg for this entry
-        Response.Write(AnStock.ProductImg);
-        //disply the Active  for this entry
-        Response.Write(AnStock.Active);
+        //if this is the first time 
+        if (IsPostBack == false)
+        {
+
+            //upated the list box
+            DisplayStocks();
+        }
+
+        clsTstStockUser AnUser= new clsTstStockUser();
+        AnUser = (clsTstStockUser)Session["AnUser"];
+        Response.Write("Logged in as: " + AnUser.UserName);
+
+    }
+        void DisplayStocks()
+        {
+            //create an istance of the Address collection
+            clsStockCollection Stocks = new clsStockCollection();
+            //set the data source to list of stocks in the collection
+            lstStockList.DataSource = Stocks.StockList;
+            //set the name of the primary key
+            lstStockList.DataValueField = "ProductID";
+            //set the data field to display
+            lstStockList.DataTextField = "ProductName";
+            //bind the data to the list 
+            lstStockList.DataBind();
+
+        }
+
+
+
+    protected void lstStockList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void BtnAdd_Click(object sender, EventArgs e)
+    {
+        //store -1 into the session object to indicate this is a new record 
+        Session["ProductID"] = -1;
+        //redirect to the data entry page 
+        Response.Redirect("StockDataEntry.aspx");
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //get the primary key valuse of the record to be edited 
+        Int32 ProductID;
+        //if the record has been selected from the list
+        if (lstStockList.SelectedIndex != -1) 
+        {
+        //GET THE PRIMARY KEY VALUE OF THE RECORD TO BE EDITED 
+        ProductID = Convert.ToInt32(lstStockList.SelectedValue);
+            //store the data in the session object 
+            Session["ProductID"] = ProductID;
+            //redirect to the edit page 
+            Response.Redirect("StockDataEntry.aspx");
+        }
+        else  //if no record has been selected
+        {
+            LblError1.Text = "Please select a record from the list to edit";
+        }
+
+    }
+
+    protected void BtnDelete_Click(object sender, EventArgs e)
+    {
+        //get the primary key valuse of the record to be deleted
+        Int32 ProductID;
+        //if the record has been selected from the list
+        if (lstStockList.SelectedIndex != -1)
+        {
+            //GET THE PRIMARY KEY VALUE OF THE RECORD TO BE DELETED
+            ProductID = Convert.ToInt32(lstStockList.SelectedValue);
+            //store the data in the session object 
+            Session["ProductID"] = ProductID;
+            //redirect to the delete page 
+            Response.Redirect("StockConfirmDelete.aspx");
+        }
+        else  //if no record has been selected
+        {
+            //display an error message 
+            LblError1.Text = "Please select a record from the list to delete";
+        }
+    }
+
+    //protected void btnApplyFilter_Click(object sender, EventArgs e)
+    //{
+    //    {
+            
+    //    }
+
+    //}
+
+    //protected void btnClearFilter_Click(object sender, EventArgs e)
+    //{
+    //    {
+    //    }
+
+    //}
+
+
+
+
+
+    protected void btnApplyFilter_Click1(object sender, EventArgs e)
+    {
+        clsStockCollection AnStock = new clsStockCollection();
+        AnStock.ReportByProductName(txtFilter.Text);
+        lstStockList.DataSource = AnStock.StockList;
+        lstStockList.DataValueField = "ProductID";
+        lstStockList.DataTextField = "ProductName";
+        lstStockList.DataBind();
+    }
+
+    protected void BtnClearFilter_Click(object sender, EventArgs e)
+    {
+        clsStockCollection AnStock = new clsStockCollection();
+        AnStock.ReportByProductName("");
+        txtFilter.Text = "";
+        lstStockList.DataSource = AnStock.StockList;
+        lstStockList.DataValueField = "ProductID";
+        lstStockList.DataTextField = "ProductName";
+        lstStockList.DataBind();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
 
     }
 }

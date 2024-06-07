@@ -1,106 +1,85 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsDataEntry.aspx.cs" Inherits="_1Viewer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsDataEntry.aspx.cs" Inherits="_1_DataEntry" %>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .profile-form {
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 300px;
-        }
-
-        .profile-form h2 {
-            color: blue;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: bold;
-        }
-        select {   
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-
-             
-        }
-
-
-        input[type="text"],
-        input[type="date"],
-        input[type="password"],
-        input[type="email"],
-        input[type="number"] {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        button[type="submit"] {
-            padding: 15px;
-            border-radius: 10px;
-            border: none;
-            background-color: blue;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
+<head runat="server">
+    <title></title>
+    <style type="text/css">
         .auto-style1 {
-            margin-bottom: 16px;
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 132px;
+        }
+        .auto-style3 {
+            width: 129px;
         }
     </style>
 </head>
-<body>
-    <div class="profile-form">
-        <h2>Edit Profile</h2>
-        <form action="update_profile.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+<body style="height: 563px; width: 448px">
+    <form id="form1" runat="server">
+        <div>
+            <asp:Panel ID="Panel1" runat="server" Width="445px">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Customer Registration</asp:Panel>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2">Customer Id</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerId" runat="server"></asp:TextBox>
+                        <asp:Button ID="BtnFind" runat="server" Text="Find" OnClick="BtnFind_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Date of Registration</td>
+                    <td>
+                        <asp:TextBox ID="TxtDateAdded" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Name</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerName" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Email</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerEmail" runat="server" OnTextChanged="TxtCustomerEmail_TextChanged"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Password</td>
+                    <td>
+                        <asp:TextBox ID="TxtCustomerPassword" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Post Code</td>
+                    <td>
+                        <asp:TextBox ID="TxtPostCode" runat="server" OnTextChanged="TxtPostCode_TextChanged"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Premium Member</td>
+                    <td>
+                        <asp:CheckBox ID="ChkActive" runat="server" OnCheckedChanged="ChkActive_CheckedChanged" AutoPostBack="true" Text="Premium" />
+                    </td>
+                </tr>
+            </table>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style3">
+                        <asp:Button ID="BtnOk" runat="server" Text="Ok" OnClick="BtnOk_Click" style="width: 31px" />
+                    </td>
+                    <td>
+                        <asp:Button ID="BtnCancel" runat="server" Text="Cancel" OnClick="BtnCancel_Click" />
+                        <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 302px; top: 226px; position: absolute; height: 24px; width: 152px" Text="Return to Main Menu" />
+                    </td>
+                </tr>
+            </table>
+            <asp:Label ID="lblError" runat="server" Text="."></asp:Label>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="postcode">Postcode:</label>
-            <input type="text" id="postcode" name="postcode" required>
-
-            <label for="membership">Choose Membership:</label>
-            <select id="membership" name="membership" class="auto-style1">   
-               <option value="regular">Regular</option>
-               <option value="premium">Premium</option>
-                            </select>
- 
-            <button type="submit">Save Changes</button>
-
-        </form>
-    </div>
+        </div>
+    </form>
 </body>
 </html>

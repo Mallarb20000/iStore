@@ -91,8 +91,8 @@
         }
         .auto-style28 {
             position: absolute;
-            top: 258px;
-            left: 210px;
+            top: 268px;
+            left: 209px;
             z-index: 1;
             width: 336px;
             height: 35px;
@@ -102,7 +102,6 @@
             top: 218px;
             left: 17px;
             z-index: 1;
-            width: 111px;
             height: 22px;
         }
         .auto-style30 {
@@ -111,8 +110,7 @@
             z-index: 1;
             width: 299px;
             bottom: 429px;
-            left: 211px;
-        }
+            }
         .auto-style33 {
             position: absolute;
             top: 27px;
@@ -132,6 +130,7 @@
 <body style="height: 456px; width: 1231px">
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 254px; top: 393px; position: absolute" Text="Return to Main Menu" />
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style22">
@@ -191,9 +190,9 @@
             <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" OnClick="BtnFind_Click" />
         </p>
         <p>
-        <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="BtnOK" runat="server" CssClass="auto-style26" OnClick ="BtnOK_Click1" Text="OK" ForeColor="#00CC00" />
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]" Visible="False"></asp:Label>
         </p>
     </form>
 </body>

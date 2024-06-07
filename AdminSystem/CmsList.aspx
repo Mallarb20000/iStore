@@ -1,97 +1,62 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsList.aspx.cs" Inherits="_1_ConfirmDelete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CmsList.aspx.cs" Inherits="_1_List" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration </title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 625px;
+            width: 586px;
         }
-
-        .main {
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 300px;
+        .auto-style2 {
+            width: 57%;
+            height: 74px;
         }
-
-        .main h2 {
-            color: blue;
-            margin-bottom: 20px;
+        .auto-style3 {
+            height: 36px;
         }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: bold;
+        .auto-style4 {
+            height: 36px;
+            width: 148px;
         }
-
-        input[type="text"],
-        input[type="password"],
-        input[type="email"],
-        input[type="number"] {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        select {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        button[type="submit"] {
-            padding: 15px;
-            border-radius: 10px;
-            border: none;
-            background-color: blue;
-            color: white;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
+        .auto-style5 {
+            width: 148px;
         }
     </style>
 </head>
 <body>
-    <form action="action_page.php" method="post" class="main">
-        <h2>Register</h2>
-        <label for="name">Name:</label> 
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <label for="postcode">Postcode:</label>
-        <input type="text" id="postcode" name="postcode" required>
-
-       <label for="membership">Choose Membership:</label>
-       <select id="membership" name="membership">
-            <option value="regular">Regular</option>
-            <option value="premium">Premium</option>
-      </select>
-        <button type="submit">Register</button>
+    <form id="form1" runat="server" class="auto-style1">
+        <div>
+            <asp:Button ID="BtnReturn" runat="server" style="z-index: 1; left: 374px; top: 562px; position: absolute; height: 19px; width: 154px" Text="Return to Main Menu" OnClick="BtnReturn_Click" />
+        </div>
+        <asp:ListBox ID="lstCustomersList" runat="server" Height="435px" OnSelectedIndexChanged="lstCustomersList_SelectedIndexChanged" Width="587px"></asp:ListBox>
+        <br />
+        <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" Text="Add" />
+        <asp:Button ID="BtnEdit" runat="server" OnClick="BtnEdit_Click" Text="Edit" />
+        <asp:Button ID="BtnDelete" runat="server" OnClick="BtnDelete_Click" Text="Delete" />
+        <br />
+        <asp:Label ID="lblError" runat="server" Text="."></asp:Label>
+        <br />
+        <table class="auto-style2">
+            <tr>
+                <td class="auto-style4">
+                    <asp:Label ID="lblPostCode" runat="server" Text="Enter a Post Code"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                    <asp:TextBox ID="txtBoxPc" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style5">
+                    <asp:Button ID="BtnFltr" runat="server" OnClick="BtnFltr_Click" Text="Apply Filter" />
+                </td>
+                <td>
+                    <asp:Button ID="BtnClr" runat="server" OnClick="BtnClr_Click" Text="Clear Filter" />
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
