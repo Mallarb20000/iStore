@@ -8,13 +8,22 @@ using ClassLibrary;
 
 public partial class _1Viewer : System.Web.UI.Page
 {
+    Int32 OrderID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //create a new instance of clsOrder
-        clsOrder AnOrder = new clsOrder();
-        //get the data from the session object
-        AnOrder = (clsOrder)Session["AnOrder"];
-        //display the search for this entry
-        Response.Write(AnOrder.Search);
+        OrderID = Convert.ToInt32("OrderID");
+    }
+
+    protected void btnYes_Click(object sender, EventArgs e)
+    {
+        clsOrderCollection OrderList = new clsOrderCollection();
+       OrderList.ThisOrder.Find(OrderID);
+        OrderList.Delete();
+        Response.Redirect("OrderList.aspx");
+    }
+
+    protected void BtnNo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderList.aspx");
     }
 }

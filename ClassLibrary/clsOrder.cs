@@ -1,5 +1,6 @@
 ﻿using System;
 using ClassLibrary;
+using System.IO;
 
 namespace ClassLibrary
 {
@@ -63,12 +64,12 @@ namespace ClassLibrary
         public string OrderStatus { get; set; }
 
         // FIND METHOD
-        public bool Find(int orderID)
+        public bool Find(int OrderID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the order id to search for
-            DB.AddParameter("@OrderID", orderID);
+            DB.AddParameter("@OrderID", OrderID);
             //execute the stored procedure
             DB.Execute("sproc_tblOrder_FilterByOrderID");
             //if one record is found (there should be either one or zero)
