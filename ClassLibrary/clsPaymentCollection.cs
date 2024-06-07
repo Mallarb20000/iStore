@@ -82,6 +82,7 @@ namespace ClassLibrary
                 mPaymentList.Add(AnPayment);
                 //point at the next record
                 Index++;
+                // done
             }
         }
 
