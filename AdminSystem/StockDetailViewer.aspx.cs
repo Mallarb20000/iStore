@@ -10,24 +10,26 @@ public partial class _1Viewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //create a new istance of clsStock
-        clsStock AnStock = new clsStock();
-        //get the data from the session object
-        AnStock = (clsStock)Session["AnStock"];
-        //disply the ProductID for this entry
-        Response.Write(AnStock.ProductID);
-        //disply the ProductName for this entry
-        Response.Write(AnStock.ProductName);
-        //disply the ProductDescription for this entry
-        Response.Write(AnStock.ProductDescription);
-        //disply the ProductPrice for this entry
-        Response.Write(AnStock.ProductPrice);
-        //disply the ProductQuantity for this entry
-        Response.Write(AnStock.ProductQuantity);
-        //disply the ProductImg for this entry
-        Response.Write(AnStock.ProductImg);
+       
 
+    }
 
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        clsTstStockUser AnUser = new clsTstStockUser();
+        string UserName = TextBox1.Text;
+        string Password = TextBox2.Text;
+        Boolean Found = false;
+        UserName = Convert.ToString(TextBox1.Text);
+        Password = Convert.ToString(TextBox2.Text);
+        Found = AnUser.FindUser(UserName, Password);
+        Session["AnUser"] = AnUser;
+        Response.Redirect("StockList.aspx");
 
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

@@ -32,7 +32,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void Login_Click(object sender, EventArgs e)
     {
-
+        //navigate to the login page
+        Response.Redirect("3DataEntry.aspx");
     }
 
     protected void Add3_Click(object sender, EventArgs e)
@@ -46,6 +47,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
     }
 
     protected void Button3_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
     {
 
     }

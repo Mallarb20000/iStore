@@ -8,7 +8,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            height: 248px;
+            height: 115px;
         }
         .auto-style11 {
             position: absolute;
@@ -44,9 +44,10 @@
         }
         .auto-style18 {
             z-index: 1;
-            left: 17px;
-            top: 294px;
+            left: 20px;
+            top: 271px;
             position: absolute;
+            height: 38px;
         }
         .auto-style19 {
             z-index: 1;
@@ -72,20 +73,13 @@
         .auto-style24 {
             height: 45px;
         }
-        .auto-style25 {
-            position: absolute;
-            top: 364px;
-            left: 281px;
-            z-index: 1;
-            width: 97px;
-            right: 1749px;
-        }
         .auto-style26 {
             position: absolute;
-            top: 362px;
-            left: 32px;
+            top: 393px;
+            left: 21px;
             z-index: 1;
-            width: 135px;
+            width: 91px;
+            height: 28px;
         }
         .auto-style27 {
             position: absolute;
@@ -97,52 +91,46 @@
         }
         .auto-style28 {
             position: absolute;
-            top: 288px;
-            left: 213px;
+            top: 268px;
+            left: 209px;
             z-index: 1;
             width: 336px;
             height: 35px;
         }
         .auto-style29 {
             position: absolute;
-            top: 229px;
-            left: 19px;
+            top: 218px;
+            left: 17px;
             z-index: 1;
-            width: 111px;
             height: 22px;
         }
         .auto-style30 {
             position: absolute;
-            top: 221px;
+            top: 211px;
             z-index: 1;
             width: 299px;
-            bottom: 504px;
-        }
-        .auto-style31 {
-            width: 1597px;
-            height: 351px;
-            position: absolute;
-            top: 444px;
-            left: 12px;
-            z-index: 1;
-        }
-        .auto-style32 {
-            position: absolute;
-            top: 364px;
-            left: 197px;
-            z-index: 1;
-        }
+            bottom: 429px;
+            }
         .auto-style33 {
             position: absolute;
-            top: 365px;
-            left: 409px;
+            top: 27px;
+            left: 560px;
             z-index: 1;
+        }
+        .auto-style50 {
+            position: absolute;
+            top: 392px;
+            left: 128px;
+            z-index: 1;
+            width: 99px;
+            height: 28px;
         }
     </style>
 </head>
-<body style="height: 321px; width: 1231px">
+<body style="height: 456px; width: 1231px">
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 254px; top: 393px; position: absolute" Text="Return to Main Menu" />
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style22">
@@ -166,7 +154,7 @@
                         <asp:Label ID="Label3" runat="server" CssClass="auto-style16" height="27px" Text="Description" width="139px"></asp:Label>
                     </td>
                     <td class="auto-style23">
-                        <asp:FileUpload ID="FileUploadUploadImage" runat="server" CssClass="auto-style28" ForeColor="#0066FF" />
+                        <asp:FileUpload ID="ImgProduct" runat="server" CssClass="auto-style28" ForeColor="#0066FF" AllowMultiple="True" />
                         <asp:TextBox ID="TxtPrice" runat="server" CssClass="auto-style27" height="30px" width="322px"></asp:TextBox>
                     </td>
                     <td class="auto-style24"></td>
@@ -192,15 +180,19 @@
             </table>
         </div>
         <p class="auto-style24">
-            <asp:Button ID="BtnDelete" runat="server" CssClass="auto-style25" OnClick="BtnCancel_Click" Text="Delete" ForeColor="#0066FF" />
-            <asp:Label ID="Label5" runat="server" CssClass="auto-style18" height="27px" Text="Upload Image" width="139px"></asp:Label>
+
+            <asp:Label ID="Label5" runat="server" CssClass="auto-style18" Text="Upload Image" width="139px"></asp:Label>
+
+            <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 22px; top: 353px; position: absolute" Text="Active" />
+
         </p>
-        <asp:Panel ID="Panel1" runat="server" CssClass="auto-style31">
-        </asp:Panel>
         <p>
-        <asp:Button ID="BtnAddProduct" runat="server" CssClass="auto-style26" OnClick="BtnAddProduct_Click1" Text="Add Product" ForeColor="#0066FF" />
-            <asp:Button ID="BtnEdit" runat="server" CssClass="auto-style32" ForeColor="#0066FF" Text="Edit" />
-            <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" />
+            <asp:Button ID="BtnFind" runat="server" CssClass="auto-style33" ForeColor="#0066FF" Text="Find" OnClick="BtnFind_Click" />
+        </p>
+        <p>
+        <asp:Button ID="btnCancel" runat="server" CssClass="auto-style50" ForeColor="#CC0000" Text="Cancel" OnClick="btnCancel_Click" />
+        <asp:Button ID="BtnOK" runat="server" CssClass="auto-style26" OnClick ="BtnOK_Click1" Text="OK" ForeColor="#00CC00" />
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 150px; top: 354px; position: absolute; height: 19px" Text="[lblError]" Visible="False"></asp:Label>
         </p>
     </form>
 </body>

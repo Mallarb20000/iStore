@@ -17,12 +17,42 @@ public partial class _1_EMSRegister : System.Web.UI.Page
 
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-        clsRegister clsReg = new clsRegister();
+        clsEMSuser Anuser = new clsEMSuser();
+        string Username = txtUsername.Text;
+        string password = Password.Text;
+        Boolean Found = false;
+        Username = Convert.ToString(txtUsername.Text);
+        password = Convert.ToString(Password.Text);
 
-        clsReg.username = txtUsername.Text;
 
-        Session["clsreg"] = clsReg;
+        Found = Anuser.FindUser(Username, password);
 
-        Response.Redirect("5List.aspx");
+        Session["AnUser"] = Anuser;
+        if(txtUsername.Text=="")
+        {
+            lblError.Text = "Enter User Name";
+        }
+
+        else if(Password.Text=="")
+            {
+            lblError.Text = "Enter password";
+        }
+        else if (Found ==true)
+        {
+            Response.Redirect("EMSList.aspx");
+        }
+        else if (Found == false)
+        {
+            lblError.Text = "Login Details are Not correct. Try Again!";
+        }
+    }
+
+   
+
+
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
