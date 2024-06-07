@@ -165,5 +165,76 @@ namespace Testing4
             //test to see if this Order matches the test data
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Active = true;
+            TestItem.OrderID = 1;
+            TestItem.DateAdded = DateTime.Now;
+            TestItem.OrderStatus = "Pending";
+            TestItem.Town = "Leicester";
+            //set ThisAddress to the test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+
+            TestItem.OrderID = PrimaryKey;
+
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //delete the record
+            AllOrders.Delete();
+            //now find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void ReportByPostCodeMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            FilteredOrders.ReportByPostCode("");
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByPostCodeTestDataFound()
+        {
+            //create an instance of the filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            //variable to store the outcome
+            Boolean OK = true;
+            //apply a post code that doesn't exist
+            FilteredOrders.ReportByPostCode("yyy yyy");
+            //check that the correct number of records are found
+            if (FilteredOrders.Count == 2)
+            {
+                //check to see that the first record is 25
+                if (FilteredOrders.OrderList[0].OrderID != 25)
+                {
+                    OK = false;
+                }
+                //check to see that the first record is 26
+                if (FilteredOrders.OrderList[1].OrderID != 26)
+                {
+                    OK = false;
+                }
+                else
+                {
+                    OK = false;
+                }
+                //test to see that there are no records
+                Assert.IsTrue(OK);
+            }
+        }
     }
 }
