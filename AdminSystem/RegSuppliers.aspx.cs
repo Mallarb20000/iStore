@@ -61,4 +61,10 @@ public partial class RegSuppliers : System.Web.UI.Page
         txtRating.Text = string.Empty;
         txtPassword.Text = string.Empty;
     }
+    protected void btnOpenLogin_Click(object sender, EventArgs e)
+    {
+        // Clear the session and redirect to login page
+
+        Response.Redirect("LoginSupplier.aspx");
+    }
 }

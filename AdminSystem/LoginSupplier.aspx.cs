@@ -41,4 +41,10 @@ public partial class LoginSupplier : System.Web.UI.Page
             lblMessage.Text = "Email is not registered.";
         }
     }
+    protected void btnOpenSignup_Click(object sender, EventArgs e)
+    {
+        // Clear the session and redirect to login page
+
+        Response.Redirect("RegSuppliers.aspx");
+    }
 }
