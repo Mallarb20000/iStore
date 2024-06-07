@@ -14,16 +14,14 @@ public partial class _1_List : System.Web.UI.Page
     Int32 PaymentID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if this is the first time the page is displayed
-        PaymentID = Convert.ToInt32(Session[PaymentID]);
         if (IsPostBack == false)
         {
-            if (PaymentID != -1)
-            {
-                //update the listbox
-                DisplayPayments();
-            }
+            //update the listbox
+            DisplayPayments();
         }
+        clsPaymentUser AnUser = new clsPaymentUser();
+        AnUser = (clsPaymentUser)Session["AnUser"];
+        Response.Write("Logged in as : " + AnUser.UserName);
     }
 
     protected void BtnFind_Click(object sender, EventArgs e)
