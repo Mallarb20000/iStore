@@ -9,10 +9,12 @@
 <body style="height: 515px">
     <form id="form1" runat="server">
         
-        <div style="height: 701px">
-                    <asp:ListBox ID="lstStockList" runat="server" Height="431px" Width="606px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged"></asp:ListBox>
+        <div style="height: 715px; width: 472px;">
+                    <asp:ListBox ID="lstStockList" runat="server" Height="431px" Width="413px" OnSelectedIndexChanged="lstStockList_SelectedIndexChanged"></asp:ListBox>
 
                     <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 152px; top: 477px; position: absolute; width: 90px; height: 43px;" Text="Edit" />
+
+            <asp:Button ID="BtnClearFilter" runat="server" style="z-index: 1; top: 679px; position: absolute; right: 1290px; height: 28px; width: 93px; margin-top: 0px;" Text="Clear Filter " OnClick="BtnClearFilter_Click" />
 
         </div>
         
@@ -31,8 +33,7 @@
         <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 17px; top: 625px; position: absolute" Text="Enter a Product Name"></asp:Label>
         <asp:TextBox ID="txtFilter" runat="server" style="z-index: 1; left: 164px; top: 615px; position: absolute; height: 37px"></asp:TextBox>
         <p>
-            <asp:Button ID="BtnClearFilter" runat="server" style="z-index: 1; top: 677px; position: absolute; right: 857px; height: 28px; width: 93px;" Text="Clear Filter " OnClick="BtnClearFilter_Click" />
-        </p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
