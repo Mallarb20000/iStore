@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,11 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCms.cs" />
+    <Compile Include="clsCmsCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
+    <Compile Include="clsEMSuser.cs" />
     <Compile Include="clsOrder.cs" />
     <Compile Include="clsOrderCollection.cs" />
+
     <Compile Include="clsOrderUser.cs" />
+
+    <Compile Include="clsPayment.cs" />
+    <Compile Include="clsPaymentCollection.cs" />
+    <Compile Include="clsPaymentUser.cs" />
+
     <Compile Include="clsRegister.cs" />
+    <Compile Include="clsRegisterCollection.cs" />
+    <Compile Include="clsStock.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
