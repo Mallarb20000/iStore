@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,17 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void BtnEdit_Click(object sender, EventArgs e)
     {
-        Session["PaymentID"] = PaymentID;
-        Response.Redirect("PaymentDataEntry.aspx");
+        Int32 PaymentID;
+        if(PaymentListBox.SelectedIndex != -1)
+        {
+            PaymentID= Convert.ToInt32(PaymentListBox.SelectedIndex);
+            Session["PaymentID"] = PaymentID;
+            Response.Redirect("PaymentDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record from the list to edit";
+        }
     }
 
     protected void BtnApplyFilter_Click(object sender, EventArgs e)
@@ -82,5 +92,26 @@ public partial class _1_List : System.Web.UI.Page
         PaymentListBox.DataTextField = "PostCode";
         //bind the data to the list
         PaymentListBox.DataBind();
+    }
+
+    protected void BtnDelete_Click(object sender, EventArgs e)
+    {
+        //variable to store the primary key value of the recrod to be deleted
+        Int32 PaymentID;
+        //if a record has been selected from the list
+        if (PaymentListBox.SelectedIndex != -1)
+        {
+            //get the primary key value of the record delete
+            PaymentID = Convert.ToInt32(PaymentListBox.SelectedValue);
+            //store the data in the session object
+            Session["PaymentID"] = PaymentID;
+            //redirect to the delete page
+            Response.Redirect("PaymentConfirmDelete.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display an error message
+            lblError.Text = "Please select a record from the list to delete";
+        }
     }
 }

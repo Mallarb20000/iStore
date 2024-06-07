@@ -14,10 +14,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
     Int32 PaymentID;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        PaymentID = Convert.ToInt32(Session["PaymentID"]);
+        if(IsPostBack == false)
+        {
+            if (PaymentID != -1)
+            {
+                DisplayPayment();
+            }
+        }
     }
 
-    protected void BtnAdd_Click(object sender, EventArgs e)
+
+
+    protected void BtnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsPayment
         clsPayment AnPayment = new clsPayment();
@@ -47,10 +56,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 AnPayment.PaymentAmount = PaymentAmount;
                 AnPayment.PaymentDate = Convert.ToDateTime(PaymentDate);
                 clsPaymentCollection PaymentList = new clsPaymentCollection();
-                PaymentList.Name = AnPayment;
-                PaymentList.Add();
-                //store the status in the bsession object
-                Session["AnPayment"] = AnPayment;
+
+                if (PaymentID != -1)
+                {
+                    PaymentList.Name = AnPayment;
+                    PaymentList.Add();
+                }
+                else
+                {
+                    PaymentList.Name.Find(PaymentID);
+                    PaymentList.Name = AnPayment;
+                    PaymentList.Update();
+                }
                 //navigate to the list page
                 Response.Redirect("PaymentList.aspx");
             }
@@ -60,7 +77,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 lblError.Text = Error;
             }
     }
-
+            
     protected void BtnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the Payment class
@@ -85,28 +102,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 
-    protected void BtnEdit_Click(object sender, EventArgs e)
-    {
-        //variable to store the primary key value of the record to be edited
-        Int32 AddressId;
-        //if a record has been selected from the the list
-        if (lstPaymentList.SelectedIndex != -1)
-        {
-            //get the primary key value of the rcord to edit
-            PaymentID = Convert.ToInt32(lstPaymentList.SelectedValue);
-            //store the data in the session object
-            Session["PaymentID"] = PaymentID;
-            //redirect to the edit page
-            Response.Redirect("PaymentBookDataEntry.aspx");
-        }
-        else
-        //if no record has been selected
-        {
-            lblError.Text = "Please select a record from the list to edit";
-        }
-
-    }
-
     void DisplayPayment()
     {
         //create an instance of the Payment List
@@ -122,24 +117,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         TXTTransactionStutas.Text = PaymentList.Name.TransactionStatus.ToString();
     }
 
-    protected void BtnDelete_Click(object sender, EventArgs e)
+    protected void btnCancel_Click(object sender, EventArgs e)
     {
-        //variable to store the primary key value of the recrod to be deleted
-        Int32 PaymentID;
-        //if a record has been selected from the list
-        if (lstPaymentList.SelectedIndex != -1)
-        {
-            //get the primary key value of the record delete
-            PaymentID = Convert.ToInt32(lstPaymentList.SelectedValue);
-            //store the data in the session object
-            Session["PaymentID"] = PaymentID;
-            //redirect to the delete page
-            Response.Redirect("PaymentConfirmDelete.aspx");
-        }
-        else //if no record has been selected
-        {
-            //display an error message
-            lblError.Text = "Please select a record from the list to delete";
-        }
+
     }
 }

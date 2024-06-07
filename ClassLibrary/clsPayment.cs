@@ -145,14 +145,14 @@ namespace Testing3
             }
         }
 
-        public string Valid(string name, string email, string postCode, string paymentAmount, string paymentDate, string transactionStatus)
+        public string Valid(string Name, string Email, string PostCode, string PaymentAmount, string PaymentDate, string TransactionStatus)
         {
             //create a temporary variable to store the data values
             DateTime Datatemp;
             //create a string variable to store th error
             string Error = "";
             //if the Name is blank
-            if (Name ==null)
+            if (Name.Length ==0)
             {
                 //record the error
                 Error = Error + "The Name may not be blank : ";
@@ -161,7 +161,7 @@ namespace Testing3
             if (Name.Length > 20)
             {
                 //record the error
-                Error = Error + "The Name must be less than 6 characters : ";
+                Error = Error + "The Name must be less than 20 characters : ";
             }
             //create an instance of DateTime to compare with Datetemp
             //in the if statement
@@ -170,13 +170,13 @@ namespace Testing3
             {
                 //copy the PaymentDate Value to the Datetemp variable
                 Datatemp = Convert.ToDateTime(PaymentDate);
-                if (Datatemp < DateComp) //compare Paymentdate with Date
+                if (Datatemp <  DateComp) //compare Paymentdate with Date
                 {
                     //record the error
                     Error = Error + "The date cannot be in the past : ";
                 }
                 //check to see if the date is greater than today's date
-                if (Datatemp > DateComp)
+                else if (Datatemp > DateComp)
                 {
                     //record the error
                     Error = Error + "The date cannot be in the future : ";
@@ -188,7 +188,7 @@ namespace Testing3
                 Error = Error + "The date was not a valid date : ";
             }
             //is the post code blank
-            if (PostCode.Length <4)
+            if (PostCode.Length ==0)
             {
                 //record the error
                 Error = Error + "The PostCode may not be blank : ";
@@ -200,7 +200,7 @@ namespace Testing3
                 Error = Error + "The PostCode must be less than 9 characters : ";
             }
             //is the Email blank
-            if (Email.Length < 11)
+            if (Email.Length ==0)
             {
                 //record the error
                 Error = Error + "The Email may not be blank : ";
@@ -212,7 +212,7 @@ namespace Testing3
                 Error = Error + "The Email must be less than 50 characters : ";
             }
             //is the PaymentAmount blank
-            if (PaymentAmount.Length <10 )
+            if (PaymentAmount.Length ==0)
             {
                 //record the error
                 Error = Error + "The PaymentAmount may not be blank : ";
@@ -223,8 +223,8 @@ namespace Testing3
                 //record the error
                 Error = Error + "The PaymentAmount must be less than 50 characters : ";
             }
-            //is the TransactionStatus blank
-            if (TransactionStatus.Length <4)
+            //if the TransactionStatus blank
+            if (TransactionStatus.Length == 0)
             {
                 //record the error
                 Error = Error + "The TransactionStatus may not be blank : ";
@@ -233,7 +233,7 @@ namespace Testing3
             if (TransactionStatus.Length > 20)
             {
                 //record the error
-                Error = Error + "The TransctionStatus must be less than 50 characters : ";
+                Error = Error + "The TransctionStatus must be less than 20 characters : ";
             }
             //return any error messages
             return Error;

@@ -154,7 +154,8 @@ namespace Testing3
             //update the record
             AllPayments.Update(); //find the record
             AllPayments.Name.Find(PrimaryKey);
-            //test to see if Name matches the test data Assert. AreEqual(AllAddresses. ThisAddress, TestItem);
+            //test to see if Name matches the test data
+            Assert. AreEqual(AllPayments.Name, TestItem);
         }
 
 

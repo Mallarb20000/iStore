@@ -93,5 +93,10 @@ namespace ClassLibrary
             //execute the query returning the primary key
             return DB.Execute("sproc_tblEMS_Insert");
         }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

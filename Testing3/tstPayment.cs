@@ -16,8 +16,9 @@ namespace Testing3
         string Email = "sbsr31@gmail.com";
         string PostCode = "LE30BS";
         string TransactionStatus = "Pending";
-        string PaymentAmount = "1500.00";
-        string PaymentDate = "(12/12/2023)";
+        string  PaymentAmount = Convert.ToString("1500.00");
+        string PaymentDate = DateTime.Now.ToShortDateString();
+
 
         [TestMethod]
         public void TestMethod1()
@@ -379,19 +380,19 @@ namespace Testing3
             //string variable to store any error message
             string Error = "";
             //create some test data to pass to the method
-            string Name = "";
-            Name = Name.PadRight(500, 'a'); //this should fail
+            string Name = new string('a', 500);  // 500 characters;
+            Name =  //this should fail
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error,"");
         }
 
         [TestMethod]
         public void PaymentDateExtremeMin()
         {
             //create an instance of the class we want to create
-            clsPayment AnPayment = clsPayment();
+            clsPayment AnPayment = new clsPayment();
             //string variable to store any error message
             string Error = "";
             //create a variable to store the test date data
@@ -406,11 +407,6 @@ namespace Testing3
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
-        }
-
-        private clsPayment clsPayment()
-        {
-            throw new NotImplementedException();
         }
 
         [TestMethod]
@@ -528,7 +524,7 @@ namespace Testing3
             //string variable to store any error message
             string Error = "";
             //this should pass
-            string PostCode = "a";
+            string PostCode = "aaaa";
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
@@ -589,7 +585,7 @@ namespace Testing3
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
         [TestMethod]
         public void PostCodeMid()
@@ -627,7 +623,7 @@ namespace Testing3
             //string variable to store any error message
             string Error = "";
             //this should pass
-            string Email = "a";
+            string Email = "aaaaaaaaaaa";
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
@@ -859,7 +855,7 @@ namespace Testing3
             string Error = "";
             //this should pass
             string TransactionStatus = "";
-            TransactionStatus = TransactionStatus.PadRight(49, 'a');
+            TransactionStatus = TransactionStatus.PadRight(19,'a');
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
@@ -874,7 +870,7 @@ namespace Testing3
             string Error = "";
             //this should pass
             string TransactionStatus = "";
-            TransactionStatus = TransactionStatus.PadRight(50, 'a');
+            TransactionStatus = TransactionStatus.PadRight(20, 'a');
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
@@ -889,7 +885,7 @@ namespace Testing3
             string Error = "";
             //this shold fail
             string TransactionStatus = "";
-            TransactionStatus = TransactionStatus.PadRight(51, 'a');
+            TransactionStatus = TransactionStatus.PadRight(21, 'a');
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct
@@ -904,7 +900,7 @@ namespace Testing3
             string Error = "";
             //this should pass
             string TransactionStatus = "";
-            TransactionStatus = TransactionStatus.PadRight(25, 'a');
+            TransactionStatus = TransactionStatus.PadRight(10, 'a');
             //invoke the method
             Error = AnPayment.Valid(Name, Email, PostCode, PaymentAmount, PaymentDate, TransactionStatus);
             //test to see that the result is correct

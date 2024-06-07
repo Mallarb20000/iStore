@@ -16,7 +16,7 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         PaymentID = Convert.ToInt32("PaymentID");
     }
 
-    protected void BtnYes_Click(object sender, EventArgs e)
+protected void btnYes_Click(object sender, EventArgs e)
     {
         clsPaymentCollection PaymentList = new clsPaymentCollection();
         PaymentList.Name.Find(PaymentID);
@@ -24,7 +24,7 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         Response.Redirect("PaymentList.aspx");
     }
 
-    protected void BtnNo_Click(object sender, EventArgs e)
+    protected void btnNo_Click(object sender, EventArgs e)
     {
         Response.Redirect("PaymentList.aspx");
     }

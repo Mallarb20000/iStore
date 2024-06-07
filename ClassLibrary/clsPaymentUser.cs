@@ -77,7 +77,7 @@ namespace ClassLibrary
             if (DB.Count == 1)
             {
                 //copy the data from the database to the private data members
-                mU_Id = Convert.ToInt32(DB.DataTable.Rows[0]["UserID"]);
+                mU_Id = Convert.ToInt32(DB.DataTable.Rows[0]["UserId"]);
                 mUserName = Convert.ToString(DB.DataTable.Rows[0]["UserName"]);
                 mPassword = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
                 mDepartment = Convert.ToString(DB.DataTable.Rows[0]["Department"]);

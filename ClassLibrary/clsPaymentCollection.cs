@@ -61,7 +61,7 @@ namespace ClassLibrary
             //onject for the data connect
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
-            DB.Execute("sproc_tblPayment_SeletctAll");
+            DB.Execute("sproc_tblPayment_SelectAll");
             PopulateArray(DB);
             //get the count of records
             RecordCount = DB.Count;
@@ -106,12 +106,6 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the new stored procedure
             DB.AddParameter("@PaymentID", mName.PaymentID);
-            DB.AddParameter("@Name", mName.Name);
-            DB.AddParameter("@Email", mName.Email);
-            DB.AddParameter("@PaymentAmount", mName.PaymentAmount);
-            DB.AddParameter("@PostCode", mName.PostCode);
-            DB.AddParameter("@PaymentDate", mName.PaymentDate);
-            DB.AddParameter("@TransactionStatus", mName.TransactionStatus);
             //execute the stored procedure
             DB.Execute("sproc_tblPayment_Update");
         }
